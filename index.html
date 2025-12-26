@@ -1,132 +1,168 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>ServicesBI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ServicesBI | Data Analytics & BI</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+
+  <!-- Fonte (Segoe UI fallback nativo) -->
 </head>
+
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="site-header">
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="pages/python.html">Python</a>
-    <a href="pages/powerbi.html">PowerBI</a>
-    <a href="pages/automacoes.html">Automações</a>
-    <a href="pages/excel.html">Excel</a>
-    <a href="pages/curriculo.html">Currículo</a>
-    <a href="pages/contato.html">Contato</a>
-  </nav>
-</header>
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container header-container">
+      <nav class="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="pages/python.html">Python</a>
+        <a href="pages/powerbi.html">PowerBI</a>
+        <a href="pages/automacoes.html">Automações IA</a>
+        <a href="pages/excel.html">Excel</a>
+        <a href="pages/curriculo.html">Currículo</a>
+        <a href="pages/contato.html">Contato</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <div class="container">
-    <h1>Data Analytics & Business Intelligence</h1>
-    <p>Soluções em dados, automação e inteligência para decisões estratégicas</p>
-  </div>
-</section>
+  <!-- ================= HERO / BANNER ================= -->
+  <section class="hero">
+    <div class="container hero-container">
+      <img 
+        src="assets/banners/home.png" 
+        alt="Data Analytics & Business Intelligence"
+        class="hero-banner"
+      />
 
-<!-- ================= SERVICES ================= -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Serviços</h2>
+      <h1>Data Analytics & Business Intelligence</h1>
+      <p>Soluções em dados, automação e inteligência para decisões estratégicas</p>
+    </div>
+  </section>
 
-    <div class="services-grid">
-      <div class="card">
-        <img src="assets/icons/home/bi.png" alt="">
-        <h3>Business Intelligence</h3>
-        <p>Dashboards e análises estratégicas</p>
-        <a href="pages/powerbi.html" class="btn">Ver mais</a>
-      </div>
+  <!-- ================= SERVIÇOS ================= -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Serviços</h2>
 
-      <div class="card">
-        <img src="assets/icons/home/automacao.png" alt="">
-        <h3>Automações & IA</h3>
-        <p>Processos automatizados e inteligência artificial</p>
-        <a href="pages/automacoes.html" class="btn">Ver mais</a>
-      </div>
+      <div class="cards-grid services-grid">
 
-      <div class="card">
-        <img src="assets/icons/home/python.png" alt="">
-        <h3>Python & Dados</h3>
-        <p>ETL, APIs e análise de dados</p>
-        <a href="pages/python.html" class="btn">Ver mais</a>
-      </div>
+        <!-- Serviço 1 -->
+        <div class="card service-card">
+          <img src="assets/icons/home/bi.png" alt="Business Intelligence" class="card-icon">
+          <h3>Business Intelligence</h3>
+          <p>Dashboards e análises estratégicas</p>
+          <a href="pages/powerbi.html" class="btn">Ver mais</a>
+        </div>
 
-      <div class="card">
-        <img src="assets/icons/home/consultoria.png" alt="">
-        <h3>Consultoria em Dados</h3>
-        <p>Diagnóstico, estratégia e apoio à decisão</p>
-        <a href="pages/contato.html" class="btn">Ver mais</a>
+        <!-- Serviço 2 -->
+        <div class="card service-card">
+          <img src="assets/icons/home/automacao.png" alt="Automações e IA" class="card-icon">
+          <h3>Automações & IA</h3>
+          <p>Processos automatizados e inteligência artificial</p>
+          <a href="pages/automacoes.html" class="btn">Ver mais</a>
+        </div>
+
+        <!-- Serviço 3 -->
+        <div class="card service-card">
+          <img src="assets/icons/home/python.png" alt="Python e Dados" class="card-icon">
+          <h3>Python & Dados</h3>
+          <p>ETL, APIs e análise de dados</p>
+          <a href="pages/python.html" class="btn">Ver mais</a>
+        </div>
+
+        <!-- Serviço 4 -->
+        <div class="card service-card">
+          <img src="assets/icons/home/excel.png" alt="Consultoria em Dados" class="card-icon">
+          <h3>Consultoria em Dados</h3>
+          <p>Diagnóstico, estratégia e apoio à decisão</p>
+          <a href="pages/contato.html" class="btn">Ver mais</a>
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= PROJECTS ================= -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Projetos</h2>
+  <!-- ================= PROJETOS ================= -->
+  <section class="section section-light">
+    <div class="container">
+      <h2 class="section-title">Projetos</h2>
 
-    <div class="projects-grid">
-      <div class="card">
-        <h3>Projeto 01</h3>
-        <p>Descrição breve do projeto</p>
-        <a href="#" class="btn">Ver projeto</a>
-      </div>
+      <div class="cards-grid projects-grid">
 
-      <div class="card">
-        <h3>Projeto 02</h3>
-        <p>Descrição breve do projeto</p>
-        <a href="#" class="btn">Ver projeto</a>
-      </div>
+        <!-- Projeto 01 -->
+        <div class="card project-card">
+          <img src="assets/projects/home/01.png" alt="Projeto 01">
+          <h3>Projeto 01</h3>
+          <p>Descrição breve do projeto</p>
+          <a href="#" class="btn">Ver projeto</a>
+        </div>
 
-      <div class="card">
-        <h3>Projeto 03</h3>
-        <p>Descrição breve do projeto</p>
-        <a href="#" class="btn">Ver projeto</a>
-      </div>
+        <!-- Projeto 02 -->
+        <div class="card project-card">
+          <img src="assets/projects/home/02.png" alt="Projeto 02">
+          <h3>Projeto 02</h3>
+          <p>Descrição breve do projeto</p>
+          <a href="#" class="btn">Ver projeto</a>
+        </div>
 
-      <div class="card">
-        <h3>Projeto 04</h3>
-        <p>Descrição breve do projeto</p>
-        <a href="#" class="btn">Ver projeto</a>
-      </div>
+        <!-- Projeto 03 -->
+        <div class="card project-card">
+          <img src="assets/projects/home/03.png" alt="Projeto 03">
+          <h3>Projeto 03</h3>
+          <p>Descrição breve do projeto</p>
+          <a href="#" class="btn">Ver projeto</a>
+        </div>
 
-      <div class="card">
-        <h3>Projeto 05</h3>
-        <p>Descrição breve do projeto</p>
-        <a href="#" class="btn">Ver projeto</a>
-      </div>
+        <!-- Projeto 04 -->
+        <div class="card project-card">
+          <img src="assets/projects/home/04.png" alt="Projeto 04">
+          <h3>Projeto 04</h3>
+          <p>Descrição breve do projeto</p>
+          <a href="#" class="btn">Ver projeto</a>
+        </div>
 
-      <div class="card">
-        <h3>Projeto 06</h3>
-        <p>Descrição breve do projeto</p>
-        <a href="#" class="btn">Ver projeto</a>
+        <!-- Projeto 05 -->
+        <div class="card project-card">
+          <img src="assets/projects/home/05.png" alt="Projeto 05">
+          <h3>Projeto 05</h3>
+          <p>Descrição breve do projeto</p>
+          <a href="#" class="btn">Ver projeto</a>
+        </div>
+
+        <!-- Projeto 06 -->
+        <div class="card project-card">
+          <img src="assets/projects/home/06.png" alt="Projeto 06">
+          <h3>Projeto 06</h3>
+          <p>Descrição breve do projeto</p>
+          <a href="#" class="btn">Ver projeto</a>
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= FOOTER ================= -->
-<footer class="site-footer">
-  <div class="container footer-center">
-    <p>
-      <a href="index.html">Home</a> |
-      <a href="pages/python.html">Python</a> |
-      <a href="pages/powerbi.html">PowerBI</a> |
-      <a href="pages/excel.html">Excel</a> |
-      <a href="pages/curriculo.html">Currículo</a> |
-      <a href="pages/contato.html">Contato</a>
-    </p>
-    <div class="footer-copy">
-      © 2025 ServicesBI. Todos os direitos reservados.
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+
+      <p class="footer-nav">
+        <a href="index.html">Home</a> |
+        <a href="pages/python.html">Python</a> |
+        <a href="pages/powerbi.html">PowerBI</a> |
+        <a href="pages/excel.html">Excel</a> |
+        <a href="pages/curriculo.html">Currículo</a> |
+        <a href="pages/contato.html">Contato</a>
+      </p>
+
+      <p class="footer-copy">
+        © 2025 ServicesBI. Todos os direitos reservados.
+      </p>
+
     </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>
