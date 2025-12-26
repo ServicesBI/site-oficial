@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currículo | ServicesBI</title>
+
+  <!-- CSS BASE DO SITE -->
+  <link rel="stylesheet" href="../css/main.css" />
+
+  <!-- Ícones (opcional, mas útil no currículo) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <meta name="description" content="Currículo profissional de Leles Júnior - Analista de Dados e BI" />
+
+  <!-- ESTILO ESPECÍFICO DO CURRÍCULO -->
+  <style>
+    .curriculo-page {
+      padding: 60px 0;
+    }
+
+    .curriculo-download {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+
+    .curriculo-download a {
+      display: inline-block;
+      padding: 10px 16px;
+      background: var(--yellow);
+      color: var(--blue-dark);
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .curriculo-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .curriculo-sheet {
+      background: #fff;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .curriculo-sheet h1 {
+      margin-bottom: 10px;
+      color: var(--blue-dark);
+    }
+
+    .curriculo-sheet h2 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+      color: var(--blue-dark);
+      text-align: left;
+    }
+
+    .curriculo-sheet h3 {
+      margin-top: 20px;
+      color: var(--blue);
+    }
+
+    .curriculo-sheet p,
+    .curriculo-sheet li {
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .curriculo-sheet ul {
+      padding-left: 20px;
+    }
+
+    /* IMPRESSÃO / PDF */
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .header,
+      .footer,
+      .banner,
+      .curriculo-download {
+        display: none;
+      }
+
+      .curriculo-sheet {
+        box-shadow: none;
+        margin: 0;
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="container">
+    <img src="../assets/logo/logo.svg" alt="ServicesBI" class="logo" />
+
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="python.html">Python</a>
+      <a href="powerbi.html">PowerBI</a>
+      <a href="automacoes.html">Automações IA</a>
+      <a href="excel.html">Excel</a>
+      <a class="active" href="curriculo.html">Currículo</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= BANNER ================= -->
+<section class="banner"
+  style="background-image: url('../assets/banners/curriculo.jpg'); background-size: cover; background-position: center;">
+  <div class="container">
+    <h1>Currículo</h1>
+    <p>Perfil profissional</p>
+  </div>
+</section>
+
+<!-- ================= CURRÍCULO ================= -->
+<main class="curriculo-page">
+  <div class="container">
+
+    <div class="curriculo-download">
+      <a href="../assets/docs/Leles_Junior.pdf" target="_blank">
+        <i class="fa-solid fa-file-pdf"></i> Baixar PDF
+      </a>
+      &nbsp;
+      <a href="#" onclick="window.print()">
+        <i class="fa-solid fa-print"></i> Imprimir
+      </a>
+    </div>
+
+    <div class="curriculo-wrapper">
+
+      <!-- ========== PÁGINA 1 ========== -->
+      <section class="curriculo-sheet">
+        <h1>Leles Júnior</h1>
+        <p>
+          www.servicesbi.com.br<br>
+          jrleles@servicesbi.com.br<br>
+          +55 61 99302-9988
+        </p>
+
+        <h2>Objetivo Profissional</h2>
+        <p>
+          Desempenhando a função de Analista de Dados, aplicando minha experiência em projeções financeiras,
+          análise de demonstrativos contábeis e Business Intelligence para apoiar decisões estratégicas.
+        </p>
+
+        <h2>Experiência Profissional</h2>
+
+        <h3>CNEC – Campanha Nacional de Escolas da Comunidade</h3>
+        <p><strong>05/2025 - 10/2025</strong></p>
+        <p>
+          <strong>Analista de Dados – Setor Financeiro Educacional</strong><br>
+          Desenvolvimento de dashboards em Power BI, automação de processos,
+          integração de sistemas e análise financeira estratégica.
+        </p>
+
+        <h3>Colégio Everest Internacional</h3>
+        <p><strong>01/2021 - 05/2023</strong></p>
+        <p>
+          <strong>Analista de Dados – Setor Financeiro Educacional</strong><br>
+          ETL, DRE, Fluxo de Caixa, dashboards estratégicos e apoio à gestão.
+        </p>
+      </section>
+
+      <!-- ========== PÁGINA 2 ========== -->
+      <section class="curriculo-sheet">
+
+        <h3>Hospital Anchieta Ltda.</h3>
+        <p><strong>03/2017 – 12/2019</strong></p>
+        <p>
+          <strong>Analista de Compras Jr</strong><br>
+          Gestão de compras, controle de estoque e relatórios estratégicos.
+        </p>
+
+        <h2>Formação Acadêmica</h2>
+        <p>
+          Faculdade Anhanguera<br>
+          Gestão Financeira (Concluído)
+        </p>
+
+        <h2>Especialização em Data Analytics</h2>
+        <p>
+          Atuação em BI, automação, integração de dados e modelagem analítica.
+        </p>
+
+        <h2>Habilidades e Competências</h2>
+        <ul>
+          <li>Python, ETL, APIs e automação</li>
+          <li>Power BI, DAX e KPIs</li>
+          <li>SQL, modelagem e pipelines</li>
+          <li>Excel avançado, VBA e Power Query</li>
+          <li>Git, versionamento e deploy</li>
+        </ul>
+
+        <h2>Idiomas</h2>
+        <p>
+          Inglês — Leitura: Boa | Escrita: Intermediária | Conversação: Intermediária
+        </p>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <p>© 2025 ServicesBI. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>
