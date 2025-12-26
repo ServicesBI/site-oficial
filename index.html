@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ServicesBI | Home</title>
+  <title>ServicesBI | Data Analytics & Business Intelligence</title>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="css/main.css" />
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
 
 <!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="container header-container">
+    <div class="logo">
+      <img src="assets/logo/logo.png" alt="ServicesBI">
+    </div>
+
     <nav class="nav">
       <a class="active" href="index.html">Home</a>
       <a href="pages/python.html">Python</a>
@@ -26,48 +32,47 @@
   </div>
 </header>
 
-<!-- ================= BANNER ================= -->
+<!-- ================= HERO ================= -->
 <section class="hero">
   <div class="container hero-container">
-    <img src="assets/banners/home.png" alt="ServicesBI">
     <h1>Data Analytics & Business Intelligence</h1>
     <p>Soluções em dados, automação e inteligência para decisões estratégicas</p>
   </div>
 </section>
 
 <!-- ================= SERVIÇOS ================= -->
-<section class="services">
+<section class="section">
   <div class="container">
-    <h2>Serviços</h2>
+    <h2 class="section-title">Serviços</h2>
 
-    <div class="cards-grid services-grid">
+    <div class="cards-grid">
 
-      <div class="card service-card">
-        <i class="fa-solid fa-chart-line"></i>
+      <div class="card">
+        <img src="assets/icons/bi.png" alt="Business Intelligence">
         <h3>Business Intelligence</h3>
         <p>Dashboards e análises estratégicas</p>
-        <a href="pages/powerbi.html" class="btn">Ver mais</a>
+        <a class="btn" href="pages/powerbi.html">Ver mais</a>
       </div>
 
-      <div class="card service-card">
-        <i class="fa-solid fa-robot"></i>
+      <div class="card">
+        <img src="assets/icons/automation.png" alt="Automações IA">
         <h3>Automações & IA</h3>
         <p>Processos automatizados e inteligência artificial</p>
-        <a href="pages/automacoes.html" class="btn">Ver mais</a>
+        <a class="btn" href="pages/automacoes.html">Ver mais</a>
       </div>
 
-      <div class="card service-card">
-        <i class="fa-solid fa-code"></i>
+      <div class="card">
+        <img src="assets/icons/python.png" alt="Python e Dados">
         <h3>Python & Dados</h3>
         <p>ETL, APIs e análise de dados</p>
-        <a href="pages/python.html" class="btn">Ver mais</a>
+        <a class="btn" href="pages/python.html">Ver mais</a>
       </div>
 
-      <div class="card service-card">
-        <i class="fa-solid fa-lightbulb"></i>
+      <div class="card">
+        <img src="assets/icons/consulting.png" alt="Consultoria em Dados">
         <h3>Consultoria em Dados</h3>
-        <p>Diagnóstico e apoio à decisão</p>
-        <a href="pages/contato.html" class="btn">Ver mais</a>
+        <p>Diagnóstico, estratégia e apoio à decisão</p>
+        <a class="btn" href="pages/contato.html">Ver mais</a>
       </div>
 
     </div>
@@ -75,58 +80,52 @@
 </section>
 
 <!-- ================= PROJETOS ================= -->
-<section class="projects">
+<section class="section section-light">
   <div class="container">
-    <h2>Projetos</h2>
+    <h2 class="section-title">Projetos</h2>
 
-    <div class="cards-grid projects-grid">
+    <div class="cards-grid">
 
-      <!-- Projeto 01 -->
-      <div class="card project-card">
+      <div class="card">
         <img src="assets/projects/home/01.png" alt="Projeto 01">
         <h3>Projeto 01</h3>
         <p>Descrição breve do projeto</p>
-        <a href="#" class="btn">Ver projeto</a>
+        <a class="btn" href="#">Ver projeto</a>
       </div>
 
-      <!-- Projeto 02 -->
-      <div class="card project-card">
+      <div class="card">
         <img src="assets/projects/home/02.png" alt="Projeto 02">
         <h3>Projeto 02</h3>
         <p>Descrição breve do projeto</p>
-        <a href="#" class="btn">Ver projeto</a>
+        <a class="btn" href="#">Ver projeto</a>
       </div>
 
-      <!-- Projeto 03 -->
-      <div class="card project-card">
+      <div class="card">
         <img src="assets/projects/home/03.png" alt="Projeto 03">
         <h3>Projeto 03</h3>
         <p>Descrição breve do projeto</p>
-        <a href="#" class="btn">Ver projeto</a>
+        <a class="btn" href="#">Ver projeto</a>
       </div>
 
-      <!-- Projeto 04 -->
-      <div class="card project-card">
+      <div class="card">
         <img src="assets/projects/home/04.png" alt="Projeto 04">
         <h3>Projeto 04</h3>
         <p>Descrição breve do projeto</p>
-        <a href="#" class="btn">Ver projeto</a>
+        <a class="btn" href="#">Ver projeto</a>
       </div>
 
-      <!-- Projeto 05 -->
-      <div class="card project-card">
+      <div class="card">
         <img src="assets/projects/home/05.png" alt="Projeto 05">
         <h3>Projeto 05</h3>
         <p>Descrição breve do projeto</p>
-        <a href="#" class="btn">Ver projeto</a>
+        <a class="btn" href="#">Ver projeto</a>
       </div>
 
-      <!-- Projeto 06 -->
-      <div class="card project-card">
+      <div class="card">
         <img src="assets/projects/home/06.png" alt="Projeto 06">
         <h3>Projeto 06</h3>
         <p>Descrição breve do projeto</p>
-        <a href="#" class="btn">Ver projeto</a>
+        <a class="btn" href="#">Ver projeto</a>
       </div>
 
     </div>
@@ -141,7 +140,7 @@
 
     <div class="footer-center">
       <h4>Navegação</h4>
-      <p class="footer-links">
+      <p>
         <a href="index.html">Home</a> |
         <a href="pages/python.html">Python</a> |
         <a href="pages/powerbi.html">PowerBI</a> |
@@ -152,16 +151,8 @@
     </div>
 
     <div class="footer-contact">
-      <p>
-        <a href="https://www.linkedin.com/" target="_blank">
-          <i class="fa-brands fa-linkedin"></i> LinkedIn
-        </a>
-      </p>
-      <p>
-        <a href="https://github.com/ServicesBI" target="_blank">
-          <i class="fa-brands fa-github"></i> GitHub
-        </a>
-      </p>
+      <p><i class="fa-brands fa-linkedin"></i> LinkedIn</p>
+      <p><i class="fa-brands fa-github"></i> GitHub</p>
       <p><i class="fa-solid fa-phone"></i> +55 61 99302-9988</p>
       <p><i class="fa-solid fa-envelope"></i> jrleles@servicesbi.com.br</p>
     </div>
@@ -173,6 +164,5 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
 </body>
 </html>
