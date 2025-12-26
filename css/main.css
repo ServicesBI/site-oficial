@@ -1,241 +1,250 @@
-/* =========================
-   RESET BÁSICO
-========================= */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-  background-color: #ffffff;
-  color: #1f2933;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f6f7f9;
+  color: #222;
   line-height: 1.6;
 }
 
-/* =========================
-   VARIÁVEIS
-========================= */
+/* ================= VARIÁVEIS ================= */
 :root {
-  --blue-dark: #0f2a44;
-  --blue: #123b5f;
-  --yellow: #f5b700;
-  --gray-light: #f3f4f6;
-  --gray: #9ca3af;
-  --white: #ffffff;
+  --primary: #0b2c4d;
+  --secondary: #f5b400;
+  --light: #ffffff;
+  --gray: #e5e7eb;
+  --text-light: #6b7280;
 }
 
-/* =========================
-   CONTAINER
-========================= */
+/* ================= CONTAINER ================= */
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* =========================
-   HEADER
-========================= */
-.header {
-  background-color: var(--blue-dark);
+/* ================= HEADER ================= */
+.site-header {
+  background: var(--primary);
+}
+
+.site-header .nav {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
   padding: 16px 0;
 }
 
-.header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  height: 40px;
-}
-
-.nav a {
-  color: var(--white);
+.site-header .nav a {
+  color: #fff;
   text-decoration: none;
-  margin-left: 20px;
   font-weight: 500;
-  position: relative;
 }
 
-.nav a:hover {
-  color: var(--yellow);
+.site-header .nav a:hover,
+.site-header .nav a.active {
+  color: var(--secondary);
 }
 
-/* =========================
-   BANNER
-========================= */
-.banner {
-  background-color: #9ca3af;
-  height: 260px;
+/* ================= HERO / BANNER ================= */
+.hero {
+  background: #9ca3af;
+  height: 280px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.banner-home {
-  background-image: url("../assets/banners/home.jpg");
-  background-size: cover;
-  background-position: center;
+.hero-container {
+  text-align: center;
+  color: #fff;
 }
 
-.banner h1 {
-  color: var(--white);
-  font-size: 2.4rem;
-  margin-bottom: 8px;
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
 }
 
-.banner p {
-  color: var(--white);
-  font-size: 1.1rem;
+.hero p {
+  font-size: 16px;
 }
 
-/* =========================
-   SECTIONS
-========================= */
-section {
+/* ================= SEÇÕES ================= */
+.section {
   padding: 60px 0;
 }
 
-section h2 {
+.section-title {
   text-align: center;
   margin-bottom: 40px;
-  color: var(--blue-dark);
 }
 
-/* =========================
-   CARDS - SERVIÇOS
-========================= */
+.section-title h2 {
+  font-size: 26px;
+  color: var(--primary);
+}
+
+/* ================= CARDS – SERVIÇOS ================= */
 .cards-services {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
-.card {
-  background-color: var(--white);
+.card-service {
+  background: var(--light);
   border-radius: 12px;
-  padding: 24px;
+  padding: 30px 20px;
   text-align: center;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
-.card:hover {
-  transform: translateY(-6px);
+.card-service img {
+  width: 40px;
+  margin-bottom: 12px;
 }
 
-.card img {
-  height: 48px;
-  margin-bottom: 16px;
-}
-
-.card h3 {
+.card-service h3 {
+  font-size: 18px;
   margin-bottom: 8px;
-  color: var(--blue-dark);
 }
 
-.card p {
-  color: var(--gray);
-  font-size: 0.95rem;
+.card-service p {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 14px;
 }
 
-/* =========================
-   CARDS - PROJETOS
-========================= */
+.card-service a {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 2px solid var(--secondary);
+  color: var(--primary);
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.card-service a:hover {
+  background: var(--secondary);
+}
+
+/* ================= CARDS – PROJETOS ================= */
 .cards-projects {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
 .card-project {
-  background-color: var(--white);
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  background: var(--light);
+  border-radius: 12px;
+  padding: 20px;
   text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
 .card-project img {
   width: 100%;
   height: 160px;
   object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
 }
 
 .card-project h3 {
-  margin: 16px 0;
-  color: var(--blue-dark);
+  font-size: 16px;
+  margin-bottom: 6px;
 }
 
-/* =========================
-   BOTÕES
-========================= */
-.btn {
+.card-project p {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.card-project a {
   display: inline-block;
-  margin-bottom: 20px;
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: 2px solid var(--yellow);
-  color: var(--yellow);
+  padding: 8px 16px;
+  border: 2px solid var(--secondary);
+  color: var(--primary);
   text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
-.btn:hover {
-  background-color: var(--yellow);
-  color: var(--blue-dark);
+.card-project a:hover {
+  background: var(--secondary);
 }
 
-/* =========================
-   FOOTER
-========================= */
-.footer {
-  background-color: var(--blue-dark);
-  padding: 30px 0;
-  color: var(--white);
+/* ================= FOOTER ================= */
+.site-footer {
+  background: var(--primary);
+  color: #fff;
+  padding: 40px 0 0;
 }
 
-.footer .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
 }
 
-.footer p {
-  font-size: 0.9rem;
+.footer-center {
+  text-align: center;
 }
 
-.footer .social img {
-  height: 22px;
-  margin-left: 12px;
-  filter: invert(1);
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 6px;
 }
 
-/* =========================
-   RESPONSIVO
-========================= */
-@media (max-width: 1024px) {
-  .cards-services,
+.footer-links a:hover {
+  color: var(--secondary);
+}
+
+.footer-contact a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-copy-bar {
+  background: #081f36;
+  text-align: center;
+  padding: 12px;
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 992px) {
+  .cards-services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .cards-projects {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
+  .site-header .nav {
+    flex-wrap: wrap;
+  }
+
   .cards-services,
   .cards-projects {
     grid-template-columns: 1fr;
   }
 
-  .nav {
-    display: none; /* depois podemos fazer menu mobile */
+  .hero {
+    height: 200px;
   }
 }
