@@ -3,192 +3,209 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-/* ================= BASE ================= */
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Segoe UI", sans-serif;
   font-style: italic;
-  color: #1f2937;
-  background: #ffffff;
-  line-height: 1.6;
 }
 
-/* ================= UTIL ================= */
+body {
+  background-color: #f2f2f2;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* ================= CONTAINER ================= */
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.section {
-  padding: 50px 0;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 26px;
-  font-weight: 700;
-  color: #fbbf24;
-  margin-bottom: 30px;
-}
-
 /* ================= HEADER ================= */
 .site-header {
-  background: #0f2a44;
+  background-color: #0f2a44;
+  padding: 16px 0;
 }
 
-.site-header nav {
+.header-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 32px;
-  padding: 22px 0;
 }
 
-.site-header nav a {
-  color: #ffffff;
+.nav {
+  display: flex;
+  gap: 26px;
+}
+
+.nav a {
+  color: #fff;
   text-decoration: none;
-  font-weight: 600;
+  font-size: 14px;
 }
 
-.site-header nav a:hover {
-  text-decoration: underline;
+.nav a.active {
+  font-weight: bold;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO / BANNER ================= */
 .hero {
-  background: #e5e5e5;
-  padding: 90px 0;
+  padding-top: 40px;
+  padding-bottom: 25px;
+  background-color: #f2f2f2;
 }
 
-.hero .container {
-  max-width: 700px;
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
+/* IMAGEM DO BANNER */
+.hero-banner {
+  width: 100%;
+  max-width: 900px;
+  height: auto;               /* NÃO DISTORCE */
+  object-fit: contain;
+  margin-bottom: 18px;
+}
+
+/* TEXTO DO HERO */
 .hero h1 {
-  font-size: 32px;
-  color: #fbbf24;
-  margin-bottom: 12px;
+  color: #f5a623;
+  font-size: 24px;
+  margin-bottom: 6px;
 }
 
 .hero p {
-  color: #4b5563;
-  font-size: 16px;
+  font-size: 14px;
+  color: #666;
 }
 
-/* ================= BUTTON ================= */
-.btn {
-  display: inline-block;
-  padding: 10px 22px;
-  border: 2px solid #fbbf24;
-  border-radius: 10px;
-  color: #111827;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.25s;
+/* ================= SEÇÕES ================= */
+.section {
+  padding-top: 30px;
+  padding-bottom: 55px;
 }
 
-.btn:hover {
-  background: #fbbf24;
+.section-light {
+  background-color: #ffffff;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+/* TÍTULOS DAS SEÇÕES */
+.section-title {
+  text-align: center;
+  color: #000;        /* PRETO conforme pedido */
+  margin-bottom: 32px;
+  font-size: 20px;
+}
+
+/* ================= GRID DE CARDS ================= */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
 }
 
 /* ================= CARD BASE ================= */
 .card {
-  background: #ffffff;
-  border: 2px solid #fbbf24;
-  border-radius: 18px;
-  padding: 26px 24px;
+  background-color: #fff;
+  border: 2px solid #f5a623;
+  border-radius: 14px;
+  padding: 22px 18px;
   text-align: center;
+}
 
+/* ================= SERVIÇOS ================= */
+.service-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-  min-height: 240px;
-
-  transition: 0.25s;
+  align-items: center;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+/* ÍCONE DO SERVIÇO */
+.card-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 14px;
 }
 
-.card img {
-  width: 52px;
-  margin: 0 auto 14px;
+.service-card h3 {
+  color: #f5a623;
+  font-size: 15px;
+  margin-bottom: 6px;
 }
 
-.card h3 {
-  font-size: 18px;
-  color: #fbbf24;
-  margin-bottom: 8px;
+.service-card p {
+  font-size: 13px;
+  margin-bottom: 16px;
 }
 
-.card p {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 18px;
+/* ================= PROJETOS ================= */
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-/* ================= SERVICES ================= */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+.project-card h3 {
+  color: #f5a623;
+  font-size: 15px;
+  margin-bottom: 6px;
 }
 
-/* ================= PROJECTS ================= */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+.project-card p {
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+/* ================= BOTÕES ================= */
+.btn {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 2px solid #f5a623;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
 }
 
 /* ================= FOOTER ================= */
 .site-footer {
-  background: #0f2a44;
-  color: #ffffff;
-  padding: 40px 0;
-  margin-top: 50px;
+  background-color: #0f2a44;
+  padding: 22px 0;
 }
 
-.site-footer a {
-  color: #ffffff;
+.footer-container {
+  text-align: center;
+}
+
+.footer-nav {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.footer-nav a {
+  color: #fff;
   text-decoration: none;
 }
 
-.site-footer a:hover {
-  text-decoration: underline;
-}
-
-.footer-center {
-  text-align: center;
-}
-
 .footer-copy {
-  text-align: center;
-  margin-top: 18px;
-  font-size: 14px;
+  font-size: 12px;
+  color: #ddd;
 }
 
-/* ================= RESPONSIVE ================= */
-@media (max-width: 1024px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* ================= RESPONSIVO ================= */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 20px;
   }
 
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .services-grid,
-  .projects-grid {
-    grid-template-columns: 1fr;
+  .hero-banner {
+    max-width: 100%;
   }
 }
-
