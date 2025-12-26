@@ -5,100 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contato | ServicesBI</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="../css/main.css" />
-
-  <!-- Ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <meta name="description" content="Entre em contato para projetos em dados, BI, automação e tecnologia." />
-
-  <!-- Estilo específico da página -->
-  <style>
-    .contact-page {
-      padding: 60px 0;
-    }
-
-    .contact-wrapper {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-
-    .contact-info h2 {
-      margin-bottom: 16px;
-      color: var(--blue-dark);
-      text-align: left;
-    }
-
-    .contact-info p {
-      margin-bottom: 16px;
-      color: #333;
-    }
-
-    .contact-info a {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--blue);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .contact-info i {
-      margin-right: 8px;
-    }
-
-    .contact-form {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    }
-
-    .contact-form label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 600;
-      color: var(--blue-dark);
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 16px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-family: inherit;
-    }
-
-    .contact-form button {
-      padding: 12px 20px;
-      border: none;
-      background-color: var(--yellow);
-      color: var(--blue-dark);
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .contact-wrapper {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 
 <body>
 
 <!-- ================= HEADER ================= -->
-<header class="header">
-  <div class="container">
-    <img src="../assets/logo/logo.svg" alt="ServicesBI" class="logo" />
-
+<header class="site-header">
+  <div class="container header-container">
     <nav class="nav">
       <a href="../index.html">Home</a>
       <a href="python.html">Python</a>
@@ -112,70 +27,130 @@
 </header>
 
 <!-- ================= BANNER ================= -->
-<section class="banner"
-  style="background-image: url('../assets/banners/contato.jpg'); background-size: cover; background-position: center;">
-  <div class="container">
+<section class="hero">
+  <div class="container hero-container">
+    <img src="../assets/banners/contato.png" alt="Contato">
     <h1>Contato</h1>
-    <p>Vamos conversar sobre seu projeto</p>
+    <p>Vamos conversar sobre dados, projetos e soluções</p>
   </div>
 </section>
 
 <!-- ================= CONTEÚDO ================= -->
 <main class="contact-page">
-  <div class="container contact-wrapper">
+  <div class="container contact-container">
 
-    <!-- INFORMAÇÕES -->
-    <div class="contact-info">
+    <!-- TEXTO -->
+    <section class="contact-info">
       <h2>Fale comigo</h2>
       <p>
-        Se você quer conversar sobre projetos, oportunidades ou parcerias,
-        fique à vontade para entrar em contato.
+        Se você tem interesse em projetos de <strong>Business Intelligence</strong>,
+        <strong>análise de dados</strong>, <strong>automação</strong> ou
+        <strong>consultoria em dados</strong>, fique à vontade para entrar em contato.
       </p>
-
-      <a href="mailto:jrleles@servicesbi.com.br">
-        <i class="fa-solid fa-envelope"></i> jrleles@servicesbi.com.br
-      </a>
-
-      <a href="https://www.linkedin.com/in/jrleles-analista-de-dados/" target="_blank">
-        <i class="fa-brands fa-linkedin"></i> LinkedIn
-      </a>
-
-      <a href="https://github.com/ServicesBI" target="_blank">
-        <i class="fa-brands fa-github"></i> GitHub
-      </a>
 
       <p>
-        <i class="fa-solid fa-phone"></i> +55 61 99302-9988
+        Estou aberto a oportunidades profissionais, projetos freelancers
+        e parcerias.
       </p>
-    </div>
+
+      <ul class="contact-list">
+        <li>
+          <i class="fa-solid fa-envelope"></i>
+          jrleles@servicesbi.com.br
+        </li>
+        <li>
+          <i class="fa-solid fa-phone"></i>
+          +55 61 99302-9988
+        </li>
+        <li>
+          <i class="fa-brands fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/jrleles-analista-de-dados/" target="_blank">
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <i class="fa-brands fa-github"></i>
+          <a href="https://github.com/ServicesBI" target="_blank">
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </section>
 
     <!-- FORMULÁRIO -->
-    <form class="contact-form"
-      action="mailto:jrleles@servicesbi.com.br"
-      method="post"
-      enctype="text/plain">
+    <section class="contact-form">
+      <h2>Enviar mensagem</h2>
 
-      <label for="nome">Nome</label>
-      <input type="text" id="nome" name="nome" required>
+      <!-- Formulário simples (HTML puro) -->
+      <form>
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" placeholder="Seu nome" required>
+        </div>
 
-      <label for="email">E-mail</label>
-      <input type="email" id="email" name="email" required>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+        </div>
 
-      <label for="mensagem">Mensagem</label>
-      <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+        <div class="form-group">
+          <label for="message">Mensagem</label>
+          <textarea id="message" name="message" rows="5" placeholder="Sua mensagem" required></textarea>
+        </div>
 
-      <button type="submit">Enviar mensagem</button>
-    </form>
+        <button type="submit" class="btn">
+          Enviar mensagem
+        </button>
+      </form>
+
+      <p class="form-note">
+        * Este formulário é apenas visual. Integração pode ser feita depois.
+      </p>
+    </section>
 
   </div>
 </main>
 
 <!-- ================= FOOTER ================= -->
-<footer class="footer">
-  <div class="container">
-    <p>© 2025 ServicesBI. Todos os direitos reservados.</p>
+<footer class="site-footer">
+  <div class="container footer-grid">
+
+    <div></div>
+
+    <div class="footer-center">
+      <h4>Navegação</h4>
+      <p class="footer-links">
+        <a href="../index.html">Home</a> |
+        <a href="python.html">Python</a> |
+        <a href="powerbi.html">PowerBI</a> |
+        <a href="excel.html">Excel</a> |
+        <a href="curriculo.html">Currículo</a> |
+        <a href="contato.html">Contato</a>
+      </p>
+    </div>
+
+    <div class="footer-contact">
+      <p>
+        <a href="https://www.linkedin.com/in/jrleles-analista-de-dados/" target="_blank">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+      </p>
+      <p>
+        <a href="https://github.com/ServicesBI" target="_blank">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+      </p>
+      <p><i class="fa-solid fa-phone"></i> +55 61 99302-9988</p>
+      <p><i class="fa-solid fa-envelope"></i> jrleles@servicesbi.com.br</p>
+    </div>
+
+  </div>
+
+  <div class="footer-copy-bar">
+    © 2025 ServicesBI. Todos os direitos reservados.
   </div>
 </footer>
 
+<script src="../js/main.js"></script>
 </body>
 </html>
