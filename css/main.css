@@ -1,205 +1,156 @@
 /* ================= RESET ================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background-color: #f7f8fa;
-    color: #1f2937;
-    line-height: 1.6;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  background: #fff;
 }
 
-/* ================= CONTAINER ================= */
+/* ================= CONTAINERS ================= */
 .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 16px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
 /* ================= HEADER ================= */
 .site-header {
-    background: #0b2545;
-    padding: 16px 0;
+  background: #0b2a4a;
 }
 
 .site-header nav {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px 0;
 }
 
-.site-header nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
+.site-header a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.site-header nav a:hover,
-.site-header nav a.active {
-    border-bottom: 2px solid #f2b705;
+.site-header a:hover {
+  text-decoration: underline;
 }
 
-/* ================= HERO / BANNER ================= */
+/* ================= HERO ================= */
 .hero {
-    background: #e5e7eb;
-    padding: 60px 0;
-    text-align: center;
+  background: #eee;
+  padding: 60px 20px;
+  text-align: center;
 }
 
 .hero h1 {
-    font-size: 32px;
-    margin-bottom: 12px;
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
 .hero p {
-    font-size: 16px;
-    color: #374151;
+  font-size: 14px;
+  color: #555;
 }
 
 /* ================= SECTIONS ================= */
-.section {
-    padding: 80px 0;
-}
-
 .section-title {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 48px;
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 40px;
 }
 
-/* ================= GRID ================= */
+/* ================= CARDS – BASE ================= */
 .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 32px;
+  display: grid;
+  gap: 30px;
 }
 
-/* ================= CARD (SERVIÇOS E PROJETOS) ================= */
+/* Serviços → 4 colunas */
+.cards-services {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Projetos → 3 colunas */
+.cards-projects {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ================= CARD ================= */
 .card {
-    background: #ffffff;
-    border: 2px solid #f2b705;
-    border-radius: 16px;
-    padding: 24px;
-    text-align: center;
-
-    /* 🔑 AJUSTE CRÍTICO */
-    display: flex;
-    flex-direction: column;
-
-    min-height: 340px;
-
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  border: 2px solid #f5b400;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  background: #fff;
 }
 
 .card img {
-    width: 56px;
-    height: 56px;
-    margin: 0 auto 16px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 15px;
 }
 
 .card h3 {
-    font-size: 18px;
-    margin-bottom: 12px;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .card p {
-    font-size: 14px;
-    color: #4b5563;
-    margin-bottom: 24px;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
 }
 
-/* ================= BOTÃO ================= */
+/* ================= BUTTON ================= */
 .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    border: 2px solid #f2b705;
-    border-radius: 10px;
-    color: #0b2545;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-
-    /* 🔑 ALINHAMENTO DEFINITIVO */
-    margin-top: auto;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #f5b400;
+  border-radius: 8px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .btn:hover {
-    background: #f2b705;
-    color: #ffffff;
-}
-
-/* ================= CURRÍCULO ================= */
-.curriculo-wrapper {
-    display: flex;
-    gap: 32px;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
-
-.curriculo-sheet {
-    background: #ffffff;
-    width: 420px;
-    padding: 32px;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-.curriculo-download {
-    text-align: center;
-    margin-bottom: 32px;
-}
-
-.curriculo-download img {
-    width: 48px;
-    cursor: pointer;
-}
-
-/* ================= CONTATO ================= */
-.form-contato {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.form-contato input,
-.form-contato textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 16px;
-    border-radius: 8px;
-    border: 1px solid #d1d5db;
-}
-
-.form-contato button {
-    background: #f2b705;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
+  background: #f5b400;
+  color: #000;
 }
 
 /* ================= FOOTER ================= */
 .site-footer {
-    background: #0b2545;
-    color: #ffffff;
-    padding: 48px 0 16px;
-    margin-top: 80px;
+  background: #0b2a4a;
+  color: #fff;
+  padding: 40px 20px;
+  margin-top: 60px;
+  text-align: center;
 }
 
-.footer-links a {
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 6px;
+.site-footer a {
+  color: #fff;
+  text-decoration: none;
 }
 
-.footer-copy-bar {
-    text-align: center;
-    font-size: 13px;
-    margin-top: 24px;
-    opacity: 0.8;
+/* ================= RESPONSIVO ================= */
+@media (max-width: 1024px) {
+  .cards-services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-services,
+  .cards-projects {
+    grid-template-columns: 1fr;
+  }
 }
