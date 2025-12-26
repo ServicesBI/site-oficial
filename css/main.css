@@ -7,150 +7,168 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  color: #222;
-  background: #fff;
+  color: #1f2937;
+  background: #ffffff;
+  line-height: 1.6;
 }
 
-/* ================= CONTAINERS ================= */
+/* ================= UTIL ================= */
 .container {
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 40px;
 }
 
 /* ================= HEADER ================= */
 .site-header {
-  background: #0b2a4a;
+  background: #0f2a44;
 }
 
 .site-header nav {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   padding: 15px 0;
 }
 
-.site-header a {
-  color: #fff;
+.site-header nav a {
+  color: #ffffff;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-.site-header a:hover {
+.site-header nav a:hover {
   text-decoration: underline;
 }
 
 /* ================= HERO ================= */
 .hero {
-  background: #eee;
-  padding: 60px 20px;
-  text-align: center;
+  background: #e5e5e5;
+  padding: 60px 0;
 }
 
 .hero h1 {
+  text-align: center;
   font-size: 28px;
   margin-bottom: 10px;
 }
 
 .hero p {
-  font-size: 14px;
+  text-align: center;
   color: #555;
-}
-
-/* ================= SECTIONS ================= */
-.section-title {
-  text-align: center;
-  font-size: 22px;
-  margin-bottom: 40px;
-}
-
-/* ================= CARDS – BASE ================= */
-.cards-grid {
-  display: grid;
-  gap: 30px;
-}
-
-/* Serviços → 4 colunas */
-.cards-services {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-/* Projetos → 3 colunas */
-.cards-projects {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-/* ================= CARD ================= */
-.card {
-  border: 2px solid #f5b400;
-  border-radius: 16px;
-  padding: 30px 20px;
-  text-align: center;
-  background: #fff;
-}
-
-.card img {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 15px;
-}
-
-.card h3 {
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-size: 13px;
-  color: #666;
-  margin-bottom: 20px;
 }
 
 /* ================= BUTTON ================= */
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  border: 2px solid #f5b400;
+  border: 2px solid #fbbf24;
   border-radius: 8px;
-  color: #000;
-  text-decoration: none;
+  color: #111827;
   font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 .btn:hover {
-  background: #f5b400;
-  color: #000;
+  background: #fbbf24;
+}
+
+/* ================= CARDS BASE ================= */
+.card {
+  background: #ffffff;
+  border: 2px solid #fbbf24;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 260px;
+}
+
+.card img {
+  width: 48px;
+  margin: 0 auto 15px;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* ================= SERVICES ================= */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* ================= PROJECTS ================= */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
 /* ================= FOOTER ================= */
 .site-footer {
-  background: #0b2a4a;
-  color: #fff;
-  padding: 40px 20px;
+  background: #0f2a44;
+  color: #ffffff;
+  padding: 40px 0;
   margin-top: 60px;
-  text-align: center;
 }
 
 .site-footer a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
 }
 
-/* ================= RESPONSIVO ================= */
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-center {
+  text-align: center;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
-  .cards-services {
+  .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .cards-projects {
+  .projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 600px) {
-  .cards-services,
-  .cards-projects {
+@media (max-width: 640px) {
+  .services-grid,
+  .projects-grid {
     grid-template-columns: 1fr;
   }
 }
