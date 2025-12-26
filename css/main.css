@@ -5,8 +5,10 @@
   box-sizing: border-box;
 }
 
+/* ================= BASE ================= */
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-style: italic;
   color: #1f2937;
   background: #ffffff;
   line-height: 1.6;
@@ -20,14 +22,15 @@ body {
 }
 
 .section {
-  padding: 60px 0;
+  padding: 50px 0;
 }
 
 .section-title {
   text-align: center;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
-  margin-bottom: 40px;
+  color: #fbbf24;
+  margin-bottom: 30px;
 }
 
 /* ================= HEADER ================= */
@@ -38,8 +41,9 @@ body {
 .site-header nav {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  padding: 15px 0;
+  align-items: center;
+  gap: 32px;
+  padding: 22px 0;
 }
 
 .site-header nav a {
@@ -55,77 +59,92 @@ body {
 /* ================= HERO ================= */
 .hero {
   background: #e5e5e5;
-  padding: 60px 0;
+  padding: 90px 0;
+}
+
+.hero .container {
+  max-width: 700px;
+  text-align: center;
 }
 
 .hero h1 {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size: 32px;
+  color: #fbbf24;
+  margin-bottom: 12px;
 }
 
 .hero p {
-  text-align: center;
-  color: #555;
+  color: #4b5563;
+  font-size: 16px;
 }
 
 /* ================= BUTTON ================= */
 .btn {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 22px;
   border: 2px solid #fbbf24;
-  border-radius: 8px;
+  border-radius: 10px;
   color: #111827;
   font-weight: 600;
   text-decoration: none;
-  transition: 0.3s;
+  transition: 0.25s;
 }
 
 .btn:hover {
   background: #fbbf24;
 }
 
-/* ================= CARDS BASE ================= */
+/* ================= CARD BASE ================= */
 .card {
   background: #ffffff;
   border: 2px solid #fbbf24;
-  border-radius: 16px;
-  padding: 30px 20px;
+  border-radius: 18px;
+  padding: 26px 24px;
   text-align: center;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 260px;
+
+  min-height: 240px;
+
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
 }
 
 .card img {
-  width: 48px;
-  margin: 0 auto 15px;
+  width: 52px;
+  margin: 0 auto 14px;
 }
 
 .card h3 {
   font-size: 18px;
-  margin-bottom: 10px;
+  color: #fbbf24;
+  margin-bottom: 8px;
 }
 
 .card p {
   font-size: 14px;
   color: #555;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 /* ================= SERVICES ================= */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 32px;
 }
 
 /* ================= PROJECTS ================= */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 32px;
 }
 
 /* ================= FOOTER ================= */
@@ -133,7 +152,7 @@ body {
   background: #0f2a44;
   color: #ffffff;
   padding: 40px 0;
-  margin-top: 60px;
+  margin-top: 50px;
 }
 
 .site-footer a {
@@ -151,7 +170,7 @@ body {
 
 .footer-copy {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 18px;
   font-size: 14px;
 }
 
@@ -172,3 +191,4 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
