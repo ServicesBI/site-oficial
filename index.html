@@ -1,97 +1,118 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>ServicesBI</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServicesBI | Data Analytics & BI</title>
 
-  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
 
-<header class="topo">
-  <nav class="menu">
-    <a href="#">Home</a>
-    <a href="#">Python</a>
-    <a href="#">PowerBI</a>
-    <a href="#">Automações IA</a>
-    <a href="#">Excel</a>
-    <a href="#">Currículo</a>
-    <a href="#">Contato</a>
-  </nav>
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container header-container">
+    <nav class="nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="pages/python.html">Python</a>
+      <a href="pages/powerbi.html">PowerBI</a>
+      <a href="pages/automacoes.html">Automações IA</a>
+      <a href="pages/excel.html">Excel</a>
+      <a href="pages/curriculo.html">Currículo</a>
+      <a href="pages/contato.html">Contato</a>
+    </nav>
+  </div>
 </header>
 
-<section class="banner">
-  <img src="assets/banner.png" alt="ServicesBI">
+<!-- ================= HERO / BANNER ================= -->
+<section class="hero">
+  <div class="container hero-container">
+    <h1 class="hero-title">ServicesBI</h1>
+    <p class="hero-subtitle">Data Analytics & Business Intelligence</p>
+  </div>
 </section>
 
-<section class="secao">
-  <h2 class="titulo-secao">Serviços</h2>
+<!-- ================= SERVIÇOS ================= -->
+<section class="services-section">
+  <div class="container">
 
-  <div class="servicos">
-    <div class="card-servico">
-      <h3>Business Intelligence</h3>
-      <p>Dashboards e análises estratégicas</p>
-      <a href="#" class="btn">Ver mais</a>
-    </div>
+    <h2 class="section-title">Serviços</h2>
 
-    <div class="card-servico">
-      <h3>Automações & IA</h3>
-      <p>Processos automatizados e inteligência artificial</p>
-      <a href="#" class="btn">Ver mais</a>
-    </div>
+    <div class="services-grid">
 
-    <div class="card-servico">
-      <h3>Python & Dados</h3>
-      <p>ETL, APIs e análise de dados</p>
-      <a href="#" class="btn">Ver mais</a>
-    </div>
+      <div class="service-card">
+        <img src="assets/icons/bi.png" class="service-icon" alt="">
+        <h3>Business Intelligence</h3>
+        <p>Dashboards e análises estratégicas</p>
+        <a href="pages/powerbi.html" class="btn-service">Ver mais</a>
+      </div>
 
-    <div class="card-servico">
-      <h3>Consultoria em Dados</h3>
-      <p>Diagnóstico, estratégia e apoio à decisão</p>
-      <a href="#" class="btn">Ver mais</a>
+      <div class="service-card">
+        <img src="assets/icons/automacao.png" class="service-icon" alt="">
+        <h3>Automações & IA</h3>
+        <p>Processos automatizados e inteligência artificial</p>
+        <a href="pages/automacoes.html" class="btn-service">Ver mais</a>
+      </div>
+
+      <div class="service-card">
+        <img src="assets/icons/python.png" class="service-icon" alt="">
+        <h3>Python & Dados</h3>
+        <p>ETL, APIs e análise de dados</p>
+        <a href="pages/python.html" class="btn-service">Ver mais</a>
+      </div>
+
+      <div class="service-card">
+        <img src="assets/icons/consultoria.png" class="service-icon" alt="">
+        <h3>Consultoria em Dados</h3>
+        <p>Diagnóstico, estratégia e apoio à decisão</p>
+        <a href="pages/contato.html" class="btn-service">Ver mais</a>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section class="secao">
-  <h2 class="titulo-secao">Projetos</h2>
+<!-- ================= PROJETOS ================= -->
+<section class="projects-section">
+  <div class="container">
 
-  <div class="projetos">
+    <h2 class="section-title">Projetos</h2>
 
-    <div class="projeto-card">
-      <div class="projeto-imagem">
-        <img src="assets/projeto1.png" alt="Projeto 01">
-        <span class="projeto-titulo">Projeto 01</span>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-image">
+          <img src="assets/projects/home/01.png" alt="">
+          <span class="project-title">Projeto 01</span>
+        </div>
+        <p>Descrição breve do projeto</p>
+        <a href="#" class="btn-project">Ver projeto</a>
       </div>
-      <p class="descricao">Descrição breve do projeto</p>
-      <a href="#" class="btn btn-projeto">Ver projeto</a>
-    </div>
 
-    <div class="projeto-card">
-      <div class="projeto-imagem">
-        <img src="assets/projeto2.png" alt="Projeto 02">
-        <span class="projeto-titulo">Projeto 02</span>
+      <div class="project-card">
+        <div class="project-image">
+          <img src="assets/projects/home/02.png" alt="">
+          <span class="project-title">Projeto 02</span>
+        </div>
+        <p>Descrição breve do projeto</p>
+        <a href="#" class="btn-project">Ver projeto</a>
       </div>
-      <p class="descricao">Descrição breve do projeto</p>
-      <a href="#" class="btn btn-projeto">Ver projeto</a>
-    </div>
 
-    <div class="projeto-card">
-      <div class="projeto-imagem">
-        <img src="assets/projeto3.png" alt="Projeto 03">
-        <span class="projeto-titulo">Projeto 03</span>
+      <div class="project-card">
+        <div class="project-image">
+          <img src="assets/projects/home/03.png" alt="">
+          <span class="project-title">Projeto 03</span>
+        </div>
+        <p>Descrição breve do projeto</p>
+        <a href="#" class="btn-project">Ver projeto</a>
       </div>
-      <p class="descricao">Descrição breve do projeto</p>
-      <a href="#" class="btn btn-projeto">Ver projeto</a>
-    </div>
 
-  </div>
-</section>
-
-<footer class="rodape">
-  © 2025 ServicesBI. Todos os direitos reservados.
-</footer>
-
-</body>
-</html>
+      <div class="project-card">
+        <div class="project-image">
+          <img src="assets/projects/home/04.png" alt="">
+          <span class="project-title">Projeto 04</span>
+        </div>
+        <p>Descrição breve do projeto</p>
+        <a href="#" class="btn-project">Ver projeto</a>
+      </div>
