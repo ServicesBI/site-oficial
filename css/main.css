@@ -46,34 +46,30 @@ body {
 /* ================= HERO / BANNER ================= */
 .hero {
     background: radial-gradient(circle at center, #0f2a44, #020b1c);
-    padding: 120px 20px;
+    padding: 140px 20px;
     text-align: center;
+}
+
+.hero p,
+.hero h1 {
     color: #ffffff;
 }
 
-.hero-title {
-    font-size: 36px;
-    margin-bottom: 8px;
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
 }
 
-.hero-subtitle {
-    color: #fbbf24;
+.hero p {
     font-size: 15px;
-}
-
-/* ================= SECTIONS ================= */
-.services-section,
-.projects-section {
-    padding: 80px 0;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 26px;
-    margin-bottom: 40px;
+    color: #fbbf24;
 }
 
 /* ================= SERVICES ================= */
+.services-section {
+    padding: 80px 0;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -122,6 +118,10 @@ body {
 }
 
 /* ================= PROJECTS ================= */
+.projects-section {
+    padding: 80px 0;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -139,7 +139,7 @@ body {
 
 .project-image {
     position: relative;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .project-image img {
@@ -147,23 +147,26 @@ body {
     height: 180px;
     object-fit: cover;
     border-radius: 10px;
+    display: block;
 }
 
+/* 🔥 TÍTULO SOBRE A IMAGEM (FUNCIONANDO) */
 .project-title {
     position: absolute;
     bottom: 12px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 13px;
     font-weight: 600;
 }
 
+/* 🔥 BOTÃO CENTRALIZADO */
 .btn-project {
     display: block;
-    margin: 12px auto 0;
+    margin: 14px auto 0;
     padding: 8px 18px;
     border-radius: 8px;
     border: 2px solid #fbbf24;
@@ -171,36 +174,12 @@ body {
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
+    width: fit-content;
 }
 
 .btn-project:hover {
     background-color: #fbbf24;
     color: #ffffff;
-}
-
-/* ================= CURRÍCULO ================= */
-.curriculo-wrapper {
-    display: flex;
-    gap: 40px;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.curriculo-sheet {
-    width: 420px;
-    background-color: #ffffff;
-    padding: 32px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.curriculo-download {
-    text-align: center;
-    margin-top: 24px;
-}
-
-.curriculo-download img {
-    width: 48px;
-    cursor: pointer;
 }
 
 /* ================= FOOTER ================= */
@@ -225,11 +204,6 @@ body {
 
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .curriculo-wrapper {
-        flex-direction: column;
-        align-items: center;
     }
 }
 
