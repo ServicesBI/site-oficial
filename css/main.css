@@ -7,7 +7,7 @@
 
 /* ================= GLOBAL ================= */
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     font-style: italic;
     color: #1f2937;
     background-color: #ffffff;
@@ -36,6 +36,8 @@ body {
 .nav a {
     color: #ffffff;
     text-decoration: none;
+    font-weight: 500;
+    font-style: italic;
 }
 
 .nav a.active,
@@ -44,33 +46,34 @@ body {
     padding-bottom: 4px;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO / BANNER ================= */
 .hero {
     width: 100%;
     min-height: 420px;
+    background: radial-gradient(circle at center, #0f2a44, #020b1c);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: radial-gradient(circle at center, #0f2a44, #020b1c);
 }
 
 .hero h1 {
     color: #ffffff;
     font-size: 38px;
+    margin-bottom: 10px;
 }
 
 .hero p {
-    color: #fbbf24;
     font-size: 15px;
+    color: #fbbf24;
 }
 
 /* ================= SECTION TITLES ================= */
 .section-title {
     text-align: center;
     font-size: 26px;
-    margin-bottom: 48px;
+    margin: 40px 0 48px;
 }
 
 /* ================= SERVICES ================= */
@@ -85,7 +88,7 @@ body {
 }
 
 .service-card {
-    background: #ffffff;
+    background-color: #ffffff;
     border-radius: 12px;
     padding: 28px 24px;
     text-align: center;
@@ -93,16 +96,16 @@ body {
     border-top: 4px solid #fbbf24;
     border-bottom: 4px solid #fbbf24;
 
-    box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     display: flex;
     flex-direction: column;
 
-    transition: transform .3s ease, box-shadow .3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 18px 36px rgba(0,0,0,.15);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.15);
 }
 
 .service-icon {
@@ -111,18 +114,27 @@ body {
     display: block;
 }
 
+.service-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
 .service-card p {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 16px;
     flex-grow: 1;
 }
 
 .btn-service {
+    display: inline-block;
     margin: 0 auto;
     padding: 8px 18px;
     border-radius: 8px;
     border: 2px solid #fbbf24;
-    background: transparent;
     color: #92400e;
     text-decoration: none;
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -140,11 +152,11 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
-    overflow: visible;
+    overflow: visible; /* garante 6 cards */
 }
 
 .project-card {
-    background: #ffffff;
+    background-color: #ffffff;
     border-radius: 14px;
     padding: 20px;
     text-align: center;
@@ -152,13 +164,13 @@ body {
     border-top: 4px solid #fbbf24;
     border-bottom: 4px solid #fbbf24;
 
-    box-shadow: 0 8px 24px rgba(0,0,0,.08);
-    transition: transform .3s ease, box-shadow .3s ease;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 18px 36px rgba(0,0,0,.15);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.15);
 }
 
 .project-image {
@@ -174,28 +186,32 @@ body {
     display: block;
 }
 
+/* 🔥 TÍTULO DO PROJETO — SOBRE A IMAGEM (CORRIGIDO) */
 .project-title {
     position: absolute;
-    top: 12px;
+    bottom: 12px;              /* mantém padrão que funcionava */
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 13px;
     font-weight: 600;
+    text-align: center;
 }
 
+/* BOTÃO PROJETO */
 .btn-project {
     display: block;
     margin: 14px auto 0;
     padding: 8px 18px;
     border-radius: 8px;
     border: 2px solid #fbbf24;
-    background: transparent;
     color: #92400e;
     text-decoration: none;
+    font-size: 14px;
     font-weight: 600;
+    width: fit-content;
 }
 
 .btn-project:hover {
@@ -207,27 +223,23 @@ body {
 .site-footer {
     background-color: #0f2a44;
     color: #ffffff;
-    padding: 40px 20px;
+    padding: 60px 20px 20px;
     margin-top: 80px;
-}
-
-.site-footer p,
-.site-footer a {
-    color: #ffffff;
-    text-align: center;
-    font-size: 14px;
 }
 
 .footer-copy-bar {
     text-align: center;
-    margin-top: 16px;
+    margin-top: 32px;
     font-size: 13px;
-    opacity: 0.85;
+    opacity: 0.8;
 }
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
-    .services-grid,
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
     }
