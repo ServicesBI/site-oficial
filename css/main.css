@@ -1,193 +1,234 @@
-/* RESET + TIPOGRAFIA */
+/* ================= RESET ================= */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-  font-style: italic;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background: #ffffff;
-  color: #1f2937;
-  line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1f2937;
+    background-color: #ffffff;
+    line-height: 1.6;
 }
 
-/* CONTAINER */
+/* ================= CONTAINER ================= */
 .container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 .site-header {
-  background: #0f2a44;
-  padding: 16px 0;
+    background-color: #0f2a44;
+    padding: 16px 0;
 }
 
 .nav {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
 }
 
 .nav a {
-  color: #ffffff;
-  text-decoration: none;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .nav a.active,
 .nav a:hover {
-  border-bottom: 2px solid #fbbf24;
+    border-bottom: 2px solid #fbbf24;
+    padding-bottom: 4px;
 }
 
-/* BANNER */
+/* ================= HERO / BANNER ================= */
 .hero {
-  background: url("../assets/banner.png") center / cover no-repeat;
-  min-height: 420px;
-  display: flex;
-  align-items: center;
-  text-align: center;
+    width: 100%;
+    min-height: 420px; /* área completa do banner */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #0f2a44, #020b1c);
+    padding: 0 20px; /* apenas lateral */
 }
 
 .hero h1 {
-  color: #ffffff;
-  font-size: 36px;
+    font-size: 38px;
+    margin-bottom: 10px;
+    color: #ffffff;
 }
 
 .hero p {
-  color: #fbbf24;
+    font-size: 15px;
+    color: #fbbf24;
 }
 
-/* TITULOS */
-.section-title {
-  text-align: center;
-  margin: 60px 0 40px;
-  font-size: 26px;
+/* ================= SERVICES ================= */
+.services-section {
+    padding: 80px 0;
 }
 
-/* SERVIÇOS */
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
 }
 
 .service-card {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 26px 22px;
-  text-align: center;
-  border-top: 3px solid #fbbf24;
-  border-bottom: 3px solid #fbbf24;
-  box-shadow: 0 8px 24px rgba(0,0,0,.08);
-  transition: box-shadow .25s ease, transform .25s ease;
-}
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-top: 4px solid #fbbf24;
 
-.service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 36px rgba(0,0,0,.14);
+    /* correção de alinhamento */
+    display: flex;
+    flex-direction: column;
 }
 
 .service-icon {
-  width: 48px;
-  margin-bottom: 16px;
+    width: 48px;
+    margin-bottom: 16px;
+}
+
+.service-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 16px;
+    flex-grow: 1; /* empurra o botão para baixo */
 }
 
 .btn-service {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 8px 18px;
-  border: 2px solid #fbbf24;
-  border-radius: 20px;
-  color: #92400e;
-  text-decoration: none;
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: 2px solid #fbbf24;
+    color: #92400e;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
 }
 
-/* PROJETOS */
+.btn-service:hover {
+    background-color: #fbbf24;
+    color: #ffffff;
+}
+
+/* ================= PROJECTS ================= */
+.projects-section {
+    padding: 80px 0;
+}
+
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 36px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* suporta 6 cards (2x3) */
+    gap: 32px;
 }
 
 .project-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 20px;
-  text-align: center;
-  border-top: 3px solid #fbbf24;
-  border-bottom: 3px solid #fbbf24;
-  box-shadow: 0 8px 24px rgba(0,0,0,.08);
-  transition: box-shadow .25s ease, transform .25s ease;
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-top: 4px solid #fbbf24;
+    text-align: center;
+
+    /* hover restaurado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 🔥 EFEITO DE DESTAQUE (O “PULO”) */
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 42px rgba(0,0,0,.18);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.12);
 }
 
 .project-image {
-  position: relative;
-  margin-bottom: 14px;
+    position: relative;
+    margin-bottom: 14px;
 }
 
 .project-image img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
 }
 
+/* título sobre a imagem */
 .project-title {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255,255,255,.9);
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 13px;
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
 }
 
-/* BOTÃO PROJETO */
 .btn-project {
-  display: block;
-  margin: 14px auto 0;
-  padding: 8px 18px;
-  border: 2px solid #fbbf24;
-  border-radius: 20px;
-  color: #92400e;
-  text-decoration: none;
-  width: fit-content;
+    display: block;
+    margin: 14px auto 0;
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: 2px solid #fbbf24;
+    color: #92400e;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    width: fit-content;
 }
 
-/* FOOTER */
+.btn-project:hover {
+    background-color: #fbbf24;
+    color: #ffffff;
+}
+
+/* ================= FOOTER ================= */
 .site-footer {
-  background: #0f2a44;
-  color: #ffffff;
-  padding: 40px 0 20px;
+    background-color: #0f2a44;
+    color: #ffffff;
+    padding: 60px 20px 20px;
 }
 
 .footer-copy-bar {
-  text-align: center;
-  font-size: 13px;
+    text-align: center;
+    margin-top: 32px;
+    font-size: 13px;
+    opacity: 0.8;
 }
 
-/* RESPONSIVO */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
-  .services-grid,
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 600px) {
-  .services-grid,
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-}
+    .services-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 
+    .nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
