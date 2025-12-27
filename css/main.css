@@ -250,24 +250,31 @@ button {
 
     display: flex;
     flex-direction: column;
+    align-items: center;
+
+    font-family: "Segoe UI", sans-serif; /* 👈 garante Segoe UI */
+    font-style: italic;                  /* 👈 mantém itálico global */
 }
 
-/* ÍCONE – força visibilidade */
+/* TÍTULO – vem antes do ícone */
+.service-card h3 {
+    order: 1;                 /* 👈 força título acima do ícone */
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+/* ÍCONE – abaixo do título */
 .service-icon {
+    order: 2;                 /* 👈 ícone depois do título */
     display: block;
     width: 48px;
     height: auto;
     margin: 0 auto 16px;
 }
 
-/* Título */
-.service-card h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
-}
-
 /* TEXTO – agora 4 linhas */
 .service-card p {
+    order: 3;                 /* 👈 texto depois do ícone */
     font-size: 14px;
     color: #6b7280;
     margin-bottom: 20px;
@@ -286,6 +293,7 @@ button {
 
 /* BOTÃO – blindado */
 .btn-service {
+    order: 4;                  /* 👈 botão sempre por último */
     display: inline-block;
     margin: 0 auto;
 
@@ -297,6 +305,7 @@ button {
     text-decoration: none !important; /* 👈 remove sublinhado */
     font-size: 14px;
     font-weight: 600;
+    font-style: italic;               /* 👈 mantém padrão visual */
 
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -325,6 +334,7 @@ button {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
