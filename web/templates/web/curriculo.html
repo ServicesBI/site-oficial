@@ -1,6 +1,136 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block content %}
 
+<!-- ================= HERO INTERNO ================= -->
+<section class="hero hero--internal">
+    <div class="container hero-container">
+        <h1 class="hero-title">Currículo Profissional</h1>
+        <p class="hero-subtitle">Leles Júnior — Analista de Dados & BI</p>
+    </div>
+</section>
+
+<link rel="stylesheet" href="{% static 'css/curriculo.css' %}">
+
+<!-- ================= AÇÕES ================= -->
+<section class="curriculo-actions">
+    <a href="{% static 'docs/Leles_Junior.pdf' %}" target="_blank" class="btn-action">
+        📄 Baixar PDF
+    </a>
+    <button onclick="window.print()" class="btn-action">
+        🖨️ Imprimir
+    </button>
+</section>
+
+<!-- ================= CURRÍCULO ================= -->
+<section class="curriculo-wrapper">
+
+    <div class="curriculo-pages">
+
+        <!-- ================= FOLHA 1 ================= -->
+        <article class="curriculo-sheet">
+
+            <div class="sheet-header">
+                <div class="sheet-name">Leles Júnior</div>
+                <div class="sheet-contact">
+                    www.servicesbi.com.br<br>
+                    jrleles@servicesbi.com.br<br>
+                    61-99302-9988
+                </div>
+            </div>
+
+            <h2>Objetivo Profissional.</h2>
+            <p>
+                Desempenhando a função de Analista de Dados, aplicando minha experiência em projeções financeiras,
+                análise de demonstrativos contábeis (DRE, Fluxo de Caixa e Balanço Patrimonial) e Business Intelligence
+                para apoiar a tomada de decisões estratégicas. Busco contribuir com a otimização de processos e o
+                aprimoramento do desempenho financeiro da organização por meio de soluções analíticas, automação
+                de relatórios em Power BI e uma abordagem orientada por dados.
+            </p>
+
+            <h2>Experiência Profissional.</h2>
+
+            <h3>CNEC – Campanha Nacional de Escolas da Comunidade <span>05/2025 - 10/2025</span></h3>
+            <h4>Analista de Dados – Setor Financeiro Educacional</h4>
+            <p>
+                Responsável pela coleta, tratamento e análise de dados financeiros e acadêmicos, desenvolvendo
+                dashboards e relatórios gerenciais em Power BI. Elaboração de DRE, projeções orçamentárias e controle
+                de inadimplência, automatização de processos e integração de sistemas (ERP escolar e financeiro).
+                Desenvolvimento de painéis de controle financeiro e acadêmico integrados, reduzindo o tempo de
+                consolidação de dados em 60%. Implementação de modelos de previsão de inadimplência e acompanhamento
+                de mensalidades em atraso.
+            </p>
+
+            <h3>Colégio Everest Internacional <span>01/2021 - 05/2023</span></h3>
+            <h4>Analista de Dados – Setor Financeiro Educacional</h4>
+            <p>
+                Analista de Dados responsável pelo processo de ETL e projeções financeiras fundamentadas, utilizando
+                como base informações o sistema TOTYS – referendando análise financeiras através do Demonstrativo
+                de Resultados do Exercício (DRE), Fluxo de Caixa e Contas a Pagar e Receber. Utilizando o Power BI para
+                apresentar relatórios (dashboards) que fornecem insights valiosos para a gestão financeira da
+                instituição. Criação de estratégias de otimização de custos operacionais, contribuindo para o
+                aumento da margem líquida da instituição. Atuação colaborativa com setores acadêmico, financeiro
+                e administrativo, promovendo decisões orientadas por dados.
+            </p>
+
+        </article>
+
+        <!-- ================= FOLHA 2 ================= -->
+        <article class="curriculo-sheet">
+
+            <h3>Hospital Anchieta Ltda. <span>03/2017 – 12/2019</span></h3>
+            <h4>Analista de Compras Jr – Hospital Anchieta</h4>
+            <p>
+                Responsável por conduzir processos de aquisição de suprimentos médicos e serviços essenciais,
+                assegurando qualidade, economia e pontualidade nas entregas. Realização de pesquisas de mercado,
+                avaliação de propostas e negociações com fornecedores, resultando em redução de custos e melhoria
+                na qualidade dos insumos. Desenvolvimento de relatórios estratégicos em Power BI, otimizando o
+                acompanhamento de compras e estoques. Implantação de controles internos que aumentaram a eficiência
+                do processo de aquisição. Colaboração direta com equipes multidisciplinares para garantir o
+                fornecimento contínuo de materiais e serviços essenciais, apoiando decisões estratégicas da
+                instituição.
+            </p>
+
+            <h2>Formação Acadêmica:</h2>
+            <p>
+                Faculdade Anhanguera<br>
+                Curso: Gestão Financeira (Concluído em 07/2025)
+            </p>
+
+            <h2>Especialização em Data Analitycs:</h2>
+            <p>
+                Profissional com sólida experiência em coleta, tratamento e interpretação de dados para apoiar
+                decisões estratégicas. Especialista em desenvolvimento de dashboards interativos e relatórios
+                gerenciais em Power BI, Excel e SQL. Atuo na criação de modelos preditivos, automação de processos
+                e integração de sistemas corporativos. Focado em transformar dados complexos em insights acionáveis,
+                otimizando resultados e eficiência operacional. Forte atuação colaborativa com áreas financeira,
+                administrativa e executiva, promovendo a cultura data-driven nas organizações.
+            </p>
+
+            <h2>Habilidades e Competências:</h2>
+            <ul>
+                <li>Desenvolvimento Web e APIs: Criação e integração de APIs RESTful.</li>
+                <li>Banco de Dados: SQL (PostgreSQL, MySQL).</li>
+                <li>Tratamento e Engenharia de Dados.</li>
+                <li>Business Intelligence (Power BI).</li>
+                <li>Automação e Integração.</li>
+                <li>Controle de Versão e Deploy (Git, Docker, CI/CD).</li>
+                <li>Estatística, IA e Modelagem Preditiva.</li>
+            </ul>
+
+            <h2>Idiomas:</h2>
+            <p>
+                Inglês:<br>
+                Leitura – Boa<br>
+                Escrita – Intermediária<br>
+                Conversação – Intermediária
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
 
 {% endblock %}
