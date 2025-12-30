@@ -129,7 +129,7 @@ body {
     text-align: center;
 
     background-color: #020b1c;
-    background-image: url("../images/banners/home/home.png");
+    background-image: url("/static/images/home.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -143,7 +143,7 @@ body {
 .hero.hero--internal {
     min-height: 45vh;
     padding-top: 120px;
-    background-image: url("../images/banners/internal/internal.png");
+    background-image: url("/static/images/internal.png");
 }
 
 .hero.hero--internal .hero-title,
@@ -199,6 +199,7 @@ body {
         font-size: 14px;
     }
 }
+
 
 /* ================= TÍTULOS DE SEÇÃO ================= */
 
