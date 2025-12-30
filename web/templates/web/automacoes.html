@@ -3,59 +3,112 @@
 
 {% block content %}
 
+<!-- ================= HERO INTERNO ================= -->
 <section class="hero hero--internal">
     <div class="container hero-container">
         <h1 class="hero-title">Automações & IA</h1>
         <p class="hero-subtitle">
-            Processos inteligentes para ganhar escala
+            Processos inteligentes, automação e eficiência operacional
         </p>
     </div>
 </section>
 
+<!-- ================= INTRO ================= -->
 <section class="content-section">
     <div class="container">
-        <h2 class="section-title">O que automatizamos</h2>
+
+        <h2 class="section-title">O que fazemos com Automações & IA</h2>
 
         <p class="section-description">
-            Desenvolvemos soluções automatizadas com Python e IA para reduzir custos,
-            eliminar tarefas manuais e aumentar produtividade.
+            Desenvolvemos soluções automatizadas e inteligentes para eliminar tarefas
+            repetitivas, integrar sistemas e aumentar a produtividade por meio de
+            automação e inteligência artificial.
         </p>
+
     </div>
 </section>
 
+<!-- ================= SERVIÇOS ================= -->
 <section class="services-section">
     <div class="container">
-        <h2 class="section-title">Soluções</h2>
+
+        <h2 class="section-title">Serviços</h2>
 
         <div class="services-grid">
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon">
+                <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon" alt="Automação">
                 <h3>Automação de Processos</h3>
-                <p>Rotinas, robôs e fluxos automatizados.</p>
+                <p>
+                    Eliminação de tarefas manuais e repetitivas por meio de scripts,
+                    robôs e fluxos automatizados.
+                </p>
                 <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/python.png' %}" class="service-icon">
-                <h3>Scripts Inteligentes</h3>
-                <p>Automação com lógica avançada.</p>
+                <img src="{% static 'images/icons/home/python.png' %}" class="service-icon" alt="Integrações">
+                <h3>Integrações de Sistemas</h3>
+                <p>
+                    Integração entre sistemas, APIs e bancos de dados para garantir
+                    fluxo contínuo de informações.
+                </p>
                 <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon">
-                <h3>IA aplicada</h3>
-                <p>Classificação, previsão e análise.</p>
+                <img src="{% static 'images/icons/home/bi.png' %}" class="service-icon" alt="Dados">
+                <h3>Automação de Dados</h3>
+                <p>
+                    Coleta, tratamento e consolidação automática de dados para BI,
+                    relatórios e análises estratégicas.
+                </p>
                 <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/bi.png' %}" class="service-icon">
-                <h3>Automação de Relatórios</h3>
-                <p>Relatórios atualizados automaticamente.</p>
+                <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon" alt="IA">
+                <h3>Inteligência Artificial</h3>
+                <p>
+                    Aplicação de IA e machine learning para análises preditivas,
+                    classificação e apoio à decisão.
+                </p>
                 <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
             </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= PROJETOS ================= -->
+<section class="projects-section">
+    <div class="container">
+
+        <h2 class="section-title">Projetos</h2>
+
+        <div class="projects-grid">
+
+            {% for i in "123456" %}
+            <div class="project-card">
+
+                <div class="project-image">
+                    <img src="{% static 'images/projects/home/' %}{{ forloop.counter }}.png"
+                         alt="Projeto {{ forloop.counter }}">
+                </div>
+
+                <div class="project-content">
+                    <h3 class="project-title">Projeto {{ forloop.counter }}</h3>
+
+                    <p>
+                        Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
+                        sem apertar o layout.
+                    </p>
+                </div>
+
+                <a href="#" class="btn-project" target="_blank">Ver projeto</a>
+
+            </div>
+            {% endfor %}
 
         </div>
     </div>

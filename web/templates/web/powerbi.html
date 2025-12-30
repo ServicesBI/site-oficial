@@ -3,59 +3,112 @@
 
 {% block content %}
 
+<!-- ================= HERO INTERNO ================= -->
 <section class="hero hero--internal">
     <div class="container hero-container">
         <h1 class="hero-title">Power BI</h1>
         <p class="hero-subtitle">
-            Dashboards interativos e análises estratégicas
+            Dashboards profissionais e análise estratégica de dados
         </p>
     </div>
 </section>
 
+<!-- ================= INTRO ================= -->
 <section class="content-section">
     <div class="container">
+
         <h2 class="section-title">O que fazemos com Power BI</h2>
 
         <p class="section-description">
-            Criamos dashboards profissionais, conectando dados de múltiplas fontes
-            para apoiar decisões estratégicas com clareza e impacto visual.
+            Desenvolvemos dashboards interativos e análises visuais que transformam
+            dados complexos em informações claras, confiáveis e estratégicas para
+            apoiar a tomada de decisão.
         </p>
+
     </div>
 </section>
 
+<!-- ================= SERVIÇOS ================= -->
 <section class="services-section">
     <div class="container">
+
         <h2 class="section-title">Serviços</h2>
 
         <div class="services-grid">
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/bi.png' %}" class="service-icon">
-                <h3>Dashboards Executivos</h3>
-                <p>Indicadores claros para gestores e tomada de decisão.</p>
+                <img src="{% static 'images/icons/home/bi.png' %}" class="service-icon" alt="Dashboards">
+                <h3>Dashboards Interativos</h3>
+                <p>
+                    Criação de painéis visuais dinâmicos com KPIs e métricas
+                    personalizadas para acompanhamento de resultados.
+                </p>
                 <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon">
-                <h3>Modelagem de Dados</h3>
-                <p>Estruturação eficiente para performance e escalabilidade.</p>
+                <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon" alt="Análise">
+                <h3>Análise de Dados</h3>
+                <p>
+                    Análises exploratórias e estratégicas para identificar padrões,
+                    tendências e oportunidades de melhoria.
+                </p>
                 <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon">
-                <h3>Atualizações Automáticas</h3>
-                <p>Conexões com bancos, APIs e arquivos.</p>
+                <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon" alt="Automação">
+                <h3>Automação de Relatórios</h3>
+                <p>
+                    Atualização automática de dados e relatórios, reduzindo esforço
+                    manual e aumentando confiabilidade.
+                </p>
                 <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/python.png' %}" class="service-icon">
-                <h3>Integração com Python</h3>
-                <p>ETL, automações e análises avançadas.</p>
+                <img src="{% static 'images/icons/home/python.png' %}" class="service-icon" alt="Integrações">
+                <h3>Integrações de Dados</h3>
+                <p>
+                    Conexão com múltiplas fontes de dados como bancos SQL, APIs,
+                    planilhas e sistemas corporativos.
+                </p>
                 <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
             </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= PROJETOS ================= -->
+<section class="projects-section">
+    <div class="container">
+
+        <h2 class="section-title">Projetos</h2>
+
+        <div class="projects-grid">
+
+            {% for i in "123456" %}
+            <div class="project-card">
+
+                <div class="project-image">
+                    <img src="{% static 'images/projects/home/' %}{{ forloop.counter }}.png"
+                         alt="Projeto {{ forloop.counter }}">
+                </div>
+
+                <div class="project-content">
+                    <h3 class="project-title">Projeto {{ forloop.counter }}</h3>
+
+                    <p>
+                        Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
+                        sem apertar o layout.
+                    </p>
+                </div>
+
+                <a href="#" class="btn-project" target="_blank">Ver projeto</a>
+
+            </div>
+            {% endfor %}
 
         </div>
     </div>

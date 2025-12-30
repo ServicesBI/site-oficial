@@ -3,59 +3,112 @@
 
 {% block content %}
 
+<!-- ================= HERO INTERNO ================= -->
 <section class="hero hero--internal">
     <div class="container hero-container">
         <h1 class="hero-title">Excel Avançado</h1>
         <p class="hero-subtitle">
-            Planilhas inteligentes e automatizadas
+            Automação, análise e organização de dados com Excel
         </p>
     </div>
 </section>
 
+<!-- ================= INTRO ================= -->
 <section class="content-section">
     <div class="container">
-        <h2 class="section-title">Excel para Negócios</h2>
+
+        <h2 class="section-title">O que fazemos com Excel</h2>
 
         <p class="section-description">
-            Transformamos planilhas em ferramentas poderosas para análise,
-            controle e automação.
+            Utilizamos Excel de forma avançada para análise de dados,
+            automação de relatórios, organização financeira e apoio
+            à tomada de decisões estratégicas.
         </p>
+
     </div>
 </section>
 
+<!-- ================= SERVIÇOS ================= -->
 <section class="services-section">
     <div class="container">
+
         <h2 class="section-title">Serviços</h2>
 
         <div class="services-grid">
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/excel.png' %}" class="service-icon">
+                <img src="{% static 'images/icons/home/excel.png' %}" class="service-icon" alt="Excel">
                 <h3>Dashboards em Excel</h3>
-                <p>Indicadores claros e dinâmicos.</p>
+                <p>
+                    Criação de dashboards interativos com tabelas dinâmicas,
+                    gráficos e indicadores de desempenho.
+                </p>
                 <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon">
+                <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon" alt="Automação">
                 <h3>Automação com VBA</h3>
-                <p>Processos rápidos e confiáveis.</p>
+                <p>
+                    Automação de processos repetitivos com VBA,
+                    reduzindo erros e aumentando produtividade.
+                </p>
                 <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/python.png' %}" class="service-icon">
-                <h3>Integração com Python</h3>
-                <p>Planilhas conectadas a sistemas.</p>
+                <img src="{% static 'images/icons/home/bi.png' %}" class="service-icon" alt="Dados">
+                <h3>Análise de Dados</h3>
+                <p>
+                    Análise financeira, operacional e estratégica
+                    com dados estruturados e confiáveis.
+                </p>
                 <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon">
-                <h3>Consultoria</h3>
-                <p>Estruturação e boas práticas.</p>
+                <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon" alt="Consultoria">
+                <h3>Consultoria em Excel</h3>
+                <p>
+                    Estruturação de planilhas, modelos financeiros
+                    e boas práticas para uso corporativo.
+                </p>
                 <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
             </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= PROJETOS ================= -->
+<section class="projects-section">
+    <div class="container">
+
+        <h2 class="section-title">Projetos</h2>
+
+        <div class="projects-grid">
+
+            {% for i in "123456" %}
+            <div class="project-card">
+
+                <div class="project-image">
+                    <img src="{% static 'images/projects/home/' %}{{ forloop.counter }}.png"
+                         alt="Projeto {{ forloop.counter }}">
+                </div>
+
+                <div class="project-content">
+                    <h3 class="project-title">Projeto {{ forloop.counter }}</h3>
+
+                    <p>
+                        Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
+                        sem comprometer o layout.
+                    </p>
+                </div>
+
+                <a href="#" class="btn-project" target="_blank">Ver projeto</a>
+
+            </div>
+            {% endfor %}
 
         </div>
     </div>
