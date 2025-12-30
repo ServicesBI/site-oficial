@@ -1,6 +1,64 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block content %}
 
+<section class="hero hero--internal">
+    <div class="container hero-container">
+        <h1 class="hero-title">Automações & IA</h1>
+        <p class="hero-subtitle">
+            Processos inteligentes para ganhar escala
+        </p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <h2 class="section-title">O que automatizamos</h2>
+
+        <p class="section-description">
+            Desenvolvemos soluções automatizadas com Python e IA para reduzir custos,
+            eliminar tarefas manuais e aumentar produtividade.
+        </p>
+    </div>
+</section>
+
+<section class="services-section">
+    <div class="container">
+        <h2 class="section-title">Soluções</h2>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon">
+                <h3>Automação de Processos</h3>
+                <p>Rotinas, robôs e fluxos automatizados.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/python.png' %}" class="service-icon">
+                <h3>Scripts Inteligentes</h3>
+                <p>Automação com lógica avançada.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon">
+                <h3>IA aplicada</h3>
+                <p>Classificação, previsão e análise.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/bi.png' %}" class="service-icon">
+                <h3>Automação de Relatórios</h3>
+                <p>Relatórios atualizados automaticamente.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+        </div>
+    </div>
+</section>
 
 {% endblock %}

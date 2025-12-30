@@ -1,6 +1,64 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block content %}
 
+<section class="hero hero--internal">
+    <div class="container hero-container">
+        <h1 class="hero-title">Power BI</h1>
+        <p class="hero-subtitle">
+            Dashboards interativos e análises estratégicas
+        </p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <h2 class="section-title">O que fazemos com Power BI</h2>
+
+        <p class="section-description">
+            Criamos dashboards profissionais, conectando dados de múltiplas fontes
+            para apoiar decisões estratégicas com clareza e impacto visual.
+        </p>
+    </div>
+</section>
+
+<section class="services-section">
+    <div class="container">
+        <h2 class="section-title">Serviços</h2>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/bi.png' %}" class="service-icon">
+                <h3>Dashboards Executivos</h3>
+                <p>Indicadores claros para gestores e tomada de decisão.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon">
+                <h3>Modelagem de Dados</h3>
+                <p>Estruturação eficiente para performance e escalabilidade.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon">
+                <h3>Atualizações Automáticas</h3>
+                <p>Conexões com bancos, APIs e arquivos.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/python.png' %}" class="service-icon">
+                <h3>Integração com Python</h3>
+                <p>ETL, automações e análises avançadas.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+        </div>
+    </div>
+</section>
 
 {% endblock %}

@@ -1,6 +1,64 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block content %}
 
+<section class="hero hero--internal">
+    <div class="container hero-container">
+        <h1 class="hero-title">Excel Avançado</h1>
+        <p class="hero-subtitle">
+            Planilhas inteligentes e automatizadas
+        </p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <h2 class="section-title">Excel para Negócios</h2>
+
+        <p class="section-description">
+            Transformamos planilhas em ferramentas poderosas para análise,
+            controle e automação.
+        </p>
+    </div>
+</section>
+
+<section class="services-section">
+    <div class="container">
+        <h2 class="section-title">Serviços</h2>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/excel.png' %}" class="service-icon">
+                <h3>Dashboards em Excel</h3>
+                <p>Indicadores claros e dinâmicos.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon">
+                <h3>Automação com VBA</h3>
+                <p>Processos rápidos e confiáveis.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/python.png' %}" class="service-icon">
+                <h3>Integração com Python</h3>
+                <p>Planilhas conectadas a sistemas.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon">
+                <h3>Consultoria</h3>
+                <p>Estruturação e boas práticas.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+        </div>
+    </div>
+</section>
 
 {% endblock %}
