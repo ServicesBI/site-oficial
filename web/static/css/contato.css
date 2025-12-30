@@ -1,0 +1,104 @@
+/* ================= CONTATO PAGE ================= */
+
+.contato-page {
+    padding: 80px 0;
+    background-color: #f9fafb;
+}
+
+.contato-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: flex-start;
+}
+
+/* ================= COLUNA ESQUERDA ================= */
+
+.contato-info h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.contato-info p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #374151;
+    margin-bottom: 14px;
+}
+
+.contato-dados {
+    margin-top: 28px;
+}
+
+.contato-dados li {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+.contato-dados a {
+    color: #0f2a44;
+    font-weight: 600;
+}
+
+.contato-dados a:hover {
+    text-decoration: underline;
+}
+
+/* ================= FORMULÁRIO ================= */
+
+.contato-form-wrapper h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+.contato-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #111827;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    font-family: "Segoe UI", sans-serif;
+    font-style: italic;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #fbbf24;
+}
+
+/* Botão reaproveita padrão do site */
+.contato-form .btn-project {
+    align-self: flex-start;
+    margin-top: 12px;
+}
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 900px) {
+    .contato-container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+}

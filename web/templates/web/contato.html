@@ -1,6 +1,129 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block content %}
 
+<!-- ================= HERO INTERNO ================= -->
+<section class="hero hero--internal">
+    <div class="container hero-container">
+        <h1 class="hero-title">Contato</h1>
+        <p class="hero-subtitle">
+            Vamos conversar sobre dados, projetos e soluções
+        </p>
+    </div>
+</section>
+
+<!-- ================= CONTATO ================= -->
+<section class="content-section contato-page">
+    <div class="container contato-container">
+
+        <!-- COLUNA ESQUERDA -->
+        <div class="contato-info">
+            <h2>Fale comigo</h2>
+
+            <p>
+                Se você tem interesse em projetos de
+                <strong>Business Intelligence</strong>,
+                <strong>análise de dados</strong>,
+                <strong>automação</strong> ou
+                <strong>consultoria em dados</strong>,
+                fique à vontade para entrar em contato.
+            </p>
+
+            <p>
+                Estou aberto a oportunidades profissionais,
+                projetos freelancers e parcerias.
+            </p>
+
+            <ul class="contato-dados">
+                <li>
+                    <strong>E-mail:</strong>
+                    <a href="mailto:jrleles@servicesbi.com.br">
+                        jrleles@servicesbi.com.br
+                    </a>
+                </li>
+
+                <li>
+                    <strong>Telefone:</strong>
+                    <a href="https://wa.me/5561993029988" target="_blank">
+                        +55 61 99302-9988
+                    </a>
+                </li>
+
+                <li>
+                    <strong>LinkedIn:</strong>
+                    <a href="https://www.linkedin.com/in/jrleles/" target="_blank">
+                        linkedin.com/in/jrleles
+                    </a>
+                </li>
+
+                <li>
+                    <strong>GitHub:</strong>
+                    <a href="https://github.com/ServicesBI" target="_blank">
+                        github.com/ServicesBI
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- COLUNA DIREITA -->
+        <div class="contato-form-wrapper">
+            <h2>Enviar mensagem</h2>
+
+            <form
+                action="https://formspree.io/f/xdaoldne"
+                method="POST"
+                class="contato-form"
+            >
+
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Seu nome"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Seu e-mail"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea
+                        id="mensagem"
+                        name="message"
+                        rows="6"
+                        placeholder="Sua mensagem"
+                        required
+                    ></textarea>
+                </div>
+
+                <!-- Assunto do e-mail -->
+                <input
+                    type="hidden"
+                    name="_subject"
+                    value="Contato via site ServicesBI"
+                >
+
+                <button type="submit" class="btn-project">
+                    Enviar mensagem
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+</section>
 
 {% endblock %}
