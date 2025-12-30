@@ -92,16 +92,67 @@
 
 /* PRINT */
 @media print {
-    header, footer, .curriculo-actions {
-        display: none;
+
+    /* ================= RESET TOTAL DA PÁGINA ================= */
+
+    * {
+        box-shadow: none !important;
+        background: none !important;
     }
+
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        background: white !important;
+    }
+
+    /* ================= REMOVE ESTRUTURA DO SITE ================= */
+
+    header,
+    footer,
+    .site-header,
+    .site-footer,
+    .hero,
+    .hero--internal,
+    .curriculo-actions {
+        display: none !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* ================= CONTAINER PRINCIPAL ================= */
+
+    .curriculo-wrapper {
+        padding: 0 !important;
+        margin: 0 !important;
+        background: white !important;
+    }
+
+    /* ================= REMOVE FLEX ================= */
 
     .curriculo-pages {
-        gap: 0;
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
+    /* ================= FOLHAS ================= */
+
     .curriculo-sheet {
-        box-shadow: none;
+        width: 100% !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 40px !important;
         page-break-after: always;
+        page-break-inside: avoid;
+    }
+
+    .curriculo-sheet:last-child {
+        page-break-after: auto;
     }
 }
