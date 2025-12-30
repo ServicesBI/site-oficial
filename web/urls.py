@@ -1,6 +1,12 @@
 from django.urls import path
-from .views import home
+from . import views
 
 urlpatterns = [
-    path('', home, name='home'),
+    path("", views.home, name="home"),
+    path("python/", views.python, name="python"),
+    path("powerbi/", views.powerbi, name="powerbi"),
+    path("automacoes/", views.automacoes, name="automacoes"),
+    path("excel/", views.excel, name="excel"),
+    path("curriculo/", views.curriculo, name="curriculo"),
+    path("contato/", views.contato, name="contato"),
 ]

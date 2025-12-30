@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- ================= HERO INTERNO ================= -->
+<section class="hero hero--internal">
+    <div class="container hero-container">
+        <h1 class="hero-title">Python & Dados</h1>
+        <p class="hero-subtitle">
+            Automação, ETL, APIs e análise de dados
+        </p>
+    </div>
+</section>
+
+<!-- ================= INTRO ================= -->
+<section class="content-section">
+    <div class="container">
+
+        <h2 class="section-title">O que fazemos com Python</h2>
+
+        <p class="section-description">
+            Utilizamos Python para transformar dados brutos em soluções inteligentes,
+            automatizar processos e integrar sistemas de forma eficiente.
+        </p>
+
+    </div>
+</section>
+
+<!-- ================= SERVIÇOS ================= -->
+<section class="services-section">
+    <div class="container">
+
+        <h2 class="section-title">Serviços</h2>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/python.png' %}" class="service-icon" alt="Automação">
+                <h3>Automação de Processos</h3>
+                <p>Eliminação de tarefas manuais e aumento de produtividade.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/bi.png' %}" class="service-icon" alt="ETL">
+                <h3>ETL & Pipelines</h3>
+                <p>Tratamento e organização de dados para análise e BI.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon" alt="APIs">
+                <h3>APIs & Integrações</h3>
+                <p>Integração entre sistemas e serviços externos.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon" alt="Dados">
+                <h3>Análise de Dados</h3>
+                <p>Insights estratégicos para apoio à decisão.</p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= PROJETOS ================= -->
+<section class="projects-section">
+    <div class="container">
+
+        <h2 class="section-title">Projetos</h2>
+
+        <div class="projects-grid">
+
+            {% for i in "123456" %}
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="{% static 'images/projects/home/' %}{{ forloop.counter }}.png" alt="Projeto {{ forloop.counter }}">
+                </div>
+
+                <h3 class="project-title">Projeto {{ forloop.counter }}</h3>
+
+                <p>
+                    Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
+                    sem apertar o layout.
+                </p>
+
+                <a href="#" class="btn-project" target="_blank">Ver projeto</a>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
