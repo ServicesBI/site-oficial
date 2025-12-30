@@ -82,16 +82,119 @@
 
     <div class="projects-grid">
 
-      {% for i in "123456" %}
+      <!-- Projeto 01 -->
       <div class="project-card">
         <div class="project-image">
-          <span class="project-title">Projeto {{ i }}</span>
-          <img src="{% static 'images/projects/home/'|add:i|add:'.png' %}" alt="">
+          <img src="{% static 'images/projects/home/1.png' %}" alt="Projeto 01">
         </div>
-        <p>Descrição breve do projeto</p>
-        <a href="#" class="btn-project" target="_blank">Ver projeto</a>
+
+        <div class="project-content">
+          <h3 class="project-title">Projeto 01</h3>
+          <p>
+            Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
+            sem apertar o layout.
+          </p>
+        </div>
+
+        <a href="#" class="btn-project" target="_blank">
+          Ver projeto
+        </a>
       </div>
-      {% endfor %}
+
+      <!-- Projeto 02 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="{% static 'images/projects/home/2.png' %}" alt="Projeto 02">
+        </div>
+
+        <div class="project-content">
+          <h3 class="project-title">Projeto 02</h3>
+          <p>
+            Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
+            sem apertar o layout.
+          </p>
+        </div>
+
+        <a href="#" class="btn-project" target="_blank">
+          Ver projeto
+        </a>
+      </div>
+
+      <!-- Projeto 03 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="{% static 'images/projects/home/3.png' %}" alt="Projeto 03">
+        </div>
+
+        <div class="project-content">
+          <h3 class="project-title">Projeto 03</h3>
+          <p>
+            Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
+            sem apertar o layout.
+          </p>
+        </div>
+
+        <a href="#" class="btn-project" target="_blank">
+          Ver projeto
+        </a>
+      </div>
+
+      <!-- Projeto 04 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="{% static 'images/projects/home/4.png' %}" alt="Projeto 04">
+        </div>
+
+        <div class="project-content">
+          <h3 class="project-title">Projeto 04</h3>
+          <p>
+            Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
+            sem apertar o layout.
+          </p>
+        </div>
+
+        <a href="#" class="btn-project" target="_blank">
+          Ver projeto
+        </a>
+      </div>
+
+      <!-- Projeto 05 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="{% static 'images/projects/home/5.png' %}" alt="Projeto 05">
+        </div>
+
+        <div class="project-content">
+          <h3 class="project-title">Projeto 05</h3>
+          <p>
+            Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
+            sem apertar o layout.
+          </p>
+        </div>
+
+        <a href="#" class="btn-project" target="_blank">
+          Ver projeto
+        </a>
+      </div>
+
+      <!-- Projeto 06 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="{% static 'images/projects/home/6.png' %}" alt="Projeto 06">
+        </div>
+
+        <div class="project-content">
+          <h3 class="project-title">Projeto 06</h3>
+          <p>
+            Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
+            sem apertar o layout.
+          </p>
+        </div>
+
+        <a href="#" class="btn-project" target="_blank">
+          Ver projeto
+        </a>
+      </div>
 
     </div>
   </div>
@@ -99,25 +202,55 @@
 
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer">
-  <div class="container footer-copy-bar">
+  <div class="container footer-container">
 
-    <p class="footer-contact">
-      📧 jrleles@servicesbi.com.br  
-      &nbsp;|&nbsp; 📱 +55 61 99302-9988
-    </p>
+    <!-- CENTRO -->
+    <div class="footer-center">
 
-    <div class="footer-social">
-      <a href="https://github.com/" target="_blank">GitHub</a>
-      &nbsp;|&nbsp;
-      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-      &nbsp;|&nbsp;
-      <a href="https://wa.me/5561993029988" target="_blank">WhatsApp</a>
+      <!-- NAVEGAÇÃO -->
+      <nav class="footer-nav">
+        <a href="/">Home</a>
+        <span>|</span>
+        <a href="/python/">Python</a>
+        <span>|</span>
+        <a href="/powerbi/">PowerBI</a>
+        <span>|</span>
+        <a href="/automacoes/">Automações IA</a>
+        <span>|</span>
+        <a href="/excel/">Excel</a>
+        <span>|</span>
+        <a href="/curriculo/">Currículo</a>
+        <span>|</span>
+        <a href="/contato/">Contato</a>
+      </nav>
+
+      <!-- COPYRIGHT -->
+      <p class="footer-copy">
+        © 2026 ServicesBI. Todos os direitos reservados.
+      </p>
+
     </div>
 
-    <p class="footer-copy">
-      © 2026 ServicesBI. Todos os direitos reservados.
-    </p>
+    <!-- DIREITA -->
+    <div class="footer-right">
 
+  <a href="https://github.com/ServicesBI" target="_blank" class="footer-icon">
+    <img src="{% static 'images/icons/footer/github.png' %}" alt="GitHub">
+  </a>
+
+  <a href="https://www.linkedin.com/in/jrleles/" target="_blank" class="footer-icon">
+    <img src="{% static 'images/icons/footer/linkedin.png' %}" alt="LinkedIn">
+  </a>
+
+  <a href="https://wa.me/5561993029988" target="_blank" class="footer-icon">
+    <img src="{% static 'images/icons/footer/whatsapp.png' %}" alt="WhatsApp">
+  </a>
+
+  <span class="footer-phone">
+    +55 61 99302-9988
+  </span>
+
+</div>
   </div>
 </footer>
 
