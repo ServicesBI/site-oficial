@@ -44,6 +44,16 @@ button {
     cursor: pointer;
 }
 
+/* ================= BODY ================= */
+
+body {
+    background-color: #f9fafb;
+    color: #0f172a; /* cor padrão do texto */
+    font-family: "Segoe UI", sans-serif;
+}
+
+
+
 /* ================= TIPOGRAFIA GLOBAL ================= */
 
 body {

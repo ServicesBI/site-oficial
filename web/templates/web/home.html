@@ -1,32 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ServicesBI | Data Analytics & BI</title>
-
-
-  <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
+{% block content %}
 
 <!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="container header-container">
 
     <nav class="nav">
-      <a href="index.html" class="active">Home</a>
-      <a href="pages/python.html">Python</a>
-      <a href="pages/powerbi.html">PowerBI</a>
-      <a href="pages/automacoes.html">Automações IA</a>
-      <a href="pages/excel.html">Excel</a>
-      <a href="pages/curriculo.html">Currículo</a>
-      <a href="pages/contato.html">Contato</a>
+      <a href="/" class="active">Home</a>
+      <a href="#">Python</a>
+      <a href="#">PowerBI</a>
+      <a href="#">Automações IA</a>
+      <a href="#">Excel</a>
+      <a href="#">Currículo</a>
+      <a href="#">Contato</a>
     </nav>
 
     <div class="header-logo">
-      <img src="assets/logo/logo.png" alt="ServicesBI">
+      <img src="{% static 'images/logo/logo.png' %}" alt="ServicesBI">
     </div>
 
   </div>
@@ -51,31 +43,31 @@
     <div class="services-grid">
 
       <div class="service-card">
-        <img src="assets/icons/home/bi.png" class="service-icon" alt="Business Intelligence">
+        <img src="{% static 'images/icons/home/bi.png' %}" class="service-icon" alt="Business Intelligence">
         <h3>Business Intelligence</h3>
         <p>Dashboards e análises estratégicas</p>
-        <a href="powerbi.html" class="btn-service">Ver mais</a>
+        <a href="#" class="btn-service">Ver mais</a>
       </div>
 
       <div class="service-card">
-        <img src="assets/icons/home/automacao.png" class="service-icon" alt="Automações & IA">
+        <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon" alt="Automações & IA">
         <h3>Automações & IA</h3>
         <p>Processos automatizados e inteligência artificial</p>
-        <a href="automacoes.html" class="btn-service">Ver mais</a>
+        <a href="#" class="btn-service">Ver mais</a>
       </div>
 
       <div class="service-card">
-        <img src="assets/icons/home/python.png" class="service-icon" alt="Python & Dados">
+        <img src="{% static 'images/icons/home/python.png' %}" class="service-icon" alt="Python & Dados">
         <h3>Python & Dados</h3>
         <p>ETL, APIs e análise de dados</p>
-        <a href="python.html" class="btn-service">Ver mais</a>
+        <a href="#" class="btn-service">Ver mais</a>
       </div>
 
       <div class="service-card">
-        <img src="assets/icons/home/consultoria.png" class="service-icon" alt="Consultoria em Dados">
+        <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon" alt="Consultoria em Dados">
         <h3>Consultoria em Dados</h3>
         <p>Diagnóstico, estratégia e apoio à decisão</p>
-        <a href="contato.html" class="btn-service">Ver mais</a>
+        <a href="#" class="btn-service">Ver mais</a>
       </div>
 
     </div>
@@ -90,65 +82,16 @@
 
     <div class="projects-grid">
 
-      <!-- Projeto 01 -->
+      {% for i in "123456" %}
       <div class="project-card">
         <div class="project-image">
-          <span class="project-title">Projeto 01</span>
-          <img src="assets/projects/home/01.png" alt="">
+          <span class="project-title">Projeto {{ i }}</span>
+          <img src="{% static 'images/projects/home/'|add:i|add:'.png' %}" alt="">
         </div>
         <p>Descrição breve do projeto</p>
         <a href="#" class="btn-project" target="_blank">Ver projeto</a>
       </div>
-
-      <!-- Projeto 02 -->
-      <div class="project-card">
-        <div class="project-image">
-          <span class="project-title">Projeto 02</span>
-          <img src="assets/projects/home/02.png" alt="">
-        </div>
-        <p>Descrição breve do projeto</p>
-        <a href="#" class="btn-project" target="_blank">Ver projeto</a>
-      </div>
-
-      <!-- Projeto 03 -->
-      <div class="project-card">
-        <div class="project-image">
-          <span class="project-title">Projeto 03</span>
-          <img src="assets/projects/home/03.png" alt="">
-        </div>
-        <p>Descrição breve do projeto</p>
-        <a href="#" class="btn-project" target="_blank">Ver projeto</a>
-      </div>
-
-      <!-- Projeto 04 -->
-      <div class="project-card">
-        <div class="project-image">
-          <span class="project-title">Projeto 04</span>
-          <img src="assets/projects/home/04.png" alt="">
-        </div>
-        <p>Descrição breve do projeto</p>
-        <a href="#" class="btn-project" target="_blank">Ver projeto</a>
-      </div>
-
-      <!-- Projeto 05 -->
-      <div class="project-card">
-        <div class="project-image">
-          <span class="project-title">Projeto 05</span>
-          <img src="assets/projects/home/05.png" alt="">
-        </div>
-        <p>Descrição breve do projeto</p>
-        <a href="#" class="btn-project" target="_blank">Ver projeto</a>
-      </div>
-
-      <!-- Projeto 06 -->
-      <div class="project-card">
-        <div class="project-image">
-          <span class="project-title">Projeto 06</span>
-          <img src="assets/projects/home/06.png" alt="">
-        </div>
-        <p>Descrição breve do projeto</p>
-        <a href="#" class="btn-project" target="_blank">Ver projeto</a>
-      </div>
+      {% endfor %}
 
     </div>
   </div>
@@ -164,17 +107,11 @@
     </p>
 
     <div class="footer-social">
-      <a href="https://github.com/" target="_blank" aria-label="GitHub">
-        GitHub
-      </a>
+      <a href="https://github.com/" target="_blank">GitHub</a>
       &nbsp;|&nbsp;
-      <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn">
-        LinkedIn
-      </a>
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
       &nbsp;|&nbsp;
-      <a href="https://wa.me/5561993029988" target="_blank" aria-label="WhatsApp">
-        WhatsApp
-      </a>
+      <a href="https://wa.me/5561993029988" target="_blank">WhatsApp</a>
     </div>
 
     <p class="footer-copy">
@@ -183,3 +120,5 @@
 
   </div>
 </footer>
+
+{% endblock %}
