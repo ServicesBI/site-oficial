@@ -1,0 +1,13 @@
+# Ambiente virtual
+venv/
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Banco de dados local
+db.sqlite3
+
+# Migrações cache
+web/**/__pycache__/
+core/**/__pycache__/
