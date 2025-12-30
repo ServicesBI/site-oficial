@@ -1,8 +1,8 @@
-/* ================= CONTATO PAGE ================= */
+/* ================= CONTATO ================= */
 
-.contato-page {
+.contato-section {
     padding: 80px 0;
-    background-color: #f9fafb;
+    background-color: #ffffff;
 }
 
 .contato-container {
@@ -12,12 +12,14 @@
     align-items: flex-start;
 }
 
-/* ================= COLUNA ESQUERDA ================= */
+/* ================= TEXTO ================= */
 
-.contato-info h2 {
+.contato-info h2,
+.contato-form-wrapper h2 {
     font-size: 26px;
     font-weight: 600;
     margin-bottom: 18px;
+    color: #0f172a;
 }
 
 .contato-info p {
@@ -28,70 +30,66 @@
 }
 
 .contato-dados {
-    margin-top: 28px;
+    margin-top: 20px;
 }
 
 .contato-dados li {
     font-size: 14px;
-    margin-bottom: 10px;
     color: #111827;
+    margin-bottom: 6px;
 }
 
-.contato-dados a {
-    color: #0f2a44;
-    font-weight: 600;
-}
-
-.contato-dados a:hover {
-    text-decoration: underline;
-}
-
-/* ================= FORMULÁRIO ================= */
-
-.contato-form-wrapper h2 {
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 22px;
-}
+/* ================= FORM ================= */
 
 .contato-form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+    width: 100%;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
+    margin-bottom: 16px;
 }
 
 .form-group label {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     margin-bottom: 6px;
     color: #111827;
 }
 
+/* 🔥 AQUI está o conserto real */
 .form-group input,
 .form-group textarea {
+    width: 100%;
     padding: 12px 14px;
-    border-radius: 8px;
+
+    background-color: #ffffff;
     border: 1px solid #d1d5db;
+    border-radius: 8px;
+
     font-size: 14px;
-    font-family: "Segoe UI", sans-serif;
-    font-style: italic;
+    color: #111827;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9ca3af;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: none;
     border-color: #fbbf24;
+    outline: none;
 }
 
-/* Botão reaproveita padrão do site */
+/* ================= BOTÃO ================= */
+
 .contato-form .btn-project {
-    align-self: flex-start;
-    margin-top: 12px;
+    margin-top: 10px;
+    padding: 12px 26px;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 /* ================= RESPONSIVO ================= */

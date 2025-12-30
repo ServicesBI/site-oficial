@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contato.css' %}">
+{% endblock %}
 
+{% block content %}
 
 <!-- ================= HERO INTERNO ================= -->
 <section class="hero hero--internal">
@@ -14,7 +18,7 @@
 </section>
 
 <!-- ================= CONTATO ================= -->
-<section class="content-section contato-page">
+<section class="contato-section">
     <div class="container contato-container">
 
         <!-- COLUNA ESQUERDA -->
@@ -36,33 +40,10 @@
             </p>
 
             <ul class="contato-dados">
-                <li>
-                    <strong>E-mail:</strong>
-                    <a href="mailto:jrleles@servicesbi.com.br">
-                        jrleles@servicesbi.com.br
-                    </a>
-                </li>
-
-                <li>
-                    <strong>Telefone:</strong>
-                    <a href="https://wa.me/5561993029988" target="_blank">
-                        +55 61 99302-9988
-                    </a>
-                </li>
-
-                <li>
-                    <strong>LinkedIn:</strong>
-                    <a href="https://www.linkedin.com/in/jrleles/" target="_blank">
-                        linkedin.com/in/jrleles
-                    </a>
-                </li>
-
-                <li>
-                    <strong>GitHub:</strong>
-                    <a href="https://github.com/ServicesBI" target="_blank">
-                        github.com/ServicesBI
-                    </a>
-                </li>
+                <li><strong>E-mail:</strong> jrleles@servicesbi.com.br</li>
+                <li><strong>Telefone:</strong> +55 61 99302-9988</li>
+                <li><strong>LinkedIn:</strong> linkedin.com/in/jrleles</li>
+                <li><strong>GitHub:</strong> github.com/ServicesBI</li>
             </ul>
         </div>
 
@@ -75,7 +56,6 @@
                 method="POST"
                 class="contato-form"
             >
-
                 <div class="form-group">
                     <label for="nome">Nome</label>
                     <input
@@ -109,17 +89,9 @@
                     ></textarea>
                 </div>
 
-                <!-- Assunto do e-mail -->
-                <input
-                    type="hidden"
-                    name="_subject"
-                    value="Contato via site ServicesBI"
-                >
-
                 <button type="submit" class="btn-project">
                     Enviar mensagem
                 </button>
-
             </form>
         </div>
 
