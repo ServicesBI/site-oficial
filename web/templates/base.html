@@ -9,6 +9,15 @@
 
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
+    <style>
+        :root {
+            --cor-titulo: {{ site_theme.cor_titulo }};
+            --cor-subtitulo: {{ site_theme.cor_subtitulo }};
+            --cor-texto: {{ site_theme.cor_texto }};
+            --cor-botao: {{ site_theme.cor_botao }};
+        }
+    </style>
+
     {# 🔥 BLOCO PARA CSS ESPECÍFICO DE PÁGINAS #}
     {% block extra_css %}{% endblock %}
 </head>
