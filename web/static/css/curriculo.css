@@ -44,6 +44,8 @@
     font-style: italic;
     font-size: 13px;
     line-height: 1.6;
+
+    color: var(--cor-texto); /* 🔥 texto padrão ligado ao tema */
 }
 
 /* ================= HEADER DA FOLHA ================= */
@@ -57,11 +59,13 @@
 .sheet-name {
     font-weight: 600;
     font-size: 18px;
+    color: var(--cor-titulo); /* 🔥 título principal */
 }
 
 .sheet-contact {
     text-align: right;
     font-size: 12px;
+    color: var(--cor-texto); /* 🔥 texto do contato */
 }
 
 /* ================= TÍTULOS ================= */
@@ -70,25 +74,33 @@
     margin-top: 24px;
     font-size: 14px;
     font-weight: 600;
+    color: var(--cor-subtitulo); /* 🔥 subtítulos */
 }
 
 .curriculo-sheet h3 {
     margin-top: 18px;
     font-size: 13px;
     font-weight: 600;
+    color: var(--cor-titulo); /* 🔥 títulos internos */
 }
 
 .curriculo-sheet h3 span {
     float: right;
     font-weight: normal;
+    color: var(--cor-texto);
 }
 
 .curriculo-sheet h4 {
     font-size: 12.5px;
     margin: 6px 0;
+    color: var(--cor-texto);
 }
 
-/* ================= LISTAS ================= */
+/* ================= TEXTO E LISTAS ================= */
+
+.curriculo-sheet p {
+    color: var(--cor-texto);
+}
 
 .curriculo-sheet ul {
     margin-top: 12px;
@@ -97,6 +109,7 @@
 
 .curriculo-sheet li {
     margin-bottom: 6px;
+    color: var(--cor-texto);
 }
 
 /* ========================================================= */

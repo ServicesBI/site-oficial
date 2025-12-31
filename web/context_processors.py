@@ -13,7 +13,17 @@ def site_theme(request):
 
     path = request.path.lower()
 
-    # Mapeamento simples por URL
+    # ✅ HOME (caso especial)
+    if path == "/":
+        home_theme = SiteTheme.objects.filter(pagina="home").first()
+        if home_theme:
+            theme = home_theme
+
+        return {
+            "site_theme": theme
+        }
+
+    # Mapeamento por URL
     page_map = {
         "curriculo": "curriculo",
         "contato": "contato",

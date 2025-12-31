@@ -4,7 +4,14 @@ from .models import Curriculo
 
 
 def home(request):
-    return render(request, "web/home.html")
+    projects = Project.objects.filter(
+        page='home',
+        is_active=True
+    ).order_by('order')
+
+    return render(request, "web/home.html", {
+        'projects': projects
+    })
 
 
 def python(request):

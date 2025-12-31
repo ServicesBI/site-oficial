@@ -4,6 +4,7 @@ from django.db import models
 class Project(models.Model):
 
     PAGE_CHOICES = [
+        ("home", "Home"),
         ('python', 'Python'),
         ('powerbi', 'Power BI'),
         ('excel', 'Excel'),
