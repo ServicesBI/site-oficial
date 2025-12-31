@@ -1,5 +1,7 @@
 /* ================= CURRÍCULO ================= */
 
+/* ================= AÇÕES ================= */
+
 .curriculo-actions {
     display: flex;
     justify-content: center;
@@ -16,6 +18,8 @@
     cursor: pointer;
 }
 
+/* ================= CONTAINER PRINCIPAL ================= */
+
 .curriculo-wrapper {
     padding: 40px 0 80px;
     background: #f3f4f6;
@@ -27,20 +31,23 @@
     gap: 48px;
 }
 
-/* FOLHA A4 */
+/* ================= FOLHA A4 ================= */
+
 .curriculo-sheet {
     width: 794px;
     min-height: 1123px;
     background: #ffffff;
     padding: 48px;
     box-shadow: 0 12px 32px rgba(0,0,0,.15);
+
     font-family: "Segoe UI", sans-serif;
     font-style: italic;
     font-size: 13px;
     line-height: 1.6;
 }
 
-/* HEADER FOLHA */
+/* ================= HEADER DA FOLHA ================= */
+
 .sheet-header {
     display: flex;
     justify-content: space-between;
@@ -57,7 +64,8 @@
     font-size: 12px;
 }
 
-/* TÍTULOS */
+/* ================= TÍTULOS ================= */
+
 .curriculo-sheet h2 {
     margin-top: 24px;
     font-size: 14px;
@@ -80,7 +88,8 @@
     margin: 6px 0;
 }
 
-/* LISTAS */
+/* ================= LISTAS ================= */
+
 .curriculo-sheet ul {
     margin-top: 12px;
     padding-left: 18px;
@@ -90,10 +99,13 @@
     margin-bottom: 6px;
 }
 
-/* PRINT */
+/* ========================================================= */
+/* ====================== PRINT ============================ */
+/* ========================================================= */
+
 @media print {
 
-    /* ================= RESET TOTAL DA PÁGINA ================= */
+    /* ================= RESET TOTAL ================= */
 
     * {
         box-shadow: none !important;
@@ -132,7 +144,7 @@
         background: white !important;
     }
 
-    /* ================= REMOVE FLEX ================= */
+    /* ================= REMOVE FLEX / DUPLA COLUNA ================= */
 
     .curriculo-pages {
         display: block !important;
@@ -148,6 +160,7 @@
         min-height: auto !important;
         margin: 0 !important;
         padding: 40px !important;
+
         page-break-after: always;
         page-break-inside: avoid;
     }

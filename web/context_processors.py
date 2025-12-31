@@ -2,10 +2,33 @@ from .models import SiteTheme
 
 def site_theme(request):
     """
-    Injeta o tema do site em todos os templates.
-    Usa sempre o primeiro tema cadastrado.
+    Retorna o tema do site baseado na página atual.
+    Prioridade:
+    1) Tema específico da página
+    2) Tema global
     """
-    theme = SiteTheme.objects.first()
+
+    # Tema global (fallback)
+    theme = SiteTheme.objects.filter(pagina="global").first()
+
+    path = request.path.lower()
+
+    # Mapeamento simples por URL
+    page_map = {
+        "curriculo": "curriculo",
+        "contato": "contato",
+        "python": "python",
+        "powerbi": "powerbi",
+        "automacoes": "automacoes",
+        "excel": "excel",
+    }
+
+    for key, page in page_map.items():
+        if key in path:
+            page_theme = SiteTheme.objects.filter(pagina=page).first()
+            if page_theme:
+                theme = page_theme
+            break
 
     return {
         "site_theme": theme

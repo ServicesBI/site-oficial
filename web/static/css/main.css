@@ -48,7 +48,7 @@ button {
 
 body {
     background-color: #f9fafb;
-    color: #0f172a;
+    color: var(--cor-texto);
     font-family: "Segoe UI", sans-serif;
     font-style: italic;
 }
@@ -100,15 +100,15 @@ body {
 .nav a {
     font-size: 14px;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--cor-titulo);
     padding: 6px 0;
     transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .nav a.active,
 .nav a:hover {
-    color: #fbbf24;
-    border-bottom: 2px solid #fbbf24;
+    color: var(--cor-subtitulo);
+    border-bottom: 2px solid var(--cor-subtitulo);
 }
 
 .header-logo {
@@ -148,9 +148,12 @@ body {
     background-image: url("/static/images/internal.png");
 }
 
-.hero.hero--internal .hero-title,
+.hero.hero--internal .hero-title {
+    color: var(--cor-titulo);
+}
+
 .hero.hero--internal .hero-subtitle {
-    color: #ffffff;
+    color: var(--cor-subtitulo);
 }
 
 .hero > * {
@@ -179,14 +182,14 @@ body {
 .hero-title {
     font-size: clamp(56px, 6vw, 84px);
     font-weight: 600;
-    color: #ffffff;
+    color: var(--cor-titulo);
     margin-bottom: 14px;
 }
 
 .hero-subtitle {
     font-size: clamp(18px, 2.2vw, 24px);
     font-weight: 500;
-    color: #fbbf24;
+    color: var(--cor-subtitulo);
     max-width: 720px;
     margin: 0 auto;
 }
@@ -211,7 +214,7 @@ body {
 .section-title {
     font-size: 32px;
     font-weight: 600;
-    color: #111827;
+    color: var(--cor-titulo);
     text-align: center;
     margin-bottom: 48px;
     position: relative;
@@ -222,7 +225,7 @@ body {
     display: block;
     width: 64px;
     height: 4px;
-    background-color: #fbbf24;
+    background-color: var(--cor-subtitulo);
     margin: 14px auto 0;
     border-radius: 2px;
 }
@@ -246,8 +249,8 @@ body {
     padding: 38px 30px;
     text-align: center;
 
-    border-top: 4px solid #fbbf24;
-    border-bottom: 4px solid #fbbf24;
+    border-top: 4px solid var(--cor-subtitulo);
+    border-bottom: 4px solid var(--cor-subtitulo);
 
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -259,7 +262,7 @@ body {
 .service-card h3 {
     font-size: 18px;
     margin-bottom: 14px;
-    color: #111827;
+    color: var(--cor-titulo);
 }
 
 .service-icon {
@@ -279,14 +282,14 @@ body {
     align-self: center;
     padding: 10px 22px;
     border-radius: 8px;
-    border: 2px solid #fbbf24;
-    color: #111827;
+    border: 2px solid var(--cor-botao);
+    color: var(--cor-titulo);
     font-size: 14px;
     font-weight: 600;
 }
 
 .btn-service:hover {
-    background-color: #fbbf24;
+    background-color: var(--cor-botao);
 }
 
 .service-card:hover {
@@ -317,45 +320,28 @@ body {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-.project-image {
-    height: 220px;
-    overflow: hidden;
-}
-
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .project-title {
     font-size: 18px;
     font-weight: 600;
     margin: 18px 0 12px;
     text-align: center;
-}
-
-.project-card p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: #6b7280;
-    padding: 0 24px;
-    text-align: center;
+    color: var(--cor-titulo);
 }
 
 .btn-project {
     margin: auto auto 28px;
     padding: 10px 24px;
     border-radius: 8px;
-    border: 2px solid #fbbf24;
-    color: #111827;
+    border: 2px solid var(--cor-botao);
+    color: var(--cor-titulo);
     font-size: 14px;
     font-weight: 600;
 }
 
 .btn-project:hover {
-    background-color: #fbbf24;
+    background-color: var(--cor-botao);
 }
+
 
 /* ================= FOOTER ================= */
 

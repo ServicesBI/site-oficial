@@ -19,13 +19,13 @@
     font-size: 26px;
     font-weight: 600;
     margin-bottom: 18px;
-    color: #0f172a;
+    color: var(--cor-titulo);
 }
 
 .contato-info p {
     font-size: 15px;
     line-height: 1.7;
-    color: #374151;
+    color: var(--cor-texto);
     margin-bottom: 14px;
 }
 
@@ -35,7 +35,7 @@
 
 .contato-dados li {
     font-size: 14px;
-    color: #111827;
+    color: var(--cor-titulo);
     margin-bottom: 6px;
 }
 
@@ -55,7 +55,7 @@
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 6px;
-    color: #111827;
+    color: var(--cor-titulo);
 }
 
 /* 🔥 AQUI está o conserto real */
@@ -69,7 +69,7 @@
     border-radius: 8px;
 
     font-size: 14px;
-    color: #111827;
+    color: var(--cor-texto);
 }
 
 .form-group input::placeholder,
@@ -79,7 +79,7 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #fbbf24;
+    border-color: var(--cor-botao);
     outline: none;
 }
 
@@ -90,6 +90,13 @@
     padding: 12px 26px;
     font-size: 14px;
     font-weight: 600;
+
+    border-color: var(--cor-botao);
+    color: var(--cor-titulo);
+}
+
+.contato-form .btn-project:hover {
+    background-color: var(--cor-botao);
 }
 
 /* ================= RESPONSIVO ================= */

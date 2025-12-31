@@ -41,47 +41,53 @@ class Curriculo(models.Model):
 
 
 class SiteTheme(models.Model):
-    nome = models.CharField(
-        max_length=100,
-        default="Tema Principal",
-        verbose_name="Nome do Tema"
+    PAGE_CHOICES = [
+        ("global", "Global"),
+        ("home", "Home"),
+        ("python", "Python"),
+        ("powerbi", "Power BI"),
+        ("automacoes", "Automações"),
+        ("excel", "Excel"),
+        ("curriculo", "Currículo"),
+        ("contato", "Contato"),
+    ]
+
+    nome = models.CharField(max_length=100)
+    pagina = models.CharField(
+        max_length=20,
+        choices=PAGE_CHOICES,
+        default="global"
     )
 
     cor_titulo = models.CharField(
         max_length=7,
         default="#ffffff",
-        help_text="Cor dos títulos principais (ex: #ffffff)",
-        verbose_name="Cor do Título"
+        help_text="Cor dos títulos principais"
     )
 
     cor_subtitulo = models.CharField(
         max_length=7,
         default="#38bdf8",
-        help_text="Cor dos subtítulos (ex: #38bdf8)",
-        verbose_name="Cor do Subtítulo"
+        help_text="Cor dos subtítulos"
     )
 
     cor_texto = models.CharField(
         max_length=7,
         default="#e5e7eb",
-        help_text="Cor do texto padrão (ex: #e5e7eb)",
-        verbose_name="Cor do Texto"
+        help_text="Cor do texto padrão"
     )
 
     cor_botao = models.CharField(
         max_length=7,
         default="#38bdf8",
-        help_text="Cor principal dos botões (ex: #38bdf8)",
-        verbose_name="Cor do Botão"
+        help_text="Cor principal dos botões"
     )
 
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        verbose_name="Última atualização"
-    )
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.nome
+        return f"{self.nome} ({self.get_pagina_display()})"
+
 
     class Meta:
         verbose_name = "Tema do Site"
