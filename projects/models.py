@@ -2,6 +2,14 @@ from django.db import models
 
 
 class Project(models.Model):
+
+    PAGE_CHOICES = [
+        ('python', 'Python'),
+        ('powerbi', 'Power BI'),
+        ('excel', 'Excel'),
+        ('automacoes', 'Automações'),
+    ]
+
     title = models.CharField(
         max_length=200,
         verbose_name='Título'
@@ -20,12 +28,18 @@ class Project(models.Model):
 
     image = models.ImageField(
         upload_to='projects/',
-        verbose_name='Imagem de capa'
+        verbose_name='Imagem'
     )
 
     project_url = models.URLField(
         blank=True,
         verbose_name='Link do projeto'
+    )
+
+    page = models.CharField(
+        max_length=20,
+        choices=PAGE_CHOICES,
+        verbose_name='Página'
     )
 
     is_active = models.BooleanField(
@@ -46,7 +60,7 @@ class Project(models.Model):
     class Meta:
         verbose_name = 'Projeto'
         verbose_name_plural = 'Projetos'
-        ordering = ['order', '-created_at']
+        ordering = ['order']
 
     def __str__(self):
         return self.title

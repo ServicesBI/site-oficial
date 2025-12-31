@@ -6,9 +6,15 @@ from .models import Project
 class ProjectAdmin(admin.ModelAdmin):
     list_display = (
         'title',
+        'page',
         'is_active',
         'order',
         'created_at',
+    )
+
+    list_filter = (
+        'page',
+        'is_active',
     )
 
     list_editable = (
@@ -23,9 +29,4 @@ class ProjectAdmin(admin.ModelAdmin):
     search_fields = (
         'title',
         'description',
-    )
-
-    list_filter = (
-        'is_active',
-        'created_at',
     )
