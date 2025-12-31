@@ -7,6 +7,6 @@ urlpatterns = [
     path("powerbi/", views.powerbi, name="powerbi"),
     path("automacoes/", views.automacoes, name="automacoes"),
     path("excel/", views.excel, name="excel"),
-    path("curriculo/", views.curriculo, name="curriculo"),
+    path("curriculo/", views.curriculo_view, name="curriculo"),
     path("contato/", views.contato, name="contato"),
 ]

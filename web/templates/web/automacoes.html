@@ -32,48 +32,48 @@
 <section class="services-section">
     <div class="container">
 
-        <h2 class="section-title">Serviços</h2>
+        <h2 class="section-title">Serviços em Automações & IA</h2>
 
         <div class="services-grid">
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon" alt="Automação">
+                <img src="{% static 'images/icons/automacoes/automacao.png' %}" class="service-icon" alt="Automação de Processos">
                 <h3>Automação de Processos</h3>
                 <p>
                     Eliminação de tarefas manuais e repetitivas por meio de scripts,
                     robôs e fluxos automatizados.
                 </p>
-                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+                <a href="{% url 'contato' %}" class="btn-service">Automatizar processos</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/python.png' %}" class="service-icon" alt="Integrações">
+                <img src="{% static 'images/icons/automacoes/python.png' %}" class="service-icon" alt="Integrações de Sistemas">
                 <h3>Integrações de Sistemas</h3>
                 <p>
                     Integração entre sistemas, APIs e bancos de dados para garantir
                     fluxo contínuo de informações.
                 </p>
-                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+                <a href="{% url 'contato' %}" class="btn-service">Integrar sistemas</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/bi.png' %}" class="service-icon" alt="Dados">
+                <img src="{% static 'images/icons/automacoes/bi.png' %}" class="service-icon" alt="Automação de Dados">
                 <h3>Automação de Dados</h3>
                 <p>
                     Coleta, tratamento e consolidação automática de dados para BI,
                     relatórios e análises estratégicas.
                 </p>
-                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+                <a href="{% url 'contato' %}" class="btn-service">Automatizar dados</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon" alt="IA">
+                <img src="{% static 'images/icons/automacoes/consultoria.png' %}" class="service-icon" alt="Inteligência Artificial">
                 <h3>Inteligência Artificial</h3>
                 <p>
                     Aplicação de IA e machine learning para análises preditivas,
                     classificação e apoio à decisão.
                 </p>
-                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+                <a href="{% url 'contato' %}" class="btn-service">Aplicar IA</a>
             </div>
 
         </div>
@@ -88,27 +88,33 @@
 
         <div class="projects-grid">
 
-            {% for i in "123456" %}
-            <div class="project-card">
+            {% if projects %}
+                {% for project in projects %}
+                    <div class="project-card">
 
-                <div class="project-image">
-                    <img src="{% static 'images/projects/home/' %}{{ forloop.counter }}.png"
-                         alt="Projeto {{ forloop.counter }}">
-                </div>
+                        <div class="project-image">
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                        </div>
 
-                <div class="project-content">
-                    <h3 class="project-title">Projeto {{ forloop.counter }}</h3>
+                        <div class="project-content">
+                            <h3 class="project-title">{{ project.title }}</h3>
 
-                    <p>
-                        Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
-                        sem apertar o layout.
-                    </p>
-                </div>
+                            {% if project.description %}
+                                <p>{{ project.description }}</p>
+                            {% endif %}
+                        </div>
 
-                <a href="#" class="btn-project" target="_blank">Ver projeto</a>
+                        {% if project.project_url %}
+                            <a href="{{ project.project_url }}" class="btn-project" target="_blank">
+                                Ver projeto
+                            </a>
+                        {% endif %}
 
-            </div>
-            {% endfor %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Nenhum projeto cadastrado para esta página.</p>
+            {% endif %}
 
         </div>
     </div>

@@ -31,36 +31,48 @@
 <section class="services-section">
     <div class="container">
 
-        <h2 class="section-title">Serviços</h2>
+        <h2 class="section-title">Serviços em Python</h2>
 
         <div class="services-grid">
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/python.png' %}" class="service-icon" alt="Automação">
+                <img src="{% static 'images/icons/python/automacao.png' %}" class="service-icon" alt="Automação de Processos">
                 <h3>Automação de Processos</h3>
-                <p>Eliminação de tarefas manuais e aumento de produtividade.</p>
-                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+                <p>
+                    Automatizamos rotinas operacionais, integrações e fluxos repetitivos,
+                    reduzindo erros e aumentando a eficiência do negócio.
+                </p>
+                <a href="{% url 'contato' %}" class="btn-service">Falar sobre automação</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/bi.png' %}" class="service-icon" alt="ETL">
-                <h3>ETL & Pipelines</h3>
-                <p>Tratamento e organização de dados para análise e BI.</p>
-                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+                <img src="{% static 'images/icons/python/bi.png' %}" class="service-icon" alt="ETL e Pipelines de Dados">
+                <h3>ETL & Pipelines de Dados</h3>
+                <p>
+                    Construção de pipelines robustos para coleta, tratamento e
+                    disponibilização de dados prontos para BI e Analytics.
+                </p>
+                <a href="{% url 'contato' %}" class="btn-service">Ver soluções ETL</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon" alt="APIs">
+                <img src="{% static 'images/icons/python/python.png' %}" class="service-icon" alt="APIs e Integrações">
                 <h3>APIs & Integrações</h3>
-                <p>Integração entre sistemas e serviços externos.</p>
-                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+                <p>
+                    Integração entre sistemas, ERPs, bancos de dados e serviços externos
+                    através de APIs seguras e escaláveis.
+                </p>
+                <a href="{% url 'contato' %}" class="btn-service">Integrar sistemas</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon" alt="Dados">
+                <img src="{% static 'images/icons/python/consultoria.png' %}" class="service-icon" alt="Análise de Dados">
                 <h3>Análise de Dados</h3>
-                <p>Insights estratégicos para apoio à decisão.</p>
-                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+                <p>
+                    Exploração, análise e modelagem de dados para gerar insights
+                    estratégicos e apoiar a tomada de decisão.
+                </p>
+                <a href="{% url 'contato' %}" class="btn-service">Analisar meus dados</a>
             </div>
 
         </div>
@@ -75,22 +87,31 @@
 
         <div class="projects-grid">
 
-            {% for i in "123456" %}
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="{% static 'images/projects/home/' %}{{ forloop.counter }}.png" alt="Projeto {{ forloop.counter }}">
-                </div>
+            {% if projects %}
+                {% for project in projects %}
+                    <div class="project-card">
 
-                <h3 class="project-title">Projeto {{ forloop.counter }}</h3>
+                        <div class="project-image">
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                        </div>
 
-                <p>
-                    Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
-                    sem apertar o layout.
-                </p>
+                        <h3 class="project-title">{{ project.title }}</h3>
 
-                <a href="#" class="btn-project" target="_blank">Ver projeto</a>
-            </div>
-            {% endfor %}
+                        {% if project.description %}
+                            <p>{{ project.description }}</p>
+                        {% endif %}
+
+                        {% if project.project_url %}
+                            <a href="{{ project.project_url }}" class="btn-project" target="_blank">
+                                Ver projeto
+                            </a>
+                        {% endif %}
+
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Nenhum projeto cadastrado para esta página.</p>
+            {% endif %}
 
         </div>
     </div>

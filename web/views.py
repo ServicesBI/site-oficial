@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from projects.models import Project
+from .models import Curriculo
 
 
 def home(request):
@@ -49,10 +50,13 @@ def excel(request):
         'projects': projects
     })
 
-
-def curriculo(request):
-    return render(request, "web/curriculo.html")
+def curriculo_view(request):
+    curriculo = Curriculo.objects.first()
+    return render(request, "curriculo.html", {
+        "curriculo": curriculo
+    })
 
 
 def contato(request):
     return render(request, "web/contato.html")
+

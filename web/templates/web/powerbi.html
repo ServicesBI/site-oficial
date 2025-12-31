@@ -32,48 +32,48 @@
 <section class="services-section">
     <div class="container">
 
-        <h2 class="section-title">Serviços</h2>
+        <h2 class="section-title">Serviços em Power BI</h2>
 
         <div class="services-grid">
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/bi.png' %}" class="service-icon" alt="Dashboards">
+                <img src="{% static 'images/icons/powerbi/bi.png' %}" class="service-icon" alt="Dashboards Interativos">
                 <h3>Dashboards Interativos</h3>
                 <p>
                     Criação de painéis visuais dinâmicos com KPIs e métricas
                     personalizadas para acompanhamento de resultados.
                 </p>
-                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+                <a href="{% url 'contato' %}" class="btn-service">Ver soluções</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon" alt="Análise">
+                <img src="{% static 'images/icons/powerbi/consultoria.png' %}" class="service-icon" alt="Análise de Dados">
                 <h3>Análise de Dados</h3>
                 <p>
                     Análises exploratórias e estratégicas para identificar padrões,
                     tendências e oportunidades de melhoria.
                 </p>
-                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+                <a href="{% url 'contato' %}" class="btn-service">Analisar dados</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon" alt="Automação">
+                <img src="{% static 'images/icons/powerbi/automacao.png' %}" class="service-icon" alt="Automação de Relatórios">
                 <h3>Automação de Relatórios</h3>
                 <p>
                     Atualização automática de dados e relatórios, reduzindo esforço
                     manual e aumentando confiabilidade.
                 </p>
-                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+                <a href="{% url 'contato' %}" class="btn-service">Automatizar relatórios</a>
             </div>
 
             <div class="service-card">
-                <img src="{% static 'images/icons/home/python.png' %}" class="service-icon" alt="Integrações">
+                <img src="{% static 'images/icons/powerbi/python.png' %}" class="service-icon" alt="Integrações de Dados">
                 <h3>Integrações de Dados</h3>
                 <p>
                     Conexão com múltiplas fontes de dados como bancos SQL, APIs,
                     planilhas e sistemas corporativos.
                 </p>
-                <a href="{% url 'contato' %}" class="btn-service">Ver mais</a>
+                <a href="{% url 'contato' %}" class="btn-service">Integrar dados</a>
             </div>
 
         </div>
@@ -88,27 +88,33 @@
 
         <div class="projects-grid">
 
-            {% for i in "123456" %}
-            <div class="project-card">
+            {% if projects %}
+                {% for project in projects %}
+                    <div class="project-card">
 
-                <div class="project-image">
-                    <img src="{% static 'images/projects/home/' %}{{ forloop.counter }}.png"
-                         alt="Projeto {{ forloop.counter }}">
-                </div>
+                        <div class="project-image">
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                        </div>
 
-                <div class="project-content">
-                    <h3 class="project-title">Projeto {{ forloop.counter }}</h3>
+                        <div class="project-content">
+                            <h3 class="project-title">{{ project.title }}</h3>
 
-                    <p>
-                        Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
-                        sem apertar o layout.
-                    </p>
-                </div>
+                            {% if project.description %}
+                                <p>{{ project.description }}</p>
+                            {% endif %}
+                        </div>
 
-                <a href="#" class="btn-project" target="_blank">Ver projeto</a>
+                        {% if project.project_url %}
+                            <a href="{{ project.project_url }}" class="btn-project" target="_blank">
+                                Ver projeto
+                            </a>
+                        {% endif %}
 
-            </div>
-            {% endfor %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Nenhum projeto cadastrado para esta página.</p>
+            {% endif %}
 
         </div>
     </div>
