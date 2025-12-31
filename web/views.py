@@ -52,7 +52,7 @@ def excel(request):
 
 def curriculo_view(request):
     curriculo = Curriculo.objects.first()
-    return render(request, "curriculo.html", {
+    return render(request, "web/curriculo.html", {
         "curriculo": curriculo
     })
 
