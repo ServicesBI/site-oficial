@@ -7,33 +7,39 @@
 <section
   class="hero"
   style="
-    {% if page and page.banner %}
+    {% if page.banner_image %}
       background-image:
         linear-gradient(
           rgba(2, 6, 23, 0.75),
           rgba(2, 6, 23, 0.85)
         ),
-        url('{{ page.banner.url }}');
+        url('{{ page.banner_image.url }}');
     {% endif %}
-
-    --hero-title-color: {{ theme.hero_title_color|default:'#ffffff' }};
-    --hero-subtitle-color: {{ theme.hero_subtitle_color|default:'#cbd5e1' }};
   "
 >
   <div class="container hero-container">
 
-    <h1 class="hero-title">
-      {{ home.titulo_principal|default:"ServicesBI" }}
+    <h1
+      class="hero-title"
+      style="color: {{ theme.title_color|default:'#ffffff' }}"
+    >
+      {{ page.titulo }}
     </h1>
 
-    <p class="hero-subtitle">
-      {{ home.subtitulo|default:"Transformando dados em insights estratégicos que impulsionam negócios." }}
-    </p>
+    {% if page.subtitulo %}
+      <p
+        class="hero-subtitle"
+        style="color: {{ theme.subtitle_color|default:'#cbd5e1' }}"
+      >
+        {{ page.subtitulo }}
+      </p>
+    {% endif %}
 
   </div>
 </section>
 
 <!-- ================= SERVIÇOS ================= -->
+{% if services %}
 <section class="services-section">
   <div class="container">
 
@@ -46,103 +52,48 @@
 
     <div class="services-grid">
 
-      <div
-        class="service-card"
-        style="border-color: {{ theme.services_border_color|default:'#000000' }}"
-      >
-        <img src="{% static 'images/icons/home/bi.png' %}" class="service-icon" alt="Business Intelligence">
-        <h3 style="color: {{ theme.services_title_color|default:'#000000' }}">
-          Business Intelligence
-        </h3>
-        <p style="color: {{ theme.services_text_color|default:'#334155' }}">
-          Dashboards e análises estratégicas
-        </p>
-        <a
-          href="{% url 'powerbi' %}"
-          class="btn-service"
-          style="
-            border-color: {{ theme.services_button_color|default:'#000000' }};
-            color: {{ theme.services_button_color|default:'#000000' }};
-          "
+      {% for service in services %}
+        <div
+          class="service-card"
+          style="border-color: {{ theme.services_border_color|default:'#000000' }}"
         >
-          Ver mais
-        </a>
-      </div>
 
-      <div
-        class="service-card"
-        style="border-color: {{ theme.services_border_color|default:'#000000' }}"
-      >
-        <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon" alt="Automações & IA">
-        <h3 style="color: {{ theme.services_title_color|default:'#000000' }}">
-          Automações & IA
-        </h3>
-        <p style="color: {{ theme.services_text_color|default:'#334155' }}">
-          Processos automatizados e inteligência artificial
-        </p>
-        <a
-          href="{% url 'automacoes' %}"
-          class="btn-service"
-          style="
-            border-color: {{ theme.services_button_color|default:'#000000' }};
-            color: {{ theme.services_button_color|default:'#000000' }};
-          "
-        >
-          Ver mais
-        </a>
-      </div>
+          <!-- ÍCONE (temporário padrão) -->
+          <img
+            src="{% static 'images/icons/home/default.png' %}"
+            class="service-icon"
+            alt="{{ service.titulo }}"
+          >
 
-      <div
-        class="service-card"
-        style="border-color: {{ theme.services_border_color|default:'#000000' }}"
-      >
-        <img src="{% static 'images/icons/home/python.png' %}" class="service-icon" alt="Python & Dados">
-        <h3 style="color: {{ theme.services_title_color|default:'#000000' }}">
-          Python & Dados
-        </h3>
-        <p style="color: {{ theme.services_text_color|default:'#334155' }}">
-          ETL, APIs e análise de dados
-        </p>
-        <a
-          href="{% url 'python' %}"
-          class="btn-service"
-          style="
-            border-color: {{ theme.services_button_color|default:'#000000' }};
-            color: {{ theme.services_button_color|default:'#000000' }};
-          "
-        >
-          Ver mais
-        </a>
-      </div>
+          <h3 style="color: {{ theme.services_title_color|default:'#000000' }}">
+            {{ service.titulo }}
+          </h3>
 
-      <div
-        class="service-card"
-        style="border-color: {{ theme.services_border_color|default:'#000000' }}"
-      >
-        <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon" alt="Consultoria em Dados">
-        <h3 style="color: {{ theme.services_title_color|default:'#000000' }}">
-          Consultoria em Dados
-        </h3>
-        <p style="color: {{ theme.services_text_color|default:'#334155' }}">
-          Diagnóstico, estratégia e apoio à decisão
-        </p>
-        <a
-          href="{% url 'excel' %}"
-          class="btn-service"
-          style="
-            border-color: {{ theme.services_button_color|default:'#000000' }};
-            color: {{ theme.services_button_color|default:'#000000' }};
-          "
-        >
-          Ver mais
-        </a>
-      </div>
+          <p style="color: {{ theme.services_text_color|default:'#334155' }}">
+            {{ service.descricao }}
+          </p>
+
+          <a
+            href="{% url service.slug %}"
+            class="btn-service"
+            style="
+              border-color: {{ theme.services_button_color|default:'#000000' }};
+              color: {{ theme.services_button_color|default:'#000000' }};
+            "
+          >
+            Ver mais
+          </a>
+
+        </div>
+      {% endfor %}
 
     </div>
   </div>
 </section>
+{% endif %}
 
 <!-- ================= PROJETOS ================= -->
+{% if projects %}
 <section class="projects-section">
   <div class="container">
 
@@ -162,22 +113,25 @@
         >
 
           <div class="project-image">
-            <img src="{{ project.image.url }}" alt="{{ project.title }}">
+            <img
+              src="{{ project.imagem.url }}"
+              alt="{{ project.titulo }}"
+            >
           </div>
 
           <h3
             class="project-title"
             style="color: {{ theme.projects_title_color|default:'#000000' }}"
           >
-            {{ project.title }}
+            {{ project.titulo }}
           </h3>
 
           <p style="color: {{ theme.projects_text_color|default:'#334155' }}">
-            {{ project.short_description }}
+            {{ project.descricao }}
           </p>
 
           <a
-            href="{{ project.url }}"
+            href="{% url project.slug %}"
             class="btn-project"
             target="_blank"
             style="
@@ -189,14 +143,12 @@
           </a>
 
         </div>
-      {% empty %}
-        <p style="text-align:center;">
-          Nenhum projeto cadastrado ainda.
-        </p>
       {% endfor %}
 
     </div>
   </div>
 </section>
+{% endif %}
 
 {% endblock %}
+
