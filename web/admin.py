@@ -163,3 +163,35 @@ class CurriculoAdmin(BasePageAdmin):
 @admin.register(ContactContent)
 class ContactContentAdmin(admin.ModelAdmin):
     list_display = ("email", "telefone", "updated_at")
+# ======================================================
+# ORDENAR MENU DO ADMIN (WEB)
+# ======================================================
+from django.contrib.admin import AdminSite
+
+class CustomAdminSite(AdminSite):
+    def get_app_list(self, request):
+        app_list = super().get_app_list(request)
+
+        for app in app_list:
+            if app["app_label"] == "web":
+                order = [
+                    "Home",
+                    "Python",
+                    "Power BI",
+                    "Automações",
+                    "Excel",
+                    "Currículo",
+                    "Contato",
+                ]
+
+                app["models"].sort(
+                    key=lambda x: order.index(x["name"])
+                    if x["name"] in order
+                    else 999
+                )
+
+        return app_list
+
+
+# Aplicar customização
+admin.site.__class__ = CustomAdminSite
