@@ -151,7 +151,9 @@ class Curriculo(models.Model):
         Page,
         on_delete=models.CASCADE,
         limit_choices_to={"slug": "curriculo"},
-        verbose_name="Página"
+        verbose_name="Página",
+        null=True,
+        blank=True
     )
 
     texto_folha_1 = models.TextField(
@@ -183,7 +185,9 @@ class ContactContent(models.Model):
         Page,
         on_delete=models.CASCADE,
         limit_choices_to={"slug": "contato"},
-        verbose_name="Página"
+        verbose_name="Página",
+        null=True,
+        blank=True
     )
 
     texto = models.TextField(
@@ -304,3 +308,57 @@ class PageTheme(models.Model):
     class Meta:
         verbose_name = "Tema da Página"
         verbose_name_plural = "Temas da Página"
+
+# ======================================================
+# PROXY MODELS — ADMIN POR PÁGINA (CMS STYLE)
+# ======================================================
+
+class HomePage(Page):
+    class Meta:
+        proxy = True
+        verbose_name = "Home"
+        verbose_name_plural = "Home"
+
+
+class PythonPage(Page):
+    class Meta:
+        proxy = True
+        verbose_name = "Python"
+        verbose_name_plural = "Python"
+
+
+class PowerBIPage(Page):
+    class Meta:
+        proxy = True
+        verbose_name = "Power BI"
+        verbose_name_plural = "Power BI"
+
+
+class AutomacoesPage(Page):
+    class Meta:
+        proxy = True
+        verbose_name = "Automações"
+        verbose_name_plural = "Automações"
+
+
+class ExcelPage(Page):
+    class Meta:
+        proxy = True
+        verbose_name = "Excel"
+        verbose_name_plural = "Excel"
+
+
+class CurriculoPage(Page):
+    class Meta:
+        proxy = True
+        verbose_name = "Currículo"
+        verbose_name_plural = "Currículo"
+
+
+class ContatoPage(Page):
+    class Meta:
+        proxy = True
+        verbose_name = "Contato"
+        verbose_name_plural = "Contato"
+
+

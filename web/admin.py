@@ -8,6 +8,14 @@ from .models import (
     ProjectCard,
     Curriculo,
     ContactContent,
+
+    HomePage,
+    PythonPage,
+    PowerBIPage,
+    AutomacoesPage,
+    ExcelPage,
+    CurriculoPage,
+    ContatoPage,
 )
 
 
@@ -22,9 +30,9 @@ class ColorHexWidget(forms.Widget):
 
 
 # ======================================================
-# FORM DO TEMA DA PÁGINA
+# FORM DO TEMA DA PÁGINA (INLINE)
 # ======================================================
-class PageThemeAdminForm(forms.ModelForm):
+class PageThemeInlineForm(forms.ModelForm):
     class Meta:
         model = PageTheme
         fields = "__all__"
@@ -47,13 +55,43 @@ class PageThemeAdminForm(forms.ModelForm):
 
 
 # ======================================================
-# ADMIN — PÁGINAS
+# INLINES
 # ======================================================
-@admin.register(Page)
-class PageAdmin(admin.ModelAdmin):
-    list_display = ("slug", "titulo", "updated_at")
-    list_filter = ("slug",)
+class PageThemeInline(admin.StackedInline):
+    model = PageTheme
+    form = PageThemeInlineForm
+    can_delete = False
+    extra = 0
+
+
+class ServiceCardInline(admin.TabularInline):
+    model = ServiceCard
+    extra = 0
+    fields = ("titulo", "descricao", "slug", "ordem")
+    ordering = ("ordem",)
+    prepopulated_fields = {"slug": ("titulo",)}
+
+
+class ProjectCardInline(admin.TabularInline):
+    model = ProjectCard
+    extra = 0
+    fields = ("titulo", "descricao", "imagem", "slug", "ativo", "ordem")
+    ordering = ("ordem",)
+    prepopulated_fields = {"slug": ("titulo",)}
+
+
+# ======================================================
+# ADMIN BASE (REUTILIZADO POR TODAS AS PÁGINAS)
+# ======================================================
+class BasePageAdmin(admin.ModelAdmin):
+    list_display = ("titulo", "updated_at")
     search_fields = ("titulo",)
+
+    inlines = [
+        PageThemeInline,
+        ServiceCardInline,
+        ProjectCardInline,
+    ]
 
     fieldsets = (
         ("Identificação da Página", {
@@ -67,90 +105,69 @@ class PageAdmin(admin.ModelAdmin):
         }),
     )
 
-
-# ======================================================
-# ADMIN — TEMA DA PÁGINA
-# ======================================================
-@admin.register(PageTheme)
-class PageThemeAdmin(admin.ModelAdmin):
-    form = PageThemeAdminForm
-    list_display = ("page", "updated_at")
-
-    fieldsets = (
-        ("Página", {
-            "fields": ("page",)
-        }),
-
-        ("Menu", {
-            "fields": ("menu_color",)
-        }),
-
-        ("Hero / Texto", {
-            "fields": (
-                "title_color",
-                "subtitle_color",
-                "text_color",
-            )
-        }),
-
-        ("Serviços", {
-            "fields": (
-                "services_title_color",
-                "services_text_color",
-                "services_border_color",
-                "services_button_color",
-            )
-        }),
-
-        ("Projetos", {
-            "fields": (
-                "projects_title_color",
-                "projects_text_color",
-                "projects_border_color",
-                "projects_button_color",
-            )
-        }),
-    )
-
     class Media:
         js = ("admin/js/color_sync.js",)
 
 
 # ======================================================
-# ADMIN — SERVIÇOS (CARDS)
+# REGISTRO DAS PÁGINAS (MENU SEPARADO)
 # ======================================================
-@admin.register(ServiceCard)
-class ServiceCardAdmin(admin.ModelAdmin):
-    list_display = ("titulo", "page", "ordem")
-    list_filter = ("page",)
-    list_editable = ("ordem",)
-    search_fields = ("titulo",)
-    prepopulated_fields = {"slug": ("titulo",)}
+@admin.register(HomePage)
+class HomeAdmin(BasePageAdmin):
+    def get_queryset(self, request):
+        return super().get_queryset(request).filter(slug="home")
+
+
+@admin.register(PythonPage)
+class PythonAdmin(BasePageAdmin):
+    def get_queryset(self, request):
+        return super().get_queryset(request).filter(slug="python")
+
+
+@admin.register(PowerBIPage)
+class PowerBIAdmin(BasePageAdmin):
+    def get_queryset(self, request):
+        return super().get_queryset(request).filter(slug="powerbi")
+
+
+@admin.register(AutomacoesPage)
+class AutomacoesAdmin(BasePageAdmin):
+    def get_queryset(self, request):
+        return super().get_queryset(request).filter(slug="automacoes")
+
+
+@admin.register(ExcelPage)
+class ExcelAdmin(BasePageAdmin):
+    def get_queryset(self, request):
+        return super().get_queryset(request).filter(slug="excel")
+
+
+@admin.register(CurriculoPage)
+class CurriculoPageAdmin(BasePageAdmin):
+    def get_queryset(self, request):
+        return super().get_queryset(request).filter(slug="curriculo")
+
+
+@admin.register(ContatoPage)
+class ContatoPageAdmin(BasePageAdmin):
+    def get_queryset(self, request):
+        return super().get_queryset(request).filter(slug="contato")
 
 
 # ======================================================
-# ADMIN — PROJETOS (CARDS)
+# ESCONDER O MODEL GENÉRICO PAGE
 # ======================================================
-@admin.register(ProjectCard)
-class ProjectCardAdmin(admin.ModelAdmin):
-    list_display = ("titulo", "page", "ativo", "ordem")
-    list_filter = ("page", "ativo")
-    list_editable = ("ativo", "ordem")
-    search_fields = ("titulo",)
-    prepopulated_fields = {"slug": ("titulo",)}
+admin.site.unregister(Page)
 
 
 # ======================================================
-# ADMIN — CURRÍCULO
+# ADMIN — CURRÍCULO E CONTATO (CONTEÚDO EXTRA)
 # ======================================================
 @admin.register(Curriculo)
 class CurriculoAdmin(admin.ModelAdmin):
     list_display = ("page", "updated_at")
 
 
-# ======================================================
-# ADMIN — CONTATO
-# ======================================================
 @admin.register(ContactContent)
 class ContactContentAdmin(admin.ModelAdmin):
     list_display = ("page", "email", "telefone", "updated_at")

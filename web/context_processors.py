@@ -1,4 +1,5 @@
-from .models import SiteTheme
+from .models import Page, PageTheme
+
 
 def site_theme(request):
     """
@@ -9,37 +10,28 @@ def site_theme(request):
     """
 
     # Tema global (fallback)
-    theme = SiteTheme.objects.filter(pagina="global").first()
+    theme = PageTheme.objects.filter(page__slug="home").first()
 
-    path = request.path.lower()
+    path = request.path.strip("/").lower()
 
-    # ✅ HOME (caso especial)
-    if path == "/":
-        home_theme = SiteTheme.objects.filter(pagina="home").first()
-        if home_theme:
-            theme = home_theme
+    # HOME (caso especial)
+    if path == "":
+        page = Page.objects.filter(slug="home").first()
+        if page and hasattr(page, "theme"):
+            theme = page.theme
 
         return {
-            "site_theme": theme
+            "theme": theme,
+            "page": page,
         }
 
-    # Mapeamento por URL
-    page_map = {
-        "curriculo": "curriculo",
-        "contato": "contato",
-        "python": "python",
-        "powerbi": "powerbi",
-        "automacoes": "automacoes",
-        "excel": "excel",
-    }
+    # Outras páginas
+    page = Page.objects.filter(slug=path).first()
 
-    for key, page in page_map.items():
-        if key in path:
-            page_theme = SiteTheme.objects.filter(pagina=page).first()
-            if page_theme:
-                theme = page_theme
-            break
+    if page and hasattr(page, "theme"):
+        theme = page.theme
 
     return {
-        "site_theme": theme
+        "theme": theme,
+        "page": page,
     }

@@ -1,31 +1,41 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
-from projects.models import Project
 from .models import (
-    HomeContent,
-    PageContent,
+    Page,
+    PageTheme,
+    ServiceCard,
+    ProjectCard,
     Curriculo,
     ContactContent,
-    Service,
 )
+
+
+# ======================================================
+# FUNÇÃO AUXILIAR
+# ======================================================
+def get_page(slug):
+    page = get_object_or_404(Page, slug=slug)
+    theme = getattr(page, "theme", None)
+    return page, theme
 
 
 # ======================================================
 # HOME
 # ======================================================
 def home(request):
-    projects = Project.objects.filter(
-        page='home',
-        is_active=True
-    ).order_by('order')
+    page, theme = get_page("home")
 
-    home_content = HomeContent.objects.first()
-    services = Service.objects.all().order_by('ordem')
+    services = ServiceCard.objects.filter(page=page).order_by("ordem")
+    projects = ProjectCard.objects.filter(
+        page=page,
+        ativo=True
+    ).order_by("ordem")
 
     return render(request, "web/home.html", {
-        "projects": projects,
-        "home": home_content,
+        "page": page,
+        "theme": theme,
         "services": services,
+        "projects": projects,
     })
 
 
@@ -33,58 +43,70 @@ def home(request):
 # PÁGINAS DE SERVIÇOS
 # ======================================================
 def python(request):
-    projects = Project.objects.filter(
-        page='python',
-        is_active=True
-    ).order_by('order')
+    page, theme = get_page("python")
 
-    page_content = PageContent.objects.filter(pagina='python').first()
+    services = ServiceCard.objects.filter(page=page).order_by("ordem")
+    projects = ProjectCard.objects.filter(
+        page=page,
+        ativo=True
+    ).order_by("ordem")
 
     return render(request, "web/python.html", {
+        "page": page,
+        "theme": theme,
+        "services": services,
         "projects": projects,
-        "page": page_content,
     })
 
 
 def powerbi(request):
-    projects = Project.objects.filter(
-        page='powerbi',
-        is_active=True
-    ).order_by('order')
+    page, theme = get_page("powerbi")
 
-    page_content = PageContent.objects.filter(pagina='powerbi').first()
+    services = ServiceCard.objects.filter(page=page).order_by("ordem")
+    projects = ProjectCard.objects.filter(
+        page=page,
+        ativo=True
+    ).order_by("ordem")
 
     return render(request, "web/powerbi.html", {
+        "page": page,
+        "theme": theme,
+        "services": services,
         "projects": projects,
-        "page": page_content,
     })
 
 
 def automacoes(request):
-    projects = Project.objects.filter(
-        page='automacoes',
-        is_active=True
-    ).order_by('order')
+    page, theme = get_page("automacoes")
 
-    page_content = PageContent.objects.filter(pagina='automacoes').first()
+    services = ServiceCard.objects.filter(page=page).order_by("ordem")
+    projects = ProjectCard.objects.filter(
+        page=page,
+        ativo=True
+    ).order_by("ordem")
 
     return render(request, "web/automacoes.html", {
+        "page": page,
+        "theme": theme,
+        "services": services,
         "projects": projects,
-        "page": page_content,
     })
 
 
 def excel(request):
-    projects = Project.objects.filter(
-        page='excel',
-        is_active=True
-    ).order_by('order')
+    page, theme = get_page("excel")
 
-    page_content = PageContent.objects.filter(pagina='excel').first()
+    services = ServiceCard.objects.filter(page=page).order_by("ordem")
+    projects = ProjectCard.objects.filter(
+        page=page,
+        ativo=True
+    ).order_by("ordem")
 
     return render(request, "web/excel.html", {
+        "page": page,
+        "theme": theme,
+        "services": services,
         "projects": projects,
-        "page": page_content,
     })
 
 
@@ -92,10 +114,13 @@ def excel(request):
 # CURRÍCULO
 # ======================================================
 def curriculo_view(request):
-    curriculo = Curriculo.objects.first()
+    page, theme = get_page("curriculo")
+    curriculo = get_object_or_404(Curriculo, page=page)
 
     return render(request, "web/curriculo.html", {
-        "curriculo": curriculo
+        "page": page,
+        "theme": theme,
+        "curriculo": curriculo,
     })
 
 
@@ -103,8 +128,11 @@ def curriculo_view(request):
 # CONTATO
 # ======================================================
 def contato(request):
-    contact = ContactContent.objects.first()
+    page, theme = get_page("contato")
+    contact = get_object_or_404(ContactContent, page=page)
 
     return render(request, "web/contato.html", {
-        "contact": contact
+        "page": page,
+        "theme": theme,
+        "contact": contact,
     })
