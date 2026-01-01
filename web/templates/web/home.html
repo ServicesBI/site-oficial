@@ -21,31 +21,28 @@
 
     <h1
       class="hero-title"
-      style="color: {{ theme.title_color|default:'#ffffff' }}"
+      style="color: {{ theme.title_color|default:'#ffffff' }};"
     >
       {{ page.titulo }}
     </h1>
 
-    {% if page.subtitulo %}
-      <p
-        class="hero-subtitle"
-        style="color: {{ theme.subtitle_color|default:'#cbd5e1' }}"
-      >
-        {{ page.subtitulo }}
-      </p>
-    {% endif %}
+    <p
+      class="hero-subtitle"
+      style="color: {{ theme.subtitle_color|default:'#cbd5e1' }};"
+    >
+      {{ page.subtitulo }}
+    </p>
 
   </div>
 </section>
 
 <!-- ================= SERVIÇOS ================= -->
-{% if services %}
 <section class="services-section">
   <div class="container">
 
     <h2
       class="section-title"
-      style="color: {{ theme.services_title_color|default:'#000000' }}"
+      style="color: {{ theme.services_title_color }};"
     >
       Serviços
     </h2>
@@ -55,30 +52,23 @@
       {% for service in services %}
         <div
           class="service-card"
-          style="border-color: {{ theme.services_border_color|default:'#000000' }}"
+          style="border-color: {{ theme.services_border_color }};"
         >
 
-          <!-- ÍCONE (temporário padrão) -->
-          <img
-            src="{% static 'images/icons/home/default.png' %}"
-            class="service-icon"
-            alt="{{ service.titulo }}"
-          >
-
-          <h3 style="color: {{ theme.services_title_color|default:'#000000' }}">
+          <h3 style="color: {{ theme.services_title_color }};">
             {{ service.titulo }}
           </h3>
 
-          <p style="color: {{ theme.services_text_color|default:'#334155' }}">
+          <p style="color: {{ theme.services_text_color }};">
             {{ service.descricao }}
           </p>
 
           <a
-            href="{% url service.slug %}"
+            href="/{{ service.slug }}/"
             class="btn-service"
             style="
-              border-color: {{ theme.services_button_color|default:'#000000' }};
-              color: {{ theme.services_button_color|default:'#000000' }};
+              color: {{ theme.services_button_color }};
+              border-color: {{ theme.services_button_color }};
             "
           >
             Ver mais
@@ -90,16 +80,14 @@
     </div>
   </div>
 </section>
-{% endif %}
 
 <!-- ================= PROJETOS ================= -->
-{% if projects %}
 <section class="projects-section">
   <div class="container">
 
     <h2
       class="section-title"
-      style="color: {{ theme.projects_title_color|default:'#000000' }}"
+      style="color: {{ theme.projects_title_color }};"
     >
       Projetos
     </h2>
@@ -109,38 +97,23 @@
       {% for project in projects %}
         <div
           class="project-card"
-          style="border-color: {{ theme.projects_border_color|default:'#000000' }}"
+          style="border-color: {{ theme.projects_border_color }};"
         >
 
           <div class="project-image">
-            <img
-              src="{{ project.imagem.url }}"
-              alt="{{ project.titulo }}"
-            >
+            <img src="{{ project.imagem.url }}" alt="{{ project.titulo }}">
           </div>
 
           <h3
             class="project-title"
-            style="color: {{ theme.projects_title_color|default:'#000000' }}"
+            style="color: {{ theme.projects_title_color }};"
           >
             {{ project.titulo }}
           </h3>
 
-          <p style="color: {{ theme.projects_text_color|default:'#334155' }}">
+          <p style="color: {{ theme.projects_text_color }};">
             {{ project.descricao }}
           </p>
-
-          <a
-            href="{% url project.slug %}"
-            class="btn-project"
-            target="_blank"
-            style="
-              border-color: {{ theme.projects_button_color|default:'#000000' }};
-              color: {{ theme.projects_button_color|default:'#000000' }};
-            "
-          >
-            Ver projeto
-          </a>
 
         </div>
       {% endfor %}
@@ -148,7 +121,5 @@
     </div>
   </div>
 </section>
-{% endif %}
 
 {% endblock %}
-
