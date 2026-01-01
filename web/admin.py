@@ -6,7 +6,6 @@ from .models import (
     PageTheme,
     ServiceCard,
     ProjectCard,
-    Curriculo,
     ContactContent,
 
     HomePage,
@@ -67,7 +66,7 @@ class PageThemeInline(admin.StackedInline):
 class ServiceCardInline(admin.TabularInline):
     model = ServiceCard
     extra = 0
-    fields = ("titulo", "descricao", "slug", "ordem")
+    fields = ("titulo", "descricao", "imagem", "slug", "ordem")
     ordering = ("ordem",)
     prepopulated_fields = {"slug": ("titulo",)}
 
@@ -102,6 +101,9 @@ class BasePageAdmin(admin.ModelAdmin):
         }),
         ("Banner", {
             "fields": ("banner_image",)
+        }),
+        ("Currículo (apenas para a página Currículo)", {
+            "fields": ("curriculo_folha_1", "curriculo_folha_2", "curriculo_pdf"),
         }),
     )
 
@@ -154,15 +156,9 @@ class ContatoPageAdmin(BasePageAdmin):
         return super().get_queryset(request).filter(slug="contato")
 
 
-
 # ======================================================
-# ADMIN — CURRÍCULO E CONTATO (CONTEÚDO EXTRA)
+# ADMIN — CONTATO (CONTEÚDO EXTRA)
 # ======================================================
-@admin.register(Curriculo)
-class CurriculoAdmin(admin.ModelAdmin):
-    list_display = ("page", "updated_at")
-
-
 @admin.register(ContactContent)
 class ContactContentAdmin(admin.ModelAdmin):
     list_display = ("page", "email", "telefone", "updated_at")
