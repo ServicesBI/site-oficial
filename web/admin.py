@@ -154,11 +154,6 @@ class ContatoPageAdmin(BasePageAdmin):
         return super().get_queryset(request).filter(slug="contato")
 
 
-# ======================================================
-# ESCONDER O MODEL GENÉRICO PAGE
-# ======================================================
-admin.site.unregister(Page)
-
 
 # ======================================================
 # ADMIN — CURRÍCULO E CONTATO (CONTEÚDO EXTRA)
