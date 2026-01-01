@@ -9,85 +9,133 @@
   style="
     {% if page.banner_image %}
       background-image:
-        linear-gradient(
-          rgba(2, 6, 23, 0.75),
-          rgba(2, 6, 23, 0.85)
-        ),
+        linear-gradient(rgba(2,6,23,.75), rgba(2,6,23,.85)),
         url('{{ page.banner_image.url }}');
     {% endif %}
   "
 >
   <div class="container hero-container">
-
     <h1
       class="hero-title"
-      style="color: {{ theme.title_color|default:'#ffffff' }};"
+      style="color: {{ theme.title_color|default:'#ffffff' }}"
     >
       {{ page.titulo }}
     </h1>
 
     <p
       class="hero-subtitle"
-      style="color: {{ theme.subtitle_color|default:'#cbd5e1' }};"
+      style="color: {{ theme.subtitle_color|default:'#cbd5e1' }}"
     >
       {{ page.subtitulo }}
     </p>
-
   </div>
 </section>
 
 <!-- ================= SERVIÇOS ================= -->
-<section class="services-section">
+<section class="services-section" style="padding-bottom: 40px;">
   <div class="container">
 
     <h2
       class="section-title"
-      style="color: {{ theme.services_title_color }};"
+      style="color: {{ theme.services_title_color }}"
     >
       Serviços
     </h2>
 
     <div class="services-grid">
 
-      {% for service in services %}
-        <div
-          class="service-card"
-          style="border-color: {{ theme.services_border_color }};"
-        >
-
-          <h3 style="color: {{ theme.services_title_color }};">
-            {{ service.titulo }}
-          </h3>
-
-          <p style="color: {{ theme.services_text_color }};">
-            {{ service.descricao }}
-          </p>
-
-          <a
-            href="/{{ service.slug }}/"
-            class="btn-service"
-            style="
-              color: {{ theme.services_button_color }};
-              border-color: {{ theme.services_button_color }};
-            "
-          >
-            Ver mais
-          </a>
-
+      <!-- CARD 1 -->
+      <div class="service-card" style="border-color: {{ theme.services_border_color }}">
+        <div class="service-image">
+          <img src="{% static 'images/services/power-query.png' %}" alt="ETL com Power Query">
         </div>
-      {% endfor %}
+
+        <h3 style="color: {{ theme.services_title_color }}">
+          ETL & Power Query
+        </h3>
+
+        <p style="color: {{ theme.services_text_color }}">
+          Extração, transformação e carga de dados com performance,
+          organização e escalabilidade.
+        </p>
+
+        <a
+          href="{% url 'powerbi' %}"
+          class="btn-service"
+          style="
+            border-color: {{ theme.services_button_color }};
+            color: {{ theme.services_button_color }};
+          "
+        >
+          Ver mais
+        </a>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="service-card" style="border-color: {{ theme.services_border_color }}">
+        <div class="service-image">
+          <img src="{% static 'images/services/modelagem-dados.png' %}" alt="Modelagem de Dados">
+        </div>
+
+        <h3 style="color: {{ theme.services_title_color }}">
+          Modelagem de Dados
+        </h3>
+
+        <p style="color: {{ theme.services_text_color }}">
+          Estruturação correta dos dados para análises rápidas,
+          confiáveis e fáceis de manter.
+        </p>
+
+        <a
+          href="{% url 'powerbi' %}"
+          class="btn-service"
+          style="
+            border-color: {{ theme.services_button_color }};
+            color: {{ theme.services_button_color }};
+          "
+        >
+          Ver mais
+        </a>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="service-card" style="border-color: {{ theme.services_border_color }}">
+        <div class="service-image">
+          <img src="{% static 'images/services/dax.png' %}" alt="DAX e Métricas">
+        </div>
+
+        <h3 style="color: {{ theme.services_title_color }}">
+          DAX & Métricas
+        </h3>
+
+        <p style="color: {{ theme.services_text_color }}">
+          Criação de métricas avançadas, KPIs e indicadores estratégicos
+          para tomada de decisão.
+        </p>
+
+        <a
+          href="{% url 'powerbi' %}"
+          class="btn-service"
+          style="
+            border-color: {{ theme.services_button_color }};
+            color: {{ theme.services_button_color }};
+          "
+        >
+          Ver mais
+        </a>
+      </div>
 
     </div>
   </div>
 </section>
 
 <!-- ================= PROJETOS ================= -->
-<section class="projects-section">
+<section class="projects-section" style="padding-top: 40px;">
   <div class="container">
 
     <h2
       class="section-title"
-      style="color: {{ theme.projects_title_color }};"
+      style="color: {{ theme.projects_title_color }}"
     >
       Projetos
     </h2>
@@ -95,10 +143,7 @@
     <div class="projects-grid">
 
       {% for project in projects %}
-        <div
-          class="project-card"
-          style="border-color: {{ theme.projects_border_color }};"
-        >
+        <div class="project-card" style="border-color: {{ theme.projects_border_color }}">
 
           <div class="project-image">
             <img src="{{ project.imagem.url }}" alt="{{ project.titulo }}">
@@ -106,16 +151,31 @@
 
           <h3
             class="project-title"
-            style="color: {{ theme.projects_title_color }};"
+            style="color: {{ theme.projects_title_color }}"
           >
             {{ project.titulo }}
           </h3>
 
-          <p style="color: {{ theme.projects_text_color }};">
+          <p style="color: {{ theme.projects_text_color }}">
             {{ project.descricao }}
           </p>
 
+          <a
+            href="{% url 'contato' %}"
+            class="btn-project"
+            style="
+              border-color: {{ theme.projects_button_color }};
+              color: {{ theme.projects_button_color }};
+            "
+          >
+            Ver projeto
+          </a>
+
         </div>
+      {% empty %}
+        <p style="text-align:center;">
+          Nenhum projeto cadastrado ainda.
+        </p>
       {% endfor %}
 
     </div>
