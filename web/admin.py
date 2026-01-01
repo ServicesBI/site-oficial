@@ -9,9 +9,8 @@ from .models import (
     ContactContent,
 )
 
-
 # ======================================================
-# WIDGET CUSTOMIZADO: HEX + CAIXINHA DE COR
+# WIDGET DE COR
 # ======================================================
 class ColorHexWidget(forms.Widget):
     template_name = "admin/widgets/color_hex.html"
@@ -21,44 +20,20 @@ class ColorHexWidget(forms.Widget):
 
 
 # ======================================================
-# FORM DO TEMA DA PÁGINA (INLINE)
-# ======================================================
-class PageThemeInlineForm(forms.ModelForm):
-    class Meta:
-        model = PageTheme
-        fields = "__all__"
-        widgets = {
-            "menu_color": ColorHexWidget(),
-            "title_color": ColorHexWidget(),
-            "subtitle_color": ColorHexWidget(),
-            "text_color": ColorHexWidget(),
-
-            "services_title_color": ColorHexWidget(),
-            "services_text_color": ColorHexWidget(),
-            "services_border_color": ColorHexWidget(),
-            "services_button_color": ColorHexWidget(),
-
-            "projects_title_color": ColorHexWidget(),
-            "projects_text_color": ColorHexWidget(),
-            "projects_border_color": ColorHexWidget(),
-            "projects_button_color": ColorHexWidget(),
-        }
-
-
-# ======================================================
-# INLINES
+# INLINE TEMA
 # ======================================================
 class PageThemeInline(admin.StackedInline):
     model = PageTheme
-    form = PageThemeInlineForm
     can_delete = False
     extra = 0
+    widgets = {
+        "menu_color": ColorHexWidget(),
+    }
 
 
 class ServiceCardInline(admin.TabularInline):
     model = ServiceCard
     extra = 0
-    fields = ("titulo", "descricao", "imagem", "slug", "ordem")
     ordering = ("ordem",)
     prepopulated_fields = {"slug": ("titulo",)}
 
@@ -66,48 +41,125 @@ class ServiceCardInline(admin.TabularInline):
 class ProjectCardInline(admin.TabularInline):
     model = ProjectCard
     extra = 0
-    fields = ("titulo", "descricao", "imagem", "slug", "ativo", "ordem")
     ordering = ("ordem",)
     prepopulated_fields = {"slug": ("titulo",)}
 
 
 # ======================================================
-# ADMIN — PAGE (BASE DE TUDO)
+# ADMIN BASE
 # ======================================================
-@admin.register(Page)
-class PageAdmin(admin.ModelAdmin):
-    list_display = ("slug", "titulo", "updated_at")
-    list_filter = ("slug",)
-    search_fields = ("titulo",)
-
-    inlines = [
-        PageThemeInline,
-        ServiceCardInline,
-        ProjectCardInline,
-    ]
+class BasePageAdmin(admin.ModelAdmin):
+    list_display = ("titulo",)
+    inlines = [PageThemeInline, ServiceCardInline, ProjectCardInline]
 
     fieldsets = (
-        ("Identificação da Página", {
-            "fields": ("slug",)
-        }),
         ("Conteúdo", {
             "fields": ("titulo", "subtitulo", "texto")
         }),
         ("Banner", {
             "fields": ("banner_image",)
         }),
-        ("Currículo (somente para a página Currículo)", {
-            "fields": ("curriculo_folha_1", "curriculo_folha_2", "curriculo_pdf"),
+        ("Currículo (apenas na página Currículo)", {
+            "fields": (
+                "curriculo_folha_1",
+                "curriculo_folha_2",
+                "curriculo_pdf",
+            )
         }),
     )
 
     class Media:
         js = ("admin/js/color_sync.js",)
 
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs.filter(slug=self.slug_fixo)
+
+    def has_add_permission(self, request):
+        return False
+
 
 # ======================================================
-# ADMIN — CONTATO (DADOS EXTRA)
+# PROXIES (MENU REAL)
+# ======================================================
+class HomePage(Page):
+    class Meta:
+        proxy = True
+        verbose_name = "Home"
+        verbose_name_plural = "Home"
+
+
+class PythonPage(Page):
+    class Meta:
+        proxy = True
+        verbose_name = "Python"
+        verbose_name_plural = "Python"
+
+
+class PowerBIPage(Page):
+    class Meta:
+        proxy = True
+        verbose_name = "Power BI"
+        verbose_name_plural = "Power BI"
+
+
+class AutomacoesPage(Page):
+    class Meta:
+        proxy = True
+        verbose_name = "Automações"
+        verbose_name_plural = "Automações"
+
+
+class ExcelPage(Page):
+    class Meta:
+        proxy = True
+        verbose_name = "Excel"
+        verbose_name_plural = "Excel"
+
+
+class CurriculoPage(Page):
+    class Meta:
+        proxy = True
+        verbose_name = "Currículo"
+        verbose_name_plural = "Currículo"
+
+
+# ======================================================
+# REGISTROS
+# ======================================================
+@admin.register(HomePage)
+class HomeAdmin(BasePageAdmin):
+    slug_fixo = "home"
+
+
+@admin.register(PythonPage)
+class PythonAdmin(BasePageAdmin):
+    slug_fixo = "python"
+
+
+@admin.register(PowerBIPage)
+class PowerBIAdmin(BasePageAdmin):
+    slug_fixo = "powerbi"
+
+
+@admin.register(AutomacoesPage)
+class AutomacoesAdmin(BasePageAdmin):
+    slug_fixo = "automacoes"
+
+
+@admin.register(ExcelPage)
+class ExcelAdmin(BasePageAdmin):
+    slug_fixo = "excel"
+
+
+@admin.register(CurriculoPage)
+class CurriculoAdmin(BasePageAdmin):
+    slug_fixo = "curriculo"
+
+
+# ======================================================
+# CONTATO (SEPARADO)
 # ======================================================
 @admin.register(ContactContent)
 class ContactContentAdmin(admin.ModelAdmin):
-    list_display = ("page", "email", "telefone", "updated_at")
+    list_display = ("email", "telefone", "updated_at")
