@@ -1,0 +1,19 @@
+<div style="display:flex; align-items:center; gap:10px;">
+    <!-- Campo HEX -->
+    <input
+        type="text"
+        name="{{ widget.name }}"
+        value="{{ widget.value|default:'#ffffff' }}"
+        maxlength="7"
+        style="width:100px;"
+        class="vTextField color-hex-input"
+    >
+
+    <!-- Caixinha de cor -->
+    <input
+        type="color"
+        value="{{ widget.value|default:'#ffffff' }}"
+        class="color-picker-input"
+        style="width:40px; height:40px; padding:0; border:none;"
+    >
+</div>

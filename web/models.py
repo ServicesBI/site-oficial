@@ -1,6 +1,9 @@
 from django.db import models
 
 
+# =========================
+# CURRÍCULO
+# =========================
 class Curriculo(models.Model):
     titulo_banner = models.CharField(
         max_length=200,
@@ -40,6 +43,9 @@ class Curriculo(models.Model):
         verbose_name_plural = "Currículos"
 
 
+# =========================
+# TEMA DO SITE
+# =========================
 class SiteTheme(models.Model):
     PAGE_CHOICES = [
         ("global", "Global"),
@@ -52,42 +58,98 @@ class SiteTheme(models.Model):
         ("contato", "Contato"),
     ]
 
-    nome = models.CharField(max_length=100)
+    nome = models.CharField(
+        max_length=100,
+        verbose_name="Nome do Tema"
+    )
+
     pagina = models.CharField(
         max_length=20,
         choices=PAGE_CHOICES,
-        default="global"
+        default="global",
+        verbose_name="Página"
     )
 
-    cor_titulo = models.CharField(
+    # ================= MENU =================
+    menu_color = models.CharField(
         max_length=7,
         default="#ffffff",
-        help_text="Cor dos títulos principais"
+        verbose_name="Cor do menu",
+        help_text="Cor dos links do menu"
     )
 
-    cor_subtitulo = models.CharField(
+    # ================= HERO / BANNER =================
+    hero_title_color = models.CharField(
+        max_length=7,
+        default="#fde047",
+        verbose_name="Cor do título principal",
+        help_text="Título principal do banner"
+    )
+
+    hero_subtitle_color = models.CharField(
         max_length=7,
         default="#38bdf8",
-        help_text="Cor dos subtítulos"
+        verbose_name="Cor do subtítulo",
+        help_text="Subtítulo do banner"
     )
 
-    cor_texto = models.CharField(
+    # ================= SERVIÇOS =================
+    services_title_color = models.CharField(
         max_length=7,
-        default="#e5e7eb",
-        help_text="Cor do texto padrão"
+        default="#fde047",
+        verbose_name="Serviços - Cor do título"
     )
 
-    cor_botao = models.CharField(
+    services_text_color = models.CharField(
         max_length=7,
-        default="#38bdf8",
-        help_text="Cor principal dos botões"
+        default="#334155",
+        verbose_name="Serviços - Cor da descrição"
     )
 
-    updated_at = models.DateTimeField(auto_now=True)
+    services_border_color = models.CharField(
+        max_length=7,
+        default="#fde047",
+        verbose_name="Serviços - Cor da borda"
+    )
+
+    services_button_color = models.CharField(
+        max_length=7,
+        default="#fde047",
+        verbose_name="Serviços - Cor do botão"
+    )
+
+    # ================= PROJETOS =================
+    projects_title_color = models.CharField(
+        max_length=7,
+        default="#fde047",
+        verbose_name="Projetos - Cor do título"
+    )
+
+    projects_text_color = models.CharField(
+        max_length=7,
+        default="#334155",
+        verbose_name="Projetos - Cor da descrição"
+    )
+
+    projects_border_color = models.CharField(
+        max_length=7,
+        default="#fde047",
+        verbose_name="Projetos - Cor da borda"
+    )
+
+    projects_button_color = models.CharField(
+        max_length=7,
+        default="#fde047",
+        verbose_name="Projetos - Cor do botão"
+    )
+
+    updated_at = models.DateTimeField(
+        auto_now=True,
+        verbose_name="Última atualização"
+    )
 
     def __str__(self):
         return f"{self.nome} ({self.get_pagina_display()})"
-
 
     class Meta:
         verbose_name = "Tema do Site"
