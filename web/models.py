@@ -22,6 +22,11 @@ class Page(models.Model):
         verbose_name="Página"
     )
 
+    ordem = models.PositiveIntegerField(
+        default=0,
+        verbose_name="Ordem no menu"
+    )
+
     # ================= HERO / CONTEÚDO =================
     titulo = models.CharField(
         max_length=200,
@@ -46,7 +51,7 @@ class Page(models.Model):
         verbose_name="Banner da página"
     )
 
-    # ================= CURRÍCULO (USADO APENAS NA PAGE curriculo) =================
+    # ================= CURRÍCULO =================
     curriculo_folha_1 = models.TextField(
         blank=True,
         verbose_name="Currículo – Texto da Folha 1"
@@ -70,6 +75,7 @@ class Page(models.Model):
         return self.get_slug_display()
 
     class Meta:
+        ordering = ["ordem"]
         verbose_name = "Página"
         verbose_name_plural = "Páginas"
 
@@ -170,7 +176,7 @@ class ProjectCard(models.Model):
 
 
 # ======================================================
-# CONTATO (SEM CARDS)
+# CONTATO
 # ======================================================
 class ContactContent(models.Model):
     page = models.OneToOneField(
@@ -238,5 +244,3 @@ class PageTheme(models.Model):
     class Meta:
         verbose_name = "Tema da Página"
         verbose_name_plural = "Temas da Página"
-
-
