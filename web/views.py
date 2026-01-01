@@ -5,7 +5,6 @@ from .models import (
     PageTheme,
     ServiceCard,
     ProjectCard,
-    Curriculo,
     ContactContent,
 )
 
@@ -111,16 +110,14 @@ def excel(request):
 
 
 # ======================================================
-# CURRÍCULO
+# CURRÍCULO (AGORA É PAGE NORMAL)
 # ======================================================
-def curriculo_view(request):
+def curriculo(request):
     page, theme = get_page("curriculo")
-    curriculo = get_object_or_404(Curriculo, page=page)
 
     return render(request, "web/curriculo.html", {
         "page": page,
         "theme": theme,
-        "curriculo": curriculo,
     })
 
 
