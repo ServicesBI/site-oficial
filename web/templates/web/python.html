@@ -6,10 +6,21 @@
 <!-- ================= HERO INTERNO ================= -->
 <section class="hero hero--internal">
     <div class="container hero-container">
-        <h1 class="hero-title">Python & Dados</h1>
-        <p class="hero-subtitle">
-            Automação, ETL, APIs e análise de dados
-        </p>
+
+        <h1 class="hero-title">
+            {{ page.titulo|default:"Python & Dados" }}
+        </h1>
+
+        {% if page.texto %}
+            <p class="hero-subtitle">
+                {{ page.texto|truncatewords:20 }}
+            </p>
+        {% else %}
+            <p class="hero-subtitle">
+                Automação, ETL, APIs e análise de dados
+            </p>
+        {% endif %}
+
     </div>
 </section>
 
@@ -17,12 +28,20 @@
 <section class="content-section">
     <div class="container">
 
-        <h2 class="section-title">O que fazemos com Python</h2>
+        <h2 class="section-title">
+            O que fazemos com Python
+        </h2>
 
-        <p class="section-description">
-            Utilizamos Python para transformar dados brutos em soluções inteligentes,
-            automatizar processos e integrar sistemas de forma eficiente.
-        </p>
+        <div class="section-description">
+            {% if page.texto %}
+                {{ page.texto|linebreaks }}
+            {% else %}
+                <p>
+                    Utilizamos Python para transformar dados brutos em soluções inteligentes,
+                    automatizar processos e integrar sistemas de forma eficiente.
+                </p>
+            {% endif %}
+        </div>
 
     </div>
 </section>
@@ -110,7 +129,9 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <p>Nenhum projeto cadastrado para esta página.</p>
+                <p style="text-align:center;">
+                    Nenhum projeto cadastrado para esta página.
+                </p>
             {% endif %}
 
         </div>

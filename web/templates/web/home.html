@@ -6,10 +6,15 @@
 <!-- ================= HERO / BANNER ================= -->
 <section class="hero">
   <div class="container hero-container">
-    <h1 class="hero-title">ServicesBI</h1>
+
+    <h1 class="hero-title">
+      {{ home.titulo_principal|default:"ServicesBI" }}
+    </h1>
+
     <p class="hero-subtitle">
-      Transformando dados em insights estratégicos que impulsionam negócios.
+      {{ home.subtitulo|default:"Transformando dados em insights estratégicos que impulsionam negócios." }}
     </p>
+
   </div>
 </section>
 
@@ -25,28 +30,28 @@
         <img src="{% static 'images/icons/home/bi.png' %}" class="service-icon" alt="Business Intelligence">
         <h3>Business Intelligence</h3>
         <p>Dashboards e análises estratégicas</p>
-        <a href="#" class="btn-service">Ver mais</a>
+        <a href="{% url 'powerbi' %}" class="btn-service">Ver mais</a>
       </div>
 
       <div class="service-card">
         <img src="{% static 'images/icons/home/automacao.png' %}" class="service-icon" alt="Automações & IA">
         <h3>Automações & IA</h3>
         <p>Processos automatizados e inteligência artificial</p>
-        <a href="#" class="btn-service">Ver mais</a>
+        <a href="{% url 'automacoes' %}" class="btn-service">Ver mais</a>
       </div>
 
       <div class="service-card">
         <img src="{% static 'images/icons/home/python.png' %}" class="service-icon" alt="Python & Dados">
         <h3>Python & Dados</h3>
         <p>ETL, APIs e análise de dados</p>
-        <a href="#" class="btn-service">Ver mais</a>
+        <a href="{% url 'python' %}" class="btn-service">Ver mais</a>
       </div>
 
       <div class="service-card">
         <img src="{% static 'images/icons/home/consultoria.png' %}" class="service-icon" alt="Consultoria em Dados">
         <h3>Consultoria em Dados</h3>
         <p>Diagnóstico, estratégia e apoio à decisão</p>
-        <a href="#" class="btn-service">Ver mais</a>
+        <a href="{% url 'excel' %}" class="btn-service">Ver mais</a>
       </div>
 
     </div>
@@ -61,77 +66,35 @@
 
     <div class="projects-grid">
 
-      <div class="project-card">
-        <div class="project-image">
-          <img src="{% static 'images/projects/home/1.png' %}" alt="Projeto 01">
-        </div>
-        <h3 class="project-title">Projeto 01</h3>
-        <p>
-          Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
-          sem apertar o layout.
-        </p>
-        <a href="#" class="btn-project" target="_blank">Ver projeto</a>
-      </div>
+      {% for project in projects %}
+        <div class="project-card">
 
-      <div class="project-card">
-        <div class="project-image">
-          <img src="{% static 'images/projects/home/2.png' %}" alt="Projeto 02">
-        </div>
-        <h3 class="project-title">Projeto 02</h3>
-        <p>
-          Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
-          sem apertar o layout.
-        </p>
-        <a href="#" class="btn-project" target="_blank">Ver projeto</a>
-      </div>
+          <div class="project-image">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}">
+          </div>
 
-      <div class="project-card">
-        <div class="project-image">
-          <img src="{% static 'images/projects/home/3.png' %}" alt="Projeto 03">
-        </div>
-        <h3 class="project-title">Projeto 03</h3>
-        <p>
-          Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
-          sem apertar o layout.
-        </p>
-        <a href="#" class="btn-project" target="_blank">Ver projeto</a>
-      </div>
+          <h3 class="project-title">
+            {{ project.title }}
+          </h3>
 
-      <div class="project-card">
-        <div class="project-image">
-          <img src="{% static 'images/projects/home/4.png' %}" alt="Projeto 04">
-        </div>
-        <h3 class="project-title">Projeto 04</h3>
-        <p>
-          Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
-          sem apertar o layout.
-        </p>
-        <a href="#" class="btn-project" target="_blank">Ver projeto</a>
-      </div>
+          <p>
+            {{ project.short_description }}
+          </p>
 
-      <div class="project-card">
-        <div class="project-image">
-          <img src="{% static 'images/projects/home/5.png' %}" alt="Projeto 05">
-        </div>
-        <h3 class="project-title">Projeto 05</h3>
-        <p>
-          Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
-          sem apertar o layout.
-        </p>
-        <a href="#" class="btn-project" target="_blank">Ver projeto</a>
-      </div>
+          <a
+            href="{{ project.url }}"
+            class="btn-project"
+            target="_blank"
+          >
+            Ver projeto
+          </a>
 
-      <div class="project-card">
-        <div class="project-image">
-          <img src="{% static 'images/projects/home/6.png' %}" alt="Projeto 06">
         </div>
-        <h3 class="project-title">Projeto 06</h3>
-        <p>
-          Descrição breve do projeto. Aqui cabem 2 ou 3 linhas
-          sem apertar o layout.
+      {% empty %}
+        <p style="text-align:center;">
+          Nenhum projeto cadastrado ainda.
         </p>
-        <a href="#" class="btn-project" target="_blank">Ver projeto</a>
-      </div>
+      {% endfor %}
 
     </div>
   </div>

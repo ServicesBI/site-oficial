@@ -1,7 +1,14 @@
 from django.contrib import admin
 from django import forms
 
-from .models import Curriculo, SiteTheme
+from .models import (
+    Page,
+    PageTheme,
+    ServiceCard,
+    ProjectCard,
+    Curriculo,
+    ContactContent,
+)
 
 
 # ======================================================
@@ -15,27 +22,23 @@ class ColorHexWidget(forms.Widget):
 
 
 # ======================================================
-# FORM DO TEMA (USA O WIDGET CUSTOMIZADO)
+# FORM DO TEMA DA PÁGINA
 # ======================================================
-class SiteThemeAdminForm(forms.ModelForm):
+class PageThemeAdminForm(forms.ModelForm):
     class Meta:
-        model = SiteTheme
+        model = PageTheme
         fields = "__all__"
         widgets = {
-            # MENU
             "menu_color": ColorHexWidget(),
+            "title_color": ColorHexWidget(),
+            "subtitle_color": ColorHexWidget(),
+            "text_color": ColorHexWidget(),
 
-            # HERO / BANNER
-            "hero_title_color": ColorHexWidget(),
-            "hero_subtitle_color": ColorHexWidget(),
-
-            # SERVIÇOS
             "services_title_color": ColorHexWidget(),
             "services_text_color": ColorHexWidget(),
             "services_border_color": ColorHexWidget(),
             "services_button_color": ColorHexWidget(),
 
-            # PROJETOS
             "projects_title_color": ColorHexWidget(),
             "projects_text_color": ColorHexWidget(),
             "projects_border_color": ColorHexWidget(),
@@ -44,32 +47,53 @@ class SiteThemeAdminForm(forms.ModelForm):
 
 
 # ======================================================
-# ADMIN DO TEMA DO SITE
+# ADMIN — PÁGINAS
 # ======================================================
-@admin.register(SiteTheme)
-class SiteThemeAdmin(admin.ModelAdmin):
-    form = SiteThemeAdminForm
-    list_display = ("nome", "pagina", "updated_at")
-    list_filter = ("pagina",)
-    search_fields = ("nome",)
+@admin.register(Page)
+class PageAdmin(admin.ModelAdmin):
+    list_display = ("slug", "titulo", "updated_at")
+    list_filter = ("slug",)
+    search_fields = ("titulo",)
 
     fieldsets = (
-        ("Identificação", {
-            "fields": ("nome", "pagina")
+        ("Identificação da Página", {
+            "fields": ("slug",)
+        }),
+        ("Conteúdo", {
+            "fields": ("titulo", "subtitulo", "texto")
+        }),
+        ("Banner", {
+            "fields": ("banner_image",)
+        }),
+    )
+
+
+# ======================================================
+# ADMIN — TEMA DA PÁGINA
+# ======================================================
+@admin.register(PageTheme)
+class PageThemeAdmin(admin.ModelAdmin):
+    form = PageThemeAdminForm
+    list_display = ("page", "updated_at")
+
+    fieldsets = (
+        ("Página", {
+            "fields": ("page",)
         }),
 
         ("Menu", {
             "fields": ("menu_color",)
         }),
 
-        ("Hero / Banner", {
+        ("Hero / Texto", {
             "fields": (
-                "hero_title_color",
-                "hero_subtitle_color",
+                "title_color",
+                "subtitle_color",
+                "text_color",
             )
         }),
 
-        ("Serviços – Cards", {
+        ("Serviços", {
             "fields": (
                 "services_title_color",
                 "services_text_color",
@@ -78,7 +102,7 @@ class SiteThemeAdmin(admin.ModelAdmin):
             )
         }),
 
-        ("Projetos – Cards", {
+        ("Projetos", {
             "fields": (
                 "projects_title_color",
                 "projects_text_color",
@@ -88,14 +112,45 @@ class SiteThemeAdmin(admin.ModelAdmin):
         }),
     )
 
-    # 🔹 Carrega o JS que sincroniza HEX ↔ caixinha
     class Media:
         js = ("admin/js/color_sync.js",)
 
 
 # ======================================================
-# ADMIN DO CURRÍCULO
+# ADMIN — SERVIÇOS (CARDS)
+# ======================================================
+@admin.register(ServiceCard)
+class ServiceCardAdmin(admin.ModelAdmin):
+    list_display = ("titulo", "page", "ordem")
+    list_filter = ("page",)
+    list_editable = ("ordem",)
+    search_fields = ("titulo",)
+    prepopulated_fields = {"slug": ("titulo",)}
+
+
+# ======================================================
+# ADMIN — PROJETOS (CARDS)
+# ======================================================
+@admin.register(ProjectCard)
+class ProjectCardAdmin(admin.ModelAdmin):
+    list_display = ("titulo", "page", "ativo", "ordem")
+    list_filter = ("page", "ativo")
+    list_editable = ("ativo", "ordem")
+    search_fields = ("titulo",)
+    prepopulated_fields = {"slug": ("titulo",)}
+
+
+# ======================================================
+# ADMIN — CURRÍCULO
 # ======================================================
 @admin.register(Curriculo)
 class CurriculoAdmin(admin.ModelAdmin):
-    list_display = ("titulo_banner", "updated_at")
+    list_display = ("page", "updated_at")
+
+
+# ======================================================
+# ADMIN — CONTATO
+# ======================================================
+@admin.register(ContactContent)
+class ContactContentAdmin(admin.ModelAdmin):
+    list_display = ("page", "email", "telefone", "updated_at")
