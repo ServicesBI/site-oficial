@@ -7,14 +7,6 @@ from .models import (
     ServiceCard,
     ProjectCard,
     ContactContent,
-
-    HomePage,
-    PythonPage,
-    PowerBIPage,
-    AutomacoesPage,
-    ExcelPage,
-    CurriculoPage,
-    ContatoPage,
 )
 
 
@@ -80,10 +72,12 @@ class ProjectCardInline(admin.TabularInline):
 
 
 # ======================================================
-# ADMIN BASE (REUTILIZADO POR TODAS AS PÁGINAS)
+# ADMIN — PAGE (BASE DE TUDO)
 # ======================================================
-class BasePageAdmin(admin.ModelAdmin):
-    list_display = ("titulo", "updated_at")
+@admin.register(Page)
+class PageAdmin(admin.ModelAdmin):
+    list_display = ("slug", "titulo", "updated_at")
+    list_filter = ("slug",)
     search_fields = ("titulo",)
 
     inlines = [
@@ -102,7 +96,7 @@ class BasePageAdmin(admin.ModelAdmin):
         ("Banner", {
             "fields": ("banner_image",)
         }),
-        ("Currículo (apenas para a página Currículo)", {
+        ("Currículo (somente para a página Currículo)", {
             "fields": ("curriculo_folha_1", "curriculo_folha_2", "curriculo_pdf"),
         }),
     )
@@ -112,52 +106,7 @@ class BasePageAdmin(admin.ModelAdmin):
 
 
 # ======================================================
-# REGISTRO DAS PÁGINAS (MENU SEPARADO)
-# ======================================================
-@admin.register(HomePage)
-class HomeAdmin(BasePageAdmin):
-    def get_queryset(self, request):
-        return super().get_queryset(request).filter(slug="home")
-
-
-@admin.register(PythonPage)
-class PythonAdmin(BasePageAdmin):
-    def get_queryset(self, request):
-        return super().get_queryset(request).filter(slug="python")
-
-
-@admin.register(PowerBIPage)
-class PowerBIAdmin(BasePageAdmin):
-    def get_queryset(self, request):
-        return super().get_queryset(request).filter(slug="powerbi")
-
-
-@admin.register(AutomacoesPage)
-class AutomacoesAdmin(BasePageAdmin):
-    def get_queryset(self, request):
-        return super().get_queryset(request).filter(slug="automacoes")
-
-
-@admin.register(ExcelPage)
-class ExcelAdmin(BasePageAdmin):
-    def get_queryset(self, request):
-        return super().get_queryset(request).filter(slug="excel")
-
-
-@admin.register(CurriculoPage)
-class CurriculoPageAdmin(BasePageAdmin):
-    def get_queryset(self, request):
-        return super().get_queryset(request).filter(slug="curriculo")
-
-
-@admin.register(ContatoPage)
-class ContatoPageAdmin(BasePageAdmin):
-    def get_queryset(self, request):
-        return super().get_queryset(request).filter(slug="contato")
-
-
-# ======================================================
-# ADMIN — CONTATO (CONTEÚDO EXTRA)
+# ADMIN — CONTATO (DADOS EXTRA)
 # ======================================================
 @admin.register(ContactContent)
 class ContactContentAdmin(admin.ModelAdmin):
