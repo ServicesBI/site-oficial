@@ -2,7 +2,7 @@ from django.db import models
 
 
 # ======================================================
-# PÁGINAS (BASE DE TUDO) — OPÇÃO A
+# PÁGINAS (BASE DE TUDO)
 # ======================================================
 class Page(models.Model):
     PAGE_CHOICES = [
@@ -22,6 +22,7 @@ class Page(models.Model):
         verbose_name="Página"
     )
 
+    # ================= HERO / CONTEÚDO =================
     titulo = models.CharField(
         max_length=200,
         verbose_name="Título principal"
@@ -45,6 +46,24 @@ class Page(models.Model):
         verbose_name="Banner da página"
     )
 
+    # ================= CURRÍCULO (USADO APENAS NA PAGE curriculo) =================
+    curriculo_folha_1 = models.TextField(
+        blank=True,
+        verbose_name="Currículo – Texto da Folha 1"
+    )
+
+    curriculo_folha_2 = models.TextField(
+        blank=True,
+        verbose_name="Currículo – Texto da Folha 2"
+    )
+
+    curriculo_pdf = models.FileField(
+        upload_to="curriculo/pdf/",
+        blank=True,
+        null=True,
+        verbose_name="Currículo – PDF"
+    )
+
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -56,7 +75,7 @@ class Page(models.Model):
 
 
 # ======================================================
-# SERVIÇOS (CARDS — REUTILIZÁVEIS)
+# SERVIÇOS (CARDS)
 # ======================================================
 class ServiceCard(models.Model):
     page = models.ForeignKey(
@@ -74,6 +93,13 @@ class ServiceCard(models.Model):
     descricao = models.TextField(
         max_length=500,
         verbose_name="Descrição do serviço"
+    )
+
+    imagem = models.ImageField(
+        upload_to="services/",
+        blank=True,
+        null=True,
+        verbose_name="Imagem do serviço"
     )
 
     slug = models.SlugField(
@@ -95,7 +121,7 @@ class ServiceCard(models.Model):
 
 
 # ======================================================
-# PROJETOS (CARDS — REUTILIZÁVEIS)
+# PROJETOS (CARDS)
 # ======================================================
 class ProjectCard(models.Model):
     page = models.ForeignKey(
@@ -144,50 +170,14 @@ class ProjectCard(models.Model):
 
 
 # ======================================================
-# CURRÍCULO (ESPECIAL — SEM CARDS)
-# ======================================================
-class Curriculo(models.Model):
-    page = models.OneToOneField(
-        Page,
-        on_delete=models.CASCADE,
-        limit_choices_to={"slug": "curriculo"},
-        verbose_name="Página",
-        null=True,
-        blank=True
-    )
-
-    texto_folha_1 = models.TextField(
-        verbose_name="Texto da Folha 1"
-    )
-
-    texto_folha_2 = models.TextField(
-        verbose_name="Texto da Folha 2"
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        verbose_name="Última atualização"
-    )
-
-    def __str__(self):
-        return "Currículo – ServicesBI"
-
-    class Meta:
-        verbose_name = "Currículo"
-        verbose_name_plural = "Currículo"
-
-
-# ======================================================
-# CONTATO (SEM CARDS / PROJETOS)
+# CONTATO (SEM CARDS)
 # ======================================================
 class ContactContent(models.Model):
     page = models.OneToOneField(
         Page,
         on_delete=models.CASCADE,
         limit_choices_to={"slug": "contato"},
-        verbose_name="Página",
-        null=True,
-        blank=True
+        verbose_name="Página"
     )
 
     texto = models.TextField(
@@ -206,7 +196,7 @@ class ContactContent(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "Contato – Conteúdo"
+        return "Contato"
 
     class Meta:
         verbose_name = "Contato"
@@ -214,7 +204,7 @@ class ContactContent(models.Model):
 
 
 # ======================================================
-# TEMA DA PÁGINA (APARÊNCIA — 1 PRA 1 COM PAGE)
+# TEMA DA PÁGINA
 # ======================================================
 class PageTheme(models.Model):
     page = models.OneToOneField(
@@ -224,81 +214,21 @@ class PageTheme(models.Model):
         verbose_name="Página"
     )
 
-    # ================= MENU =================
-    menu_color = models.CharField(
-        max_length=7,
-        default="#ffffff",
-        verbose_name="Cor do menu"
-    )
+    menu_color = models.CharField(max_length=7, default="#ffffff")
 
-    # ================= HERO =================
-    title_color = models.CharField(
-        max_length=7,
-        default="#fde047",
-        verbose_name="Cor do título"
-    )
+    title_color = models.CharField(max_length=7, default="#fde047")
+    subtitle_color = models.CharField(max_length=7, default="#38bdf8")
+    text_color = models.CharField(max_length=7, default="#e5e7eb")
 
-    subtitle_color = models.CharField(
-        max_length=7,
-        default="#38bdf8",
-        verbose_name="Cor do subtítulo"
-    )
+    services_title_color = models.CharField(max_length=7, default="#fde047")
+    services_text_color = models.CharField(max_length=7, default="#334155")
+    services_border_color = models.CharField(max_length=7, default="#fde047")
+    services_button_color = models.CharField(max_length=7, default="#fde047")
 
-    text_color = models.CharField(
-        max_length=7,
-        default="#e5e7eb",
-        verbose_name="Cor do texto"
-    )
-
-    # ================= SERVIÇOS =================
-    services_title_color = models.CharField(
-        max_length=7,
-        default="#fde047",
-        verbose_name="Serviços – Título"
-    )
-
-    services_text_color = models.CharField(
-        max_length=7,
-        default="#334155",
-        verbose_name="Serviços – Texto"
-    )
-
-    services_border_color = models.CharField(
-        max_length=7,
-        default="#fde047",
-        verbose_name="Serviços – Borda"
-    )
-
-    services_button_color = models.CharField(
-        max_length=7,
-        default="#fde047",
-        verbose_name="Serviços – Botão"
-    )
-
-    # ================= PROJETOS =================
-    projects_title_color = models.CharField(
-        max_length=7,
-        default="#fde047",
-        verbose_name="Projetos – Título"
-    )
-
-    projects_text_color = models.CharField(
-        max_length=7,
-        default="#334155",
-        verbose_name="Projetos – Texto"
-    )
-
-    projects_border_color = models.CharField(
-        max_length=7,
-        default="#fde047",
-        verbose_name="Projetos – Borda"
-    )
-
-    projects_button_color = models.CharField(
-        max_length=7,
-        default="#fde047",
-        verbose_name="Projetos – Botão"
-    )
+    projects_title_color = models.CharField(max_length=7, default="#fde047")
+    projects_text_color = models.CharField(max_length=7, default="#334155")
+    projects_border_color = models.CharField(max_length=7, default="#fde047")
+    projects_button_color = models.CharField(max_length=7, default="#fde047")
 
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -308,57 +238,5 @@ class PageTheme(models.Model):
     class Meta:
         verbose_name = "Tema da Página"
         verbose_name_plural = "Temas da Página"
-
-# ======================================================
-# PROXY MODELS — ADMIN POR PÁGINA (CMS STYLE)
-# ======================================================
-
-class HomePage(Page):
-    class Meta:
-        proxy = True
-        verbose_name = "Home"
-        verbose_name_plural = "Home"
-
-
-class PythonPage(Page):
-    class Meta:
-        proxy = True
-        verbose_name = "Python"
-        verbose_name_plural = "Python"
-
-
-class PowerBIPage(Page):
-    class Meta:
-        proxy = True
-        verbose_name = "Power BI"
-        verbose_name_plural = "Power BI"
-
-
-class AutomacoesPage(Page):
-    class Meta:
-        proxy = True
-        verbose_name = "Automações"
-        verbose_name_plural = "Automações"
-
-
-class ExcelPage(Page):
-    class Meta:
-        proxy = True
-        verbose_name = "Excel"
-        verbose_name_plural = "Excel"
-
-
-class CurriculoPage(Page):
-    class Meta:
-        proxy = True
-        verbose_name = "Currículo"
-        verbose_name_plural = "Currículo"
-
-
-class ContatoPage(Page):
-    class Meta:
-        proxy = True
-        verbose_name = "Contato"
-        verbose_name_plural = "Contato"
 
 
