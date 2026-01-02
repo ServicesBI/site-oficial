@@ -3,24 +3,19 @@ from ckeditor.fields import RichTextField
 
 
 # ======================================================
-# PÁGINAS (BASE DE TUDO)
+# PÁGINAS (CMS BASE)
 # ======================================================
 class Page(models.Model):
-    PAGE_CHOICES = [
-        ("home", "Home"),
-        ("python", "Python"),
-        ("powerbi", "Power BI"),
-        ("automacoes", "Automações"),
-        ("excel", "Excel"),
-        ("curriculo", "Currículo"),
-        ("contato", "Contato"),
-    ]
+    """
+    Page é a base de TODAS as páginas do site.
+    Cada página existe UMA ÚNICA VEZ por slug.
+    Ex: home, python, powerbi, etc.
+    """
 
-    slug = models.CharField(
+    slug = models.SlugField(
         max_length=30,
-        choices=PAGE_CHOICES,
         unique=True,
-        verbose_name="Página"
+        verbose_name="Slug da página (ex: home, python, powerbi)"
     )
 
     # ================= HERO =================
@@ -157,7 +152,7 @@ class Page(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.get_slug_display()
+        return self.slug
 
     class Meta:
         verbose_name = "Página"
@@ -175,10 +170,7 @@ class ServiceCard(models.Model):
     )
 
     titulo = models.CharField(max_length=100)
-
-    descricao = RichTextField(
-        verbose_name="Descrição"
-    )
+    descricao = RichTextField(verbose_name="Descrição")
 
     imagem = models.ImageField(
         upload_to="services/",
@@ -207,10 +199,7 @@ class ProjectCard(models.Model):
     )
 
     titulo = models.CharField(max_length=150)
-
-    descricao = RichTextField(
-        verbose_name="Descrição"
-    )
+    descricao = RichTextField(verbose_name="Descrição")
 
     imagem = models.ImageField(upload_to="projects/")
     slug = models.SlugField()
@@ -235,9 +224,7 @@ class ContactContent(models.Model):
         limit_choices_to={"slug": "contato"}
     )
 
-    texto = RichTextField(
-        verbose_name="Texto"
-    )
+    texto = RichTextField(verbose_name="Texto")
     email = models.EmailField()
     telefone = models.CharField(max_length=30)
 
