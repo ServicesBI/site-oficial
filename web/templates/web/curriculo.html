@@ -1,53 +1,72 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/curriculo.css' %}">
+{% endblock %}
+
 {% block content %}
 
-<!-- ================= HERO INTERNO ================= -->
+<!-- ================= HERO / BANNER ================= -->
 <section class="hero hero--internal"
-    {% if curriculo.banner_image %}
-        style="background-image: url('{{ curriculo.banner_image.url }}');"
-    {% endif %}
+  {% if page.banner_image %}
+    style="background-image: url('{{ page.banner_image.url }}');"
+  {% endif %}
 >
-    <div class="container hero-container">
-        <h1 class="hero-title">
-            {{ curriculo.titulo_banner }}
-        </h1>
-        <p class="hero-subtitle">
-            {{ curriculo.subtitulo_banner }}
-        </p>
-    </div>
-</section>
+  <div class="container hero-container">
+    <h1 class="hero-title">
+      {{ page.titulo|safe }}
+    </h1>
 
-<link rel="stylesheet" href="{% static 'css/curriculo.css' %}">
-
-<!-- ================= AÇÕES ================= -->
-<section class="curriculo-actions">
-    <a href="{% static 'docs/Leles_Junior.pdf' %}" target="_blank" class="btn-action">
-        📄 Baixar PDF
-    </a>
-    <button onclick="window.print()" class="btn-action">
-        🖨️ Imprimir
-    </button>
+    {% if page.subtitulo %}
+      <p class="hero-subtitle">
+        {{ page.subtitulo|safe }}
+      </p>
+    {% endif %}
+  </div>
 </section>
 
 <!-- ================= CURRÍCULO ================= -->
-<section class="curriculo-wrapper">
+<main class="curriculo-page">
 
-    <div class="curriculo-pages">
+  <!-- ================= AÇÕES ================= -->
+  <div class="curriculo-actions">
 
-        <!-- ================= FOLHA 1 ================= -->
-        <article class="curriculo-sheet">
-            {{ curriculo.texto_folha_1|linebreaks }}
-        </article>
+    {% if page.curriculo_pdf %}
+      <a
+        href="{{ page.curriculo_pdf.url }}"
+        target="_blank"
+        class="btn-action"
+      >
+        📄 Baixar PDF
+      </a>
+    {% endif %}
 
-        <!-- ================= FOLHA 2 ================= -->
-        <article class="curriculo-sheet">
-            {{ curriculo.texto_folha_2|linebreaks }}
-        </article>
+    <button
+      type="button"
+      onclick="window.print()"
+      class="btn-action"
+    >
+      🖨️ Imprimir
+    </button>
 
-    </div>
+  </div>
 
-</section>
+  <!-- ================= WRAPPER DAS FOLHAS ================= -->
+  <div class="curriculo-wrapper">
+
+    <!-- ================= FOLHA 1 ================= -->
+    <section class="curriculo-sheet">
+      {{ page.curriculo_folha_1|safe }}
+    </section>
+
+    <!-- ================= FOLHA 2 ================= -->
+    <section class="curriculo-sheet">
+      {{ page.curriculo_folha_2|safe }}
+    </section>
+
+  </div>
+
+</main>
 
 {% endblock %}

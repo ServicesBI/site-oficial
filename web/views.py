@@ -1,6 +1,11 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Page, ServiceCard, ProjectCard, ContactContent
 
+from .models import (
+    Page,
+    ServiceCard,
+    ProjectCard,
+    ContactContent,
+)
 
 # ======================================================
 # VIEW GENÉRICA POR SLUG (CMS CENTRAL)
@@ -15,18 +20,15 @@ def page_by_slug(request, slug=None):
     - Algumas páginas possuem comportamento especial
     """
 
-    # ==================================================
+    # ----------------------------
     # SLUG PADRÃO
-    # ==================================================
+    # ----------------------------
     page_slug = slug if slug else "home"
-
     page = get_object_or_404(Page, slug=page_slug)
 
-    # ==================================================
-    # PÁGINAS ESPECIAIS (LÓGICA PRÓPRIA)
-    # ==================================================
-
+    # ----------------------------
     # CONTATO
+    # ----------------------------
     if page_slug == "contato":
         contact = get_object_or_404(ContactContent, page=page)
         return render(request, "web/contato.html", {
@@ -34,15 +36,17 @@ def page_by_slug(request, slug=None):
             "contact": contact,
         })
 
-    # CURRÍCULO (não possui services / projects)
+    # ----------------------------
+    # CURRÍCULO (USA PAGE)
+    # ----------------------------
     if page_slug == "curriculo":
         return render(request, "web/curriculo.html", {
-            "page": page,
+            "page": page,  # currículo vem daqui
         })
 
-    # ==================================================
-    # PÁGINAS PADRÃO (CMS)
-    # ==================================================
+    # ----------------------------
+    # PÁGINAS PADRÃO (HOME / INTERNAS)
+    # ----------------------------
     services = ServiceCard.objects.filter(
         page=page
     ).order_by("ordem")
