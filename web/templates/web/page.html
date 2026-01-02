@@ -90,7 +90,7 @@
             {{ service.descricao|safe }}
           </div>
 
-          <a href="{% url 'contato' %}" class="btn-service">
+          <a href="{% url 'page' 'contato' %}" class="btn-service">
             Ver mais
           </a>
 
@@ -142,7 +142,8 @@
             </div>
           </div>
 
-          <a href="{% url 'contato' %}" class="btn-project">
+          <!-- 🔧 CORREÇÃO AQUI -->
+          <a href="{% url 'page' 'contato' %}" class="btn-project">
             Ver projeto
           </a>
 
