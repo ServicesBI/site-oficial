@@ -17,7 +17,6 @@ class ColorHexWidget(forms.TextInput):
         js = ("admin/js/color_sync.js",)
 
 
-
 # ======================================================
 # INLINES
 # ======================================================
@@ -36,10 +35,9 @@ class ProjectCardInline(admin.TabularInline):
 
 
 # ======================================================
-# ADMIN BASE (COM CAMPOS NA MESMA LINHA)
+# ADMIN BASE
 # ======================================================
 class BasePageAdmin(admin.ModelAdmin):
-    list_display = ("titulo",)
     inlines = [ServiceCardInline, ProjectCardInline]
 
     fieldsets = (
@@ -72,7 +70,6 @@ class BasePageAdmin(admin.ModelAdmin):
         return qs.filter(slug=self.slug_fixo)
 
     def has_add_permission(self, request):
-        # pode deixar True enquanto cria as páginas
         return True
 
     def get_form(self, request, obj=None, **kwargs):
