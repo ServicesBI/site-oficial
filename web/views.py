@@ -3,111 +3,57 @@ from .models import Page, ServiceCard, ProjectCard, ContactContent
 
 
 # ======================================================
-# FUNÇÃO AUXILIAR
+# VIEW GENÉRICA POR SLUG (CMS CENTRAL)
 # ======================================================
-def get_page(slug):
-    return get_object_or_404(Page, slug=slug)
+def page_by_slug(request, slug=None):
+    """
+    VIEW GENÉRICA DO CMS
 
+    Regras:
+    - '/'            → home
+    - '/<slug>/'     → Page(slug=slug)
+    - Algumas páginas possuem comportamento especial
+    """
 
-# ======================================================
-# HOME
-# ======================================================
-def home(request):
-    page = get_page("home")
+    # ==================================================
+    # SLUG PADRÃO
+    # ==================================================
+    page_slug = slug if slug else "home"
 
-    services = ServiceCard.objects.filter(page=page).order_by("ordem")
-    projects = ProjectCard.objects.filter(page=page, ativo=True).order_by("ordem")
+    page = get_object_or_404(Page, slug=page_slug)
 
-    return render(request, "web/home.html", {
+    # ==================================================
+    # PÁGINAS ESPECIAIS (LÓGICA PRÓPRIA)
+    # ==================================================
+
+    # CONTATO
+    if page_slug == "contato":
+        contact = get_object_or_404(ContactContent, page=page)
+        return render(request, "web/contato.html", {
+            "page": page,
+            "contact": contact,
+        })
+
+    # CURRÍCULO (não possui services / projects)
+    if page_slug == "curriculo":
+        return render(request, "web/curriculo.html", {
+            "page": page,
+        })
+
+    # ==================================================
+    # PÁGINAS PADRÃO (CMS)
+    # ==================================================
+    services = ServiceCard.objects.filter(
+        page=page
+    ).order_by("ordem")
+
+    projects = ProjectCard.objects.filter(
+        page=page,
+        ativo=True
+    ).order_by("ordem")
+
+    return render(request, "web/page.html", {
         "page": page,
         "services": services,
         "projects": projects,
-    })
-
-
-# ======================================================
-# PYTHON
-# ======================================================
-def python(request):
-    page = get_page("python")
-
-    services = ServiceCard.objects.filter(page=page).order_by("ordem")
-    projects = ProjectCard.objects.filter(page=page, ativo=True).order_by("ordem")
-
-    return render(request, "web/python.html", {
-        "page": page,
-        "services": services,
-        "projects": projects,
-    })
-
-
-# ======================================================
-# POWER BI
-# ======================================================
-def powerbi(request):
-    page = get_page("powerbi")
-
-    services = ServiceCard.objects.filter(page=page).order_by("ordem")
-    projects = ProjectCard.objects.filter(page=page, ativo=True).order_by("ordem")
-
-    return render(request, "web/powerbi.html", {
-        "page": page,
-        "services": services,
-        "projects": projects,
-    })
-
-
-# ======================================================
-# AUTOMAÇÕES
-# ======================================================
-def automacoes(request):
-    page = get_page("automacoes")
-
-    services = ServiceCard.objects.filter(page=page).order_by("ordem")
-    projects = ProjectCard.objects.filter(page=page, ativo=True).order_by("ordem")
-
-    return render(request, "web/automacoes.html", {
-        "page": page,
-        "services": services,
-        "projects": projects,
-    })
-
-
-# ======================================================
-# EXCEL
-# ======================================================
-def excel(request):
-    page = get_page("excel")
-
-    services = ServiceCard.objects.filter(page=page).order_by("ordem")
-    projects = ProjectCard.objects.filter(page=page, ativo=True).order_by("ordem")
-
-    return render(request, "web/excel.html", {
-        "page": page,
-        "services": services,
-        "projects": projects,
-    })
-
-
-# ======================================================
-# CURRÍCULO (SEM SERVICES / PROJECTS)
-# ======================================================
-def curriculo(request):
-    page = get_page("curriculo")
-
-    return render(request, "web/curriculo.html", {
-        "page": page,
-    })
-
-
-# ======================================================
-# CONTATO
-# ======================================================
-def contato(request):
-    page = get_page("contato")
-    contact = get_object_or_404(ContactContent, page=page)
-
-    return render(request, "web/contato.html", {
-        "page": page,
-        "contact": contact,
     })

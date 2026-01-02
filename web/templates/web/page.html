@@ -19,7 +19,6 @@
       class="hero-title"
       style="color: {{ theme.title_color|default:'#ffffff' }}"
     >
-      {# ALTERAÇÃO: RichTextField → renderizar HTML #}
       {{ page.titulo|safe }}
     </h1>
 
@@ -28,7 +27,6 @@
       class="hero-subtitle"
       style="color: {{ theme.subtitle_color|default:'#cbd5e1' }}"
     >
-      {# ALTERAÇÃO: RichTextField → renderizar HTML #}
       {{ page.subtitulo|safe }}
     </p>
     {% endif %}
@@ -50,7 +48,6 @@
         font-size: 16px;
       "
     >
-      {# ALTERAÇÃO: RichTextField → remover linebreaks e usar safe #}
       {{ page.texto|safe }}
     </div>
   </div>
@@ -58,6 +55,7 @@
 {% endif %}
 
 <!-- ================= SERVIÇOS ================= -->
+{% if services %}
 <section
   class="services-section"
   style="
@@ -75,7 +73,6 @@
       class="services-grid"
       style="grid-template-columns: repeat(auto-fit, minmax(260px, 320px)); justify-content: center;"
     >
-
       {% for service in services %}
         <div class="service-card">
 
@@ -90,7 +87,6 @@
           </h3>
 
           <div style="color: {{ theme.services_text_color }}">
-            {# ALTERAÇÃO: RichTextField → renderizar HTML #}
             {{ service.descricao|safe }}
           </div>
 
@@ -100,12 +96,13 @@
 
         </div>
       {% endfor %}
-
     </div>
   </div>
 </section>
+{% endif %}
 
 <!-- ================= PROJETOS ================= -->
+{% if projects %}
 <section
   class="projects-section"
   style="
@@ -123,7 +120,6 @@
       class="projects-grid"
       style="grid-template-columns: repeat(auto-fit, minmax(280px, 360px)); justify-content: center;"
     >
-
       {% for project in projects %}
         <div class="project-card">
 
@@ -142,7 +138,6 @@
             </h3>
 
             <div style="color: {{ theme.projects_text_color }}">
-              {# ALTERAÇÃO: RichTextField → renderizar HTML #}
               {{ project.descricao|safe }}
             </div>
           </div>
@@ -153,9 +148,9 @@
 
         </div>
       {% endfor %}
-
     </div>
   </div>
 </section>
+{% endif %}
 
 {% endblock %}

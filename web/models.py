@@ -55,11 +55,9 @@ class Page(models.Model):
     )
 
     # ================= MENU =================
-    menu_conteudo = RichTextField(
-        blank=True,
-        null=True,
-        verbose_name="Menu – Conteúdo"
-    )
+    # ALTERAÇÃO (OPÇÃO A):
+    # Conteúdo do menu REMOVIDO.
+    # Menu permanece estrutural (HTML fixo).
     menu_bg_color = models.CharField(
         max_length=7,
         default="#0f172a",
@@ -116,11 +114,9 @@ class Page(models.Model):
     )
 
     # ================= FOOTER =================
-    footer_conteudo = RichTextField(
-        blank=True,
-        null=True,
-        verbose_name="Footer – Conteúdo"
-    )
+    # ALTERAÇÃO (OPÇÃO A):
+    # Conteúdo do footer REMOVIDO.
+    # Footer permanece estrutural (HTML fixo).
     footer_bg_color = models.CharField(
         max_length=7,
         default="#020617",
