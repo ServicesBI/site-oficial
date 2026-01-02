@@ -1,37 +1,25 @@
-from .models import Page, PageTheme
+from .models import Page
 
 
-def site_theme(request):
+def page_context(request):
     """
-    Retorna o tema do site baseado na página atual.
-    Prioridade:
-    1) Tema específico da página
-    2) Tema global
+    Disponibiliza a página atual para os templates,
+    baseada na URL.
     """
 
-    # Tema global (fallback)
-    theme = PageTheme.objects.filter(page__slug="home").first()
+    path = request.path.strip("/")
 
-    path = request.path.strip("/").lower()
-
-    # HOME (caso especial)
+    # Home
     if path == "":
-        page = Page.objects.filter(slug="home").first()
-        if page and hasattr(page, "theme"):
-            theme = page.theme
+        slug = "home"
+    else:
+        slug = path.split("/")[0]
 
-        return {
-            "theme": theme,
-            "page": page,
-        }
-
-    # Outras páginas
-    page = Page.objects.filter(slug=path).first()
-
-    if page and hasattr(page, "theme"):
-        theme = page.theme
+    try:
+        page = Page.objects.get(slug=slug)
+    except Page.DoesNotExist:
+        page = None
 
     return {
-        "theme": theme,
         "page": page,
     }
