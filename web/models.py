@@ -60,6 +60,23 @@ class Page(models.Model):
         verbose_name="Banner da página"
     )
 
+    # ================= MENU =================
+    menu_conteudo = RichTextField(
+        blank=True,
+        null=True,
+        verbose_name="Menu – Conteúdo"
+    )
+    menu_bg_color = models.CharField(
+        max_length=7,
+        default="#0f172a",
+        verbose_name="Menu – Cor de fundo"
+    )
+    menu_text_color = models.CharField(
+        max_length=7,
+        default="#ffffff",
+        verbose_name="Menu – Cor do texto"
+    )
+
     # ================= SERVIÇOS =================
     services_title_color = models.CharField(
         max_length=7,
@@ -102,6 +119,23 @@ class Page(models.Model):
         max_length=7,
         default="#fde047",
         verbose_name="Projetos – Botão"
+    )
+
+    # ================= FOOTER =================
+    footer_conteudo = RichTextField(
+        blank=True,
+        null=True,
+        verbose_name="Footer – Conteúdo"
+    )
+    footer_bg_color = models.CharField(
+        max_length=7,
+        default="#020617",
+        verbose_name="Footer – Cor de fundo"
+    )
+    footer_text_color = models.CharField(
+        max_length=7,
+        default="#cbd5e1",
+        verbose_name="Footer – Cor do texto"
     )
 
     # ================= CURRÍCULO =================
