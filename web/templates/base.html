@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <title>{% block title %}ServicesBI{% endblock %}</title>
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- ======================================================
+         ALTERAÇÃO: CSS correto (main.css na raiz de static)
+         Antes: css/style.css (arquivo inexistente)
+    ====================================================== -->
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+
     {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -22,8 +27,6 @@
 
         <nav class="nav">
             <a href="{% url 'home' %}">Home</a>
-
-            {# ALTERAÇÃO: URLs agora usam view genérica por slug #}
             <a href="{% url 'page' 'python' %}">Python</a>
             <a href="{% url 'page' 'powerbi' %}">PowerBI</a>
             <a href="{% url 'page' 'automacoes' %}">Automações IA</a>
@@ -35,10 +38,7 @@
     </div>
 </header>
 
-<!-- ================= CONTEÚDO ================= -->
-<main>
-    {% block content %}{% endblock %}
-</main>
+{% block content %}{% endblock %}
 
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer">
@@ -48,8 +48,6 @@
         <div class="footer-center">
             <div class="footer-nav">
                 <a href="{% url 'home' %}">Home</a><span>|</span>
-
-                {# ALTERAÇÃO: URLs agora usam view genérica por slug #}
                 <a href="{% url 'page' 'python' %}">Python</a><span>|</span>
                 <a href="{% url 'page' 'powerbi' %}">PowerBI</a><span>|</span>
                 <a href="{% url 'page' 'automacoes' %}">Automações IA</a><span>|</span>
