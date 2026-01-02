@@ -3,9 +3,9 @@
 
 {% block content %}
 
-<!-- ================= HERO / BANNER ================= -->
+<!-- ================= HERO ================= -->
 <section
-  class="hero"
+  class="hero {% if page.slug != 'home' %}hero--internal{% endif %}"
   style="
     {% if page.banner_image %}
       background-image:
@@ -15,20 +15,14 @@
   "
 >
   <div class="container hero-container">
-    <h1
-      class="hero-title"
-      style="color: {{ theme.title_color|default:'#ffffff' }}"
-    >
+    <h1 class="hero-title" style="color: {{ page.title_color }}">
       {{ page.titulo|safe }}
     </h1>
 
     {% if page.subtitulo %}
-    <p
-      class="hero-subtitle"
-      style="color: {{ theme.subtitle_color|default:'#cbd5e1' }}"
-    >
-      {{ page.subtitulo|safe }}
-    </p>
+      <p class="hero-subtitle" style="color: {{ page.subtitle_color }}">
+        {{ page.subtitulo|safe }}
+      </p>
     {% endif %}
   </div>
 </section>
@@ -37,42 +31,21 @@
 {% if page.texto %}
 <section class="content-section">
   <div class="container">
-    <div
-      class="page-text"
-      style="
-        color: {{ theme.text_color|default:'#334155' }};
-        max-width: 820px;
-        margin: 0 auto 40px;
-        text-align: center;
-        line-height: 1.7;
-        font-size: 16px;
-      "
-    >
+    <div class="page-text">
       {{ page.texto|safe }}
     </div>
   </div>
 </section>
 {% endif %}
 
-<!-- ================= SERVIÇOS ================= -->
-{% if services %}
-<section
-  class="services-section"
-  style="
-    --cor-subtitulo: {{ theme.services_border_color }};
-    --cor-botao: {{ theme.services_button_color }};
-  "
->
+<!-- ================= SERVIÇOS (SÓ HOME) ================= -->
+{% if page.slug == "home" and services %}
+<section class="services-section">
   <div class="container">
 
-    <h2 class="section-title" style="color: {{ theme.services_title_color }}">
-      Serviços
-    </h2>
+    <h2 class="section-title">Serviços</h2>
 
-    <div
-      class="services-grid"
-      style="grid-template-columns: repeat(auto-fit, minmax(260px, 320px)); justify-content: center;"
-    >
+    <div class="services-grid">
       {% for service in services %}
         <div class="service-card">
 
@@ -82,13 +55,8 @@
             </div>
           {% endif %}
 
-          <h3 style="color: {{ theme.services_title_color }}">
-            {{ service.titulo }}
-          </h3>
-
-          <div style="color: {{ theme.services_text_color }}">
-            {{ service.descricao|safe }}
-          </div>
+          <h3>{{ service.titulo }}</h3>
+          {{ service.descricao|safe }}
 
           <a href="{% url 'page' 'contato' %}" class="btn-service">
             Ver mais
@@ -97,52 +65,29 @@
         </div>
       {% endfor %}
     </div>
+
   </div>
 </section>
 {% endif %}
 
-<!-- ================= PROJETOS ================= -->
-{% if projects %}
-<section
-  class="projects-section"
-  style="
-    --cor-subtitulo: {{ theme.projects_border_color }};
-    --cor-botao: {{ theme.projects_button_color }};
-  "
->
+<!-- ================= PROJETOS (SÓ HOME) ================= -->
+{% if page.slug == "home" and projects %}
+<section class="projects-section">
   <div class="container">
 
-    <h2 class="section-title" style="color: {{ theme.projects_title_color }}">
-      Projetos
-    </h2>
+    <h2 class="section-title">Projetos</h2>
 
-    <div
-      class="projects-grid"
-      style="grid-template-columns: repeat(auto-fit, minmax(280px, 360px)); justify-content: center;"
-    >
+    <div class="projects-grid">
       {% for project in projects %}
         <div class="project-card">
 
           {% if project.imagem %}
-            <div class="project-image">
-              <img src="{{ project.imagem.url }}" alt="{{ project.titulo }}">
-            </div>
+            <img src="{{ project.imagem.url }}" alt="{{ project.titulo }}">
           {% endif %}
 
-          <div style="padding: 0 24px 20px;">
-            <h3
-              class="project-title"
-              style="color: {{ theme.projects_title_color }}"
-            >
-              {{ project.titulo }}
-            </h3>
+          <h3 class="project-title">{{ project.titulo }}</h3>
+          {{ project.descricao|safe }}
 
-            <div style="color: {{ theme.projects_text_color }}">
-              {{ project.descricao|safe }}
-            </div>
-          </div>
-
-          <!-- 🔧 CORREÇÃO AQUI -->
           <a href="{% url 'page' 'contato' %}" class="btn-project">
             Ver projeto
           </a>
@@ -150,7 +95,15 @@
         </div>
       {% endfor %}
     </div>
+
   </div>
+</section>
+{% endif %}
+
+<!-- ================= CURRÍCULO (SÓ CURRICULO) ================= -->
+{% if page.slug == "curriculo" %}
+<section class="curriculo-page">
+  {{ page.texto|safe }}
 </section>
 {% endif %}
 

@@ -15,47 +15,39 @@
   "
 >
   <div class="container hero-container">
+
+    <!-- TÍTULO PRINCIPAL -->
     <h1
       class="hero-title"
-      style="color: {{ theme.title_color|default:'#ffffff' }}"
+      style="
+        color: {{ theme.title_color|default:'#ffffff' }};
+        font-family: 'Segoe UI', 'Segoe UI Variable', Arial, sans-serif;
+      "
     >
-      {# ALTERAÇÃO: RichTextField → renderizar HTML #}
       {{ page.titulo|safe }}
     </h1>
 
+    <!-- SUBTÍTULO -->
     {% if page.subtitulo %}
-    <p
-      class="hero-subtitle"
-      style="color: {{ theme.subtitle_color|default:'#cbd5e1' }}"
-    >
-      {# ALTERAÇÃO: RichTextField → renderizar HTML #}
-      {{ page.subtitulo|safe }}
-    </p>
+      <div
+        class="hero-subtitle"
+        style="
+          color: {{ theme.subtitle_color|default:'#cbd5e1' }};
+          margin-top: 24px;
+          font-family: 'Segoe UI', 'Segoe UI Variable', Arial, sans-serif;
+        "
+      >
+        {{ page.subtitulo|safe }}
+      </div>
     {% endif %}
+
   </div>
 </section>
 
-<!-- ================= TEXTO PRINCIPAL ================= -->
-{% if page.texto %}
-<section class="content-section">
-  <div class="container">
-    <div
-      class="page-text"
-      style="
-        color: {{ theme.text_color|default:'#334155' }};
-        max-width: 820px;
-        margin: 0 auto 40px;
-        text-align: center;
-        line-height: 1.7;
-        font-size: 16px;
-      "
-    >
-      {# ALTERAÇÃO: RichTextField → remover linebreaks e usar safe #}
-      {{ page.texto|safe }}
-    </div>
-  </div>
-</section>
-{% endif %}
+{# ====================================================
+   HOME NÃO RENDERIZA page.texto
+   Campo reservado para páginas internas / currículo
+==================================================== #}
 
 <!-- ================= SERVIÇOS ================= -->
 <section
@@ -67,13 +59,22 @@
 >
   <div class="container">
 
-    <h2 class="section-title" style="color: {{ theme.services_title_color }}">
+    <h2
+      class="section-title"
+      style="
+        color: {{ theme.services_title_color }};
+        font-family: 'Segoe UI', 'Segoe UI Variable', Arial, sans-serif;
+      "
+    >
       Serviços
     </h2>
 
     <div
       class="services-grid"
-      style="grid-template-columns: repeat(auto-fit, minmax(260px, 320px)); justify-content: center;"
+      style="
+        grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
+        justify-content: center;
+      "
     >
 
       {% for service in services %}
@@ -81,20 +82,36 @@
 
           {% if service.imagem %}
             <div class="service-icon">
-              <img src="{{ service.imagem.url }}" alt="{{ service.titulo }}">
+              <img
+                src="{{ service.imagem.url }}"
+                alt="{{ service.titulo }}"
+              >
             </div>
           {% endif %}
 
-          <h3 style="color: {{ theme.services_title_color }}">
+          <h3
+            style="
+              color: {{ theme.services_title_color }};
+              font-family: 'Segoe UI', 'Segoe UI Variable', Arial, sans-serif;
+            "
+          >
             {{ service.titulo }}
           </h3>
 
-          <div style="color: {{ theme.services_text_color }}">
-            {# ALTERAÇÃO: RichTextField → renderizar HTML #}
+          <!-- TEXTO DO SERVIÇO (CKEDITOR) -->
+          <div
+            class="service-text"
+            style="
+              color: {{ theme.services_text_color }};
+              font-family: 'Segoe UI', 'Segoe UI Variable', Arial, sans-serif;
+              font-size: 14px;
+              line-height: 1.6;
+            "
+          >
             {{ service.descricao|safe }}
           </div>
 
-          <a href="{% url 'contato' %}" class="btn-service">
+          <a href="{% url 'page' 'contato' %}" class="btn-service">
             Ver mais
           </a>
 
@@ -115,13 +132,22 @@
 >
   <div class="container">
 
-    <h2 class="section-title" style="color: {{ theme.projects_title_color }}">
+    <h2
+      class="section-title"
+      style="
+        color: {{ theme.projects_title_color }};
+        font-family: 'Segoe UI', 'Segoe UI Variable', Arial, sans-serif;
+      "
+    >
       Projetos
     </h2>
 
     <div
       class="projects-grid"
-      style="grid-template-columns: repeat(auto-fit, minmax(280px, 360px)); justify-content: center;"
+      style="
+        grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
+        justify-content: center;
+      "
     >
 
       {% for project in projects %}
@@ -129,25 +155,41 @@
 
           {% if project.imagem %}
             <div class="project-image">
-              <img src="{{ project.imagem.url }}" alt="{{ project.titulo }}">
+              <img
+                src="{{ project.imagem.url }}"
+                alt="{{ project.titulo }}"
+              >
             </div>
           {% endif %}
 
           <div style="padding: 0 24px 20px;">
+
             <h3
               class="project-title"
-              style="color: {{ theme.projects_title_color }}"
+              style="
+                color: {{ theme.projects_title_color }};
+                font-family: 'Segoe UI', 'Segoe UI Variable', Arial, sans-serif;
+              "
             >
               {{ project.titulo }}
             </h3>
 
-            <div style="color: {{ theme.projects_text_color }}">
-              {# ALTERAÇÃO: RichTextField → renderizar HTML #}
+            <!-- TEXTO DO PROJETO (CKEDITOR) -->
+            <div
+              class="project-text"
+              style="
+                color: {{ theme.projects_text_color }};
+                font-family: 'Segoe UI', 'Segoe UI Variable', Arial, sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+              "
+            >
               {{ project.descricao|safe }}
             </div>
+
           </div>
 
-          <a href="{% url 'contato' %}" class="btn-project">
+          <a href="{% url 'page' 'contato' %}" class="btn-project">
             Ver projeto
           </a>
 

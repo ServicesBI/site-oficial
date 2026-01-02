@@ -148,11 +148,14 @@ CKEDITOR_CONFIGS = {
             [
                 "Styles", "Format",
                 "Bold", "Italic", "Underline", "Strike",
+                "TextColor", "BGColor",
                 "RemoveFormat",
             ],
             [
-                "JustifyLeft", "JustifyCenter",
-                "JustifyRight", "JustifyBlock",
+                "JustifyLeft",
+                "JustifyCenter",
+                "JustifyRight",
+                "JustifyBlock",
             ],
             [
                 "NumberedList", "BulletedList",
@@ -166,6 +169,7 @@ CKEDITOR_CONFIGS = {
                 "Source",
             ],
         ],
+        "format_tags": "p;h1;h2;h3",
+        "removePlugins": "font",
     }
 }
-

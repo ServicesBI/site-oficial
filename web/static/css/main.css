@@ -48,9 +48,9 @@ button {
 
 body {
     background-color: #f9fafb;
-    color: var(--cor-texto);
-    font-family: "Segoe UI", sans-serif;
-    font-style: italic;
+    color: var(--cor-texto, #111);
+    font-family: "Segoe UI", "Segoe UI Variable", Arial, sans-serif;
+    font-size: 16px;
 }
 
 /* ================= CSS CONTAINER ================= */
@@ -111,13 +111,18 @@ body {
     border-bottom: 2px solid var(--cor-subtitulo);
 }
 
-.header-logo {
+/* ================= HEADER LOGO ================= */
+
+.site-header .logo {
     display: flex;
     align-items: center;
 }
 
-.header-logo img {
-    height: 36px;
+.site-header .logo img {
+    height: 42px;       /* ajuste fino aqui se quiser */
+    width: auto;
+    max-height: 42px;
+    display: block;
 }
 
 /* ================= HERO / BANNER ================= */
@@ -489,4 +494,16 @@ body {
         page-break-after: always;
     }
 }
+/* ================= MENU ATIVO ================= */
 
+.nav a {
+    color: var(--menu-text-color, #e6e6ef);
+    text-decoration: none;
+    padding-bottom: 4px;
+}
+
+.nav a.active {
+    color: #facc15; /* amarelo destaque */
+    border-bottom: 2px solid #facc15;
+    font-weight: 600;
+}

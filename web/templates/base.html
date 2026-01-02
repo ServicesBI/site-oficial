@@ -5,10 +5,6 @@
     <meta charset="UTF-8">
     <title>{% block title %}ServicesBI{% endblock %}</title>
 
-    <!-- ======================================================
-         ALTERAÇÃO: CSS correto (main.css na raiz de static)
-         Antes: css/style.css (arquivo inexistente)
-    ====================================================== -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
     {% block extra_css %}{% endblock %}
@@ -16,24 +12,59 @@
 <body>
 
 <!-- ================= HEADER ================= -->
-<header class="site-header">
+<header
+    class="site-header"
+    style="
+        background-color: {{ theme.menu_bg_color|default:'#070651' }};
+        color: {{ theme.menu_text_color|default:'#e6e6ef' }};
+    "
+>
     <div class="container header-container">
 
+        <!-- MENU -->
+        <nav class="nav">
+            <a href="{% url 'home' %}"
+                class="{% if page and page.slug == 'home' %}active{% endif %}">
+                Home
+            </a>
+
+            <a href="{% url 'page' 'python' %}"
+                class="{% if page and page.slug == 'python' %}active{% endif %}">
+                Python
+            </a>
+
+            <a href="{% url 'page' 'powerbi' %}"
+                class="{% if page and page.slug == 'powerbi' %}active{% endif %}">
+                PowerBI
+            </a>
+
+             <a href="{% url 'page' 'automacoes' %}"
+                class="{% if page and page.slug == 'automacoes' %}active{% endif %}">
+                Automações IA
+            </a>
+
+            <a href="{% url 'page' 'excel' %}"
+                class="{% if page and page.slug == 'excel' %}active{% endif %}">
+                Excel
+            </a>
+
+            <a href="{% url 'page' 'curriculo' %}"
+                class="{% if page and page.slug == 'curriculo' %}active{% endif %}">
+                Currículo
+            </a>
+
+            <a href="{% url 'page' 'contato' %}"
+                class="{% if page and page.slug == 'contato' %}active{% endif %}">
+                Contato
+            </a>
+        </nav>
+
+        <!-- LOGO (DIREITA) -->
         <div class="logo">
             <a href="{% url 'home' %}">
-                <img src="{% static 'images/logo.png' %}" alt="ServicesBI">
+                <img src="{% static 'images/logo/logo.png' %}" alt="">
             </a>
         </div>
-
-        <nav class="nav">
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'page' 'python' %}">Python</a>
-            <a href="{% url 'page' 'powerbi' %}">PowerBI</a>
-            <a href="{% url 'page' 'automacoes' %}">Automações IA</a>
-            <a href="{% url 'page' 'excel' %}">Excel</a>
-            <a href="{% url 'page' 'curriculo' %}">Currículo</a>
-            <a href="{% url 'page' 'contato' %}">Contato</a>
-        </nav>
 
     </div>
 </header>
@@ -41,7 +72,13 @@
 {% block content %}{% endblock %}
 
 <!-- ================= FOOTER ================= -->
-<footer class="site-footer">
+<footer
+    class="site-footer"
+    style="
+        background-color: {{ theme.footer_bg_color|default:'#020617' }};
+        color: {{ theme.footer_text_color|default:'#cbd5e1' }};
+    "
+>
     <div class="footer-container">
 
         <!-- CENTRO -->
