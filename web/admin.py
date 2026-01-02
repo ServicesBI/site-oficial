@@ -5,72 +5,17 @@ from .models import (
     Page,
     ServiceCard,
     ProjectCard,
-    ContactContent,
 )
 
 # ======================================================
-# WIDGET DE COR (HEX + PICKER)
+# WIDGET DE COR (HEX + PICKER NO MESMO INPUT)
 # ======================================================
 class ColorHexWidget(forms.TextInput):
-    input_type = "color"
+    template_name = "admin/widgets/color_hex.html"
 
+    class Media:
+        js = ("admin/js/color_sync.js",)
 
-# ======================================================
-# FORM PRINCIPAL DA PAGE (COM TEMA INTEGRADO)
-# ======================================================
-class PageAdminForm(forms.ModelForm):
-    # ===== HERO =====
-    title_color = forms.CharField(widget=ColorHexWidget, required=False)
-    subtitle_color = forms.CharField(widget=ColorHexWidget, required=False)
-    text_color = forms.CharField(widget=ColorHexWidget, required=False)
-
-    # ===== SERVIÇOS =====
-    services_title_color = forms.CharField(widget=ColorHexWidget, required=False)
-    services_text_color = forms.CharField(widget=ColorHexWidget, required=False)
-    services_border_color = forms.CharField(widget=ColorHexWidget, required=False)
-    services_button_color = forms.CharField(widget=ColorHexWidget, required=False)
-
-    # ===== PROJETOS =====
-    projects_title_color = forms.CharField(widget=ColorHexWidget, required=False)
-    projects_text_color = forms.CharField(widget=ColorHexWidget, required=False)
-    projects_border_color = forms.CharField(widget=ColorHexWidget, required=False)
-    projects_button_color = forms.CharField(widget=ColorHexWidget, required=False)
-
-    class Meta:
-        model = Page
-        fields = "__all__"
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-        if self.instance.pk:
-            theme, _ = PageTheme.objects.get_or_create(page=self.instance)
-
-            for field in [
-                "title_color",
-                "subtitle_color",
-                "text_color",
-                "services_title_color",
-                "services_text_color",
-                "services_border_color",
-                "services_button_color",
-                "projects_title_color",
-                "projects_text_color",
-                "projects_border_color",
-                "projects_button_color",
-            ]:
-                self.fields[field].initial = getattr(theme, field)
-
-    def save(self, commit=True):
-        page = super().save(commit)
-        theme, _ = PageTheme.objects.get_or_create(page=page)
-
-        for field in self.cleaned_data:
-            if hasattr(theme, field):
-                setattr(theme, field, self.cleaned_data[field])
-
-        theme.save()
-        return page
 
 
 # ======================================================
@@ -91,66 +36,71 @@ class ProjectCardInline(admin.TabularInline):
 
 
 # ======================================================
-# ADMIN BASE
+# ADMIN BASE (COM CAMPOS NA MESMA LINHA)
 # ======================================================
 class BasePageAdmin(admin.ModelAdmin):
-    form = PageAdminForm
     list_display = ("titulo",)
     inlines = [ServiceCardInline, ProjectCardInline]
+
+    fieldsets = (
+        ("Hero", {
+            "fields": (
+                ("titulo", "titulo_color"),
+                ("subtitulo", "subtitulo_color"),
+                ("texto", "texto_color"),
+            )
+        }),
+        ("Banner", {
+            "fields": ("banner_image",)
+        }),
+        ("Serviços – Cores", {
+            "fields": (
+                ("services_title_color", "services_text_color"),
+                ("services_border_color", "services_button_color"),
+            )
+        }),
+        ("Projetos – Cores", {
+            "fields": (
+                ("projects_title_color", "projects_text_color"),
+                ("projects_border_color", "projects_button_color"),
+            )
+        }),
+    )
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         return qs.filter(slug=self.slug_fixo)
 
     def has_add_permission(self, request):
-        return False
+        # pode deixar True enquanto cria as páginas
+        return True
 
-    def get_fieldsets(self, request, obj=None):
-        fieldsets = [
-            ("Hero", {
-                "fields": (
-                    ("titulo", "title_color"),
-                    ("subtitulo", "subtitle_color"),
-                    ("texto", "text_color"),
-                )
-            }),
-            ("Banner", {
-                "fields": ("banner_image",)
-            }),
-            ("Serviços – Cores", {
-                "fields": (
-                    "services_title_color",
-                    "services_text_color",
-                    "services_border_color",
-                    "services_button_color",
-                )
-            }),
-            ("Projetos – Cores", {
-                "fields": (
-                    "projects_title_color",
-                    "projects_text_color",
-                    "projects_border_color",
-                    "projects_button_color",
-                )
-            }),
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+
+        color_fields = [
+            "titulo_color",
+            "subtitulo_color",
+            "texto_color",
+            "services_title_color",
+            "services_text_color",
+            "services_border_color",
+            "services_button_color",
+            "projects_title_color",
+            "projects_text_color",
+            "projects_border_color",
+            "projects_button_color",
         ]
 
-        if obj and obj.slug == "curriculo":
-            fieldsets.append(
-                ("Currículo", {
-                    "fields": (
-                        "curriculo_folha_1",
-                        "curriculo_folha_2",
-                        "curriculo_pdf",
-                    )
-                })
-            )
+        for field in color_fields:
+            if field in form.base_fields:
+                form.base_fields[field].widget = ColorHexWidget()
 
-        return fieldsets
+        return form
 
 
 # ======================================================
-# PROXIES (MENU)
+# PROXIES (MENU DO ADMIN)
 # ======================================================
 class HomePage(Page):
     class Meta:
@@ -225,8 +175,3 @@ class ExcelAdmin(BasePageAdmin):
 @admin.register(CurriculoPage)
 class CurriculoAdmin(BasePageAdmin):
     slug_fixo = "curriculo"
-
-
-@admin.register(ContactContent)
-class ContactContentAdmin(admin.ModelAdmin):
-    list_display = ("email", "telefone", "updated_at")

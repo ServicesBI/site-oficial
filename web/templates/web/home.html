@@ -53,150 +53,100 @@
 {% endif %}
 
 <!-- ================= SERVIÇOS ================= -->
-<section class="services-section" style="padding-bottom: 40px;">
+<section
+  class="services-section"
+  style="
+    --cor-subtitulo: {{ theme.services_border_color }};
+    --cor-botao: {{ theme.services_button_color }};
+  "
+>
   <div class="container">
 
-    <h2
-      class="section-title"
-      style="color: {{ theme.services_title_color }}"
-    >
+    <h2 class="section-title" style="color: {{ theme.services_title_color }}">
       Serviços
     </h2>
 
-    <div class="services-grid">
+    <!-- override APENAS aqui para centralizar com 1 card -->
+    <div
+      class="services-grid"
+      style="grid-template-columns: repeat(auto-fit, minmax(260px, 320px)); justify-content: center;"
+    >
 
-      <!-- CARD 1 -->
-      <div class="service-card" style="border-color: {{ theme.services_border_color }}">
-        <div class="service-image">
-          <img src="{% static 'images/services/power-query.png' %}" alt="ETL com Power Query">
+      {% for service in services %}
+        <div class="service-card">
+
+          {% if service.imagem %}
+            <div class="service-icon">
+              <img src="{{ service.imagem.url }}" alt="{{ service.titulo }}">
+            </div>
+          {% endif %}
+
+          <h3 style="color: {{ theme.services_title_color }}">
+            {{ service.titulo }}
+          </h3>
+
+          <p style="color: {{ theme.services_text_color }}">
+            {{ service.descricao }}
+          </p>
+
+          <a href="{% url 'contato' %}" class="btn-service">
+            Ver mais
+          </a>
+
         </div>
-
-        <h3 style="color: {{ theme.services_title_color }}">
-          ETL & Power Query
-        </h3>
-
-        <p style="color: {{ theme.services_text_color }}">
-          Extração, transformação e carga de dados com performance,
-          organização e escalabilidade.
-        </p>
-
-        <a
-          href="{% url 'powerbi' %}"
-          class="btn-service"
-          style="
-            border-color: {{ theme.services_button_color }};
-            color: {{ theme.services_button_color }};
-          "
-        >
-          Ver mais
-        </a>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="service-card" style="border-color: {{ theme.services_border_color }}">
-        <div class="service-image">
-          <img src="{% static 'images/services/modelagem-dados.png' %}" alt="Modelagem de Dados">
-        </div>
-
-        <h3 style="color: {{ theme.services_title_color }}">
-          Modelagem de Dados
-        </h3>
-
-        <p style="color: {{ theme.services_text_color }}">
-          Estruturação correta dos dados para análises rápidas,
-          confiáveis e fáceis de manter.
-        </p>
-
-        <a
-          href="{% url 'powerbi' %}"
-          class="btn-service"
-          style="
-            border-color: {{ theme.services_button_color }};
-            color: {{ theme.services_button_color }};
-          "
-        >
-          Ver mais
-        </a>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="service-card" style="border-color: {{ theme.services_border_color }}">
-        <div class="service-image">
-          <img src="{% static 'images/services/dax.png' %}" alt="DAX e Métricas">
-        </div>
-
-        <h3 style="color: {{ theme.services_title_color }}">
-          DAX & Métricas
-        </h3>
-
-        <p style="color: {{ theme.services_text_color }}">
-          Criação de métricas avançadas, KPIs e indicadores estratégicos
-          para tomada de decisão.
-        </p>
-
-        <a
-          href="{% url 'powerbi' %}"
-          class="btn-service"
-          style="
-            border-color: {{ theme.services_button_color }};
-            color: {{ theme.services_button_color }};
-          "
-        >
-          Ver mais
-        </a>
-      </div>
+      {% endfor %}
 
     </div>
   </div>
 </section>
 
 <!-- ================= PROJETOS ================= -->
-<section class="projects-section" style="padding-top: 40px;">
+<section
+  class="projects-section"
+  style="
+    --cor-subtitulo: {{ theme.projects_border_color }};
+    --cor-botao: {{ theme.projects_button_color }};
+  "
+>
   <div class="container">
 
-    <h2
-      class="section-title"
-      style="color: {{ theme.projects_title_color }}"
-    >
+    <h2 class="section-title" style="color: {{ theme.projects_title_color }}">
       Projetos
     </h2>
 
-    <div class="projects-grid">
+    <!-- override APENAS aqui -->
+    <div
+      class="projects-grid"
+      style="grid-template-columns: repeat(auto-fit, minmax(280px, 360px)); justify-content: center;"
+    >
 
       {% for project in projects %}
-        <div class="project-card" style="border-color: {{ theme.projects_border_color }}">
+        <div class="project-card">
 
-          <div class="project-image">
-            <img src="{{ project.imagem.url }}" alt="{{ project.titulo }}">
+          {% if project.imagem %}
+            <div class="project-image">
+              <img src="{{ project.imagem.url }}" alt="{{ project.titulo }}">
+            </div>
+          {% endif %}
+
+          <div style="padding: 0 24px 20px;">
+            <h3
+              class="project-title"
+              style="color: {{ theme.projects_title_color }}"
+            >
+              {{ project.titulo }}
+            </h3>
+
+            <p style="color: {{ theme.projects_text_color }}">
+              {{ project.descricao }}
+            </p>
           </div>
 
-          <h3
-            class="project-title"
-            style="color: {{ theme.projects_title_color }}"
-          >
-            {{ project.titulo }}
-          </h3>
-
-          <p style="color: {{ theme.projects_text_color }}">
-            {{ project.descricao }}
-          </p>
-
-          <a
-            href="{% url 'contato' %}"
-            class="btn-project"
-            style="
-              border-color: {{ theme.projects_button_color }};
-              color: {{ theme.projects_button_color }};
-            "
-          >
+          <a href="{% url 'contato' %}" class="btn-project">
             Ver projeto
           </a>
 
         </div>
-      {% empty %}
-        <p style="text-align:center;">
-          Nenhum projeto cadastrado ainda.
-        </p>
       {% endfor %}
 
     </div>
