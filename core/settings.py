@@ -141,17 +141,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CKEDITOR_CONFIGS = {
     "default": {
-        # ====== AJUSTE ADICIONADO ======
         "contentsCss": ["/static/ckeditor/ckeditor_custom.css"],
-        # ==============================
 
         "toolbar": "Custom",
         "height": 300,
         "width": "100%",
+
         "toolbar_Custom": [
             [
                 "Styles", "Format",
-                "Bold", "Italic", "Underline", "Strike",
+                "Bold", "Italic", "Underline",
                 "TextColor", "BGColor",
                 "RemoveFormat",
             ],
@@ -169,11 +168,37 @@ CKEDITOR_CONFIGS = {
                 "Link", "Unlink",
                 "Image", "Table",
             ],
-            [
-                "Source",
-            ],
+            ["Source"],
         ],
-        "format_tags": "p;h1;h2;h3",
+
+        # ❌ Remove Título 1/2/3 padrão do CKEditor
+        "format_tags": "p",
+
+        # ✅ Estilos no padrão Word (controlados por UI)
+        "stylesSet": [
+            {
+                "name": "Texto UI (Normal)",
+                "element": "p",
+                "attributes": {"class": "ui-text"},
+            },
+            {
+                "name": "Título 1",
+                "element": "p",
+                "attributes": {"class": "ui-h1"},
+            },
+            {
+                "name": "Título 2",
+                "element": "p",
+                "attributes": {"class": "ui-h2"},
+            },
+            {
+                "name": "Título 3",
+                "element": "p",
+                "attributes": {"class": "ui-h3"},
+            },
+        ],
+
+        # remove estilos de fonte antigos
         "removePlugins": "font",
     }
 }
