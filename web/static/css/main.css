@@ -51,6 +51,7 @@ body {
     color: var(--cor-texto, #111);
     font-family: "Segoe UI", "Segoe UI Variable", Arial, sans-serif;
     font-size: 16px;
+    line-height: 1.6;
 }
 
 /* ================= CSS CONTAINER ================= */
@@ -128,12 +129,12 @@ body {
 /* ================= HERO / BANNER ================= */
 
 .hero {
-    min-height: 48vh;
+    min-height: 46vh; /* ↓ menos altura, mais conexão com o conteúdo */
     display: flex;
-    align-items: stretch;            /* 🔥 ALTERAÇÃO PONTUAL */
+    align-items: flex-end;
     justify-content: center;
     text-align: center;
-    padding: 100px 20px 32px;        /* 🔥 ALTERAÇÃO PONTUAL */
+    padding: 88px 20px 36px;
 
     background-color: #020b1c;
     background-image: url("/static/images/home.png");
@@ -143,22 +144,6 @@ body {
 
     position: relative;
     overflow: hidden;
-}
-
-/* HERO INTERNO */
-
-.hero.hero--internal {
-    min-height: 40vh;
-    padding: 90px 20px 32px;
-    background-image: url("/static/images/internal.png");
-}
-
-.hero.hero--internal .hero-title {
-    color: var(--cor-titulo);
-}
-
-.hero.hero--internal .hero-subtitle {
-    color: var(--cor-subtitulo);
 }
 
 .hero > * {
@@ -173,45 +158,43 @@ body {
     background: radial-gradient(
         circle at center,
         rgba(15, 42, 68, 0.45) 0%,
-        rgba(2, 11, 28, 0.78) 70%
+        rgba(2, 11, 28, 0.82) 70%
     );
     z-index: 1;
 }
 
-/* 🔥 ALTERAÇÃO PONTUAL AQUI */
+/* HERO CONTAINER */
+
 .hero-container {
     max-width: 1100px;
     margin: 0 auto;
-    z-index: 2;
-
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;       /* 🔥 SUBTÍTULO DESCE */
+    gap: 12px;
 }
 
 .hero-title {
-    font-size: clamp(56px, 6vw, 84px);
+    font-size: clamp(48px, 5.5vw, 72px);
     font-weight: 600;
     color: var(--cor-titulo);
-    margin-bottom: 14px;
 }
 
 .hero-subtitle {
-    font-size: clamp(18px, 2.2vw, 24px);
+    font-size: clamp(16px, 2vw, 22px);
     font-weight: 500;
     color: var(--cor-subtitulo);
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
 }
 
 @media (max-width: 768px) {
     .hero {
-        min-height: 42vh;
-        padding: 80px 16px 28px;
+        min-height: 40vh;
+        padding: 72px 16px 28px;
     }
 
     .hero-title {
-        font-size: 34px;
+        font-size: 32px;
     }
 
     .hero-subtitle {
@@ -219,27 +202,55 @@ body {
     }
 }
 
+/* ======================================================
+   CONTEÚDO INSTITUCIONAL (CKEDITOR)
+   ====================================================== */
+
+.home-content {
+    max-width: 1100px;
+    margin: 32px auto 40px; /* 🔥 cola no Hero e puxa Serviços */
+    text-align: left;
+}
+
+/* Headline institucional */
+.home-content .ui-h1,
+.home-content p:first-child {
+    font-size: 21px;
+    font-weight: 500;
+    color: #0f172a;
+    line-height: 1.55;
+    margin-bottom: 14px;
+}
+
+/* Corpo do texto */
+.home-content p {
+    font-size: 15.5px;      /* 🔥 levemente menor, mais elegante */
+    font-weight: 400;
+    color: #1f2937;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
 /* ================= TÍTULOS DE SEÇÃO ================= */
 
 .section-title {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 600;
     color: var(--cor-titulo);
     text-align: center;
-    margin-bottom: 48px;
+    margin: 56px 0 40px; /* 🔥 cria ritmo */
     position: relative;
 }
 
 .section-title::after {
     content: "";
     display: block;
-    width: 64px;
-    height: 4px;
+    width: 56px;
+    height: 3px;
     background-color: var(--cor-subtitulo);
-    margin: 14px auto 0;
+    margin: 12px auto 0;
     border-radius: 2px;
 }
-
 
 /* ================= SERVIÇOS ================= */
 

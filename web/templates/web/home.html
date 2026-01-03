@@ -3,7 +3,6 @@
 
 {% block content %}
 
-
 <!-- ================= HERO / BANNER ================= -->
 <section
   class="hero"
@@ -45,10 +44,17 @@
   </div>
 </section>
 
-{# ====================================================
-   HOME NÃO RENDERIZA page.texto
-   Campo reservado para páginas internas / currículo
-==================================================== #}
+<!-- ====================================================
+     🔥 NOVO BLOCO — CONTEÚDO INSTITUCIONAL (CKEDITOR)
+     ==================================================== -->
+{% if page.texto %}
+<section class="home-content">
+  <div class="container">
+    {{ page.texto|safe }}
+  </div>
+</section>
+{% endif %}
+<!-- ==================================================== -->
 
 <!-- ================= SERVIÇOS ================= -->
 <section

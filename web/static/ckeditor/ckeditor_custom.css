@@ -1,44 +1,45 @@
-/* =====================================
-   CKEditor - Espaçamento e leitura
-   ===================================== */
-
+/* ==============================
+   CKEditor – Tipografia UI
+   ============================== */
 
 body {
     font-family: "Segoe UI", "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
     line-height: 1.7;
-    color: #1f2937;
+    color: #0f172a;
 }
 
-/* Parágrafos */
-p {
+/* Texto normal */
+.ui-text {
+    font-size: 16px;
+    font-weight: 400;
     margin-bottom: 1.2em;
-    line-height: 1.7;
 }
 
-/* Títulos */
-h1 {
-    margin-top: 2em;
-    margin-bottom: 1em;
+/* Títulos estilo Word (forçados leves) */
+.ui-h1,
+.ui-h1 * {
+    font-size: 32px;
+    font-weight: 500 !important;
+    margin: 2em 0 1em;
 }
 
-h2 {
-    margin-top: 1.8em;
-    margin-bottom: 0.9em;
+.ui-h2,
+.ui-h2 * {
+    font-size: 26px;
+    font-weight: 500 !important;
+    margin: 1.8em 0 0.9em;
 }
 
-h3 {
-    margin-top: 1.6em;
-    margin-bottom: 0.8em;
+.ui-h3,
+.ui-h3 * {
+    font-size: 22px;
+    font-weight: 500 !important;
+    margin: 1.6em 0 0.8em;
 }
 
-/* Listas */
-ul,
-ol {
-    margin-bottom: 1.2em;
-    padding-left: 1.5em;
+/* Ênfase */
+em {
+    font-style: italic;
 }
 
-li {
-    margin-bottom: 0.4em;
-}
