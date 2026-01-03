@@ -141,6 +141,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CKEDITOR_CONFIGS = {
     "default": {
+        # ====== AJUSTE ADICIONADO ======
+        "contentsCss": ["/static/ckeditor/ckeditor_custom.css"],
+        # ==============================
+
         "toolbar": "Custom",
         "height": 300,
         "width": "100%",

@@ -1,0 +1,36 @@
+/* =====================================
+   CKEditor - Espaçamento e leitura
+   ===================================== */
+
+/* Parágrafos */
+p {
+    margin-bottom: 1.2em;
+    line-height: 1.7;
+}
+
+/* Títulos */
+h1 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+h2 {
+    margin-top: 1.8em;
+    margin-bottom: 0.9em;
+}
+
+h3 {
+    margin-top: 1.6em;
+    margin-bottom: 0.8em;
+}
+
+/* Listas */
+ul,
+ol {
+    margin-bottom: 1.2em;
+    padding-left: 1.5em;
+}
+
+li {
+    margin-bottom: 0.4em;
+}

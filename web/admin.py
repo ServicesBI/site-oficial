@@ -83,13 +83,7 @@ class PageAdmin(admin.ModelAdmin):
             "fields": (
                 ("footer_bg_color", "footer_text_color"),
             )
-        }),
-        ("Currículo", {
-            "fields": (
-                "curriculo_folha_1",
-                "curriculo_folha_2",
-                "curriculo_pdf",
-            )
+       
         }),
     )
 
