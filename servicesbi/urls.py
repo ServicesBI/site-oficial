@@ -4,7 +4,7 @@ from . import views
 app_name = "servicesbi"
 
 urlpatterns = [
-    path("", views.home, name="home"),
+    path("home/", views.home, name="home"),
     path("python/", views.python, name="python"),
     path("power-bi/", views.powerbi, name="powerbi"),
     path("automacoes/", views.automacoes, name="automacoes"),
