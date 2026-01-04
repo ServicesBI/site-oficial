@@ -1,0 +1,306 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>ServicesBI — Sandbox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'servicesbi/css/sandbox.css' %}">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="top-header">
+    <div class="header-inner">
+        <div class="logo">Services<span>BI</span></div>
+
+        <nav class="main-nav">
+            <a class="active" href="#">Home</a>
+            <a href="#">Python</a>
+            <a href="#">Power BI</a>
+            <a href="#">Automações</a>
+            <a href="#">Excel</a>
+            <a href="#">Contato</a>
+        </nav>
+
+        <div class="header-cta">
+            <button class="btn-outline">Falar com especialista</button>
+            <button class="btn-primary">Avaliação gratuita</button>
+        </div>
+    </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero hero-live">
+
+    <div class="hero-geometry">
+        <span class="shape shape-1"></span>
+        <span class="shape shape-2"></span>
+        <span class="shape shape-3"></span>
+        <span class="shape shape-4"></span>
+        <span class="shape shape-5"></span>
+    </div>
+
+    <div class="hero-content">
+        <span class="hero-eyebrow">Soluções em dados para empresas</span>
+
+        <h1 class="hero-title">
+            Transformamos dados em decisões estratégicas
+            <span>para o seu negócio.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            Business Intelligence, automações e análise de dados
+            para empresas que precisam decidir rápido e com segurança.
+        </p>
+    </div>
+</section>
+
+<!-- ================= SOLUÇÕES ================= -->
+<section class="solutions">
+    <div class="solutions-inner">
+
+        <div class="solutions-header">
+            <h2 class="solutions-title">
+                Soluções inteligentes entregues pela ServicesBI
+            </h2>
+        </div>
+
+        <div class="solutions-grid">
+
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/python.png' %}" alt="Python">
+                </div>
+                <h3>Python & Automações</h3>
+                <p>Automação de processos, integrações e scripts corporativos.</p>
+                <a class="solution-link" href="#">Saiba mais →</a>
+            </article>
+
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/powerbi.png' %}" alt="Power BI">
+                </div>
+                <h3>Power BI & Dashboards</h3>
+                <p>Dashboards estratégicos para tomada de decisão.</p>
+                <a class="solution-link" href="#">Saiba mais →</a>
+            </article>
+
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/automacoes.png' %}" alt="Automações">
+                </div>
+                <h3>Análise de Dados</h3>
+                <p>Exploração, modelagem e interpretação de dados.</p>
+                <a class="solution-link" href="#">Saiba mais →</a>
+            </article>
+
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/excel.png' %}" alt="Excel">
+                </div>
+                <h3>Excel Avançado</h3>
+                <p>Soluções corporativas com Excel, VBA e Power Query.</p>
+                <a class="solution-link" href="#">Saiba mais →</a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= DESTAQUES ESTRATÉGICOS ================= -->
+<section class="strategic-highlights">
+    <div class="strategic-inner">
+
+        <div class="strategic-header">
+            <span class="strategic-eyebrow">Destaques Estratégicos</span>
+            <h2 class="strategic-title">
+                Soluções que conectam dados, automação e decisão
+            </h2>
+        </div>
+
+        <div class="strategic-carousel">
+
+            <div class="carousel-track">
+
+                <!-- SLIDE 01 -->
+                <article class="carousel-slide">
+                    <div class="slide-media"></div>
+                    <div class="slide-content">
+                        <span class="slide-tag">IA APLICADA</span>
+                        <h3 class="slide-title">Chatbot com IA</h3>
+                        <p class="slide-text">
+                            Automação inteligente e IA aplicada ao negócio para escalar
+                            atendimento, processos e tomada de decisão.
+                        </p>
+                        <p class="slide-stack">Python · IA · Automações</p>
+                        <a href="#" class="slide-cta">Explorar solução →</a>
+                    </div>
+                </article>
+
+                <!-- SLIDE 02 -->
+                <article class="carousel-slide">
+                    <div class="slide-media"></div>
+                    <div class="slide-content">
+                        <span class="slide-tag">GOVERNANÇA</span>
+                        <h3 class="slide-title">BI Executivo & Governança</h3>
+                        <p class="slide-text">
+                            Indicadores confiáveis para lideranças decidirem com segurança
+                            e visão única do negócio.
+                        </p>
+                        <p class="slide-stack">Power BI · Modelagem · Python</p>
+                        <a href="#" class="slide-cta">Ver abordagem executiva →</a>
+                    </div>
+                </article>
+
+                <!-- SLIDE 03 -->
+                <article class="carousel-slide">
+                    <div class="slide-media"></div>
+                    <div class="slide-content">
+                        <span class="slide-tag">AUTOMAÇÃO</span>
+                        <h3 class="slide-title">Automação Inteligente com Python</h3>
+                        <p class="slide-text">
+                            Processos críticos automatizados para reduzir custos
+                            e eliminar erros manuais.
+                        </p>
+                        <p class="slide-stack">Python · APIs · Excel · BI</p>
+                        <a href="#" class="slide-cta">Ver automações reais →</a>
+                    </div>
+                </article>
+
+                <!-- SLIDE 04 -->
+                <article class="carousel-slide">
+                    <div class="slide-media"></div>
+                    <div class="slide-content">
+                        <span class="slide-tag">OPERAÇÃO</span>
+                        <h3 class="slide-title">Excel & Operação Inteligente</h3>
+                        <p class="slide-text">
+                            Planilhas integradas a dados confiáveis e automações,
+                            transformando o Excel em ferramenta segura.
+                        </p>
+                        <p class="slide-stack">Excel · Power Query · Python</p>
+                        <a href="#" class="slide-cta">Ver uso real →</a>
+                    </div>
+                </article>
+
+                <!-- SLIDE 05 -->
+                <article class="carousel-slide">
+                    <div class="slide-media"></div>
+                    <div class="slide-content">
+                        <span class="slide-tag">FUNDAÇÃO</span>
+                        <h3 class="slide-title">Arquitetura & Modelagem de Dados</h3>
+                        <p class="slide-text">
+                            Estrutura sólida para sustentar BI, automações
+                            e inteligência aplicada com governança.
+                        </p>
+                        <p class="slide-stack">Modelagem · BI · Python · IA-ready</p>
+                        <a href="#" class="slide-cta">Explorar arquitetura →</a>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="carousel-controls">
+                <button class="carousel-prev" aria-label="Anterior"></button>
+                <button class="carousel-next" aria-label="Próximo"></button>
+            </div>
+
+            <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= JS ================= -->
+<script src="{% static 'servicesbi/js/carousel.js' %}"></script>
+
+
+<!-- ================= FOOTER ================= -->
+<footer
+    class="site-footer"
+    style="
+        background-color: #020617;
+        color: #cbd5e1;
+    "
+>
+    <div class="footer-container">
+
+        <!-- CENTRO -->
+        <div class="footer-center">
+            <div class="footer-nav">
+                <a href="{% url 'home' %}">Home</a><span>|</span>
+                <a href="#">Python</a><span>|</span>
+                <a href="#">Power BI</a><span>|</span>
+                <a href="#">Automações IA</a><span>|</span>
+                <a href="#">Excel</a><span>|</span>
+                <a href="#">Currículo</a><span>|</span>
+                <a href="#">Contato</a>
+            </div>
+
+            <p class="footer-copy">
+                © 2026 ServicesBI. Todos os direitos reservados.
+            </p>
+        </div>
+
+        <!-- DIREITA -->
+        <div class="footer-right">
+            <div class="footer-social">
+
+                <a
+                    href="https://github.com/ServicesBI"
+                    target="_blank"
+                    class="footer-icon"
+                    aria-label="GitHub"
+                >
+                    <img
+                        src="{% static 'servicesbi/icons/footer/github.png' %}"
+                        alt="GitHub"
+                    >
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/jrleles/"
+                    target="_blank"
+                    class="footer-icon"
+                    aria-label="LinkedIn"
+                >
+                    <img
+                        src="{% static 'servicesbi/icons/footer/linkedin.png' %}"
+                        alt="LinkedIn"
+                    >
+                </a>
+
+                <a
+                    href="https://wa.me/5561993029988"
+                    target="_blank"
+                    class="footer-icon"
+                    aria-label="WhatsApp"
+                >
+                    <img
+                        src="{% static 'servicesbi/icons/footer/whatsapp.png' %}"
+                        alt="WhatsApp"
+                    >
+                </a>
+
+            </div>
+
+            <div class="footer-phone">
+                +55 61 99302-9988
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+
+
+</body>
+</html>
