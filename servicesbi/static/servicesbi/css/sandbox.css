@@ -77,11 +77,11 @@ body {
 
     background: linear-gradient(
         120deg,
-        #60c8ee,
-        #aae1f7,
-        #d7f1fb,
-        #eef9fd,
-        #f2fbff
+        #2563eb,
+        #4f8ff5,
+        #7fb4f8,
+        #b8dbfb,
+        #eef7ff
     );
 
     background-size: 400% 400%;
@@ -316,15 +316,13 @@ body {
 /* container / plate da seção */
 .solutions-grid {
     position: relative;
-
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 28px;
 
     margin-top: 64px;
-    padding: 56px 56px 64px;
+    padding: 32px 32px; /* OK — respiro interno */
 
-    /* detalhe atrás dos cards */
     background: linear-gradient(
         180deg,
         #f7fbff 0%,
@@ -337,6 +335,7 @@ body {
         0 20px 60px rgba(15, 23, 42, 0.06),
         0 0 0 1px rgba(15, 23, 42, 0.04);
 }
+
 
 /* card base */
 .solution-card {
@@ -432,7 +431,10 @@ body {
 
 .solutions-header {
     max-width: 960px;
-    margin: 0 auto 64px;
+
+    /* 🔧 AJUSTE 1 — mais respiro acima do título */
+    margin: 72px auto 64px;
+
     text-align: center;
 }
 
@@ -443,6 +445,14 @@ body {
     font-weight: 600;
     color: #2563eb;
 }
+
+/* ================= AJUSTE ESTRUTURAL DO FUNDO ================= */
+/* 🔧 AJUSTE 2 — impede o fundo cinza de encostar na lateral da tela */
+
+.solutions {
+    padding: 0 24px;
+}
+
 /* ================= DESTAQUES ESTRATÉGICOS ================= */
 
 .strategic-highlights {
@@ -618,21 +628,30 @@ body {
     height: 10px;
     border-radius: 50%;
 
-    background: #cbd5e1;          /* 🔑 contraste real */
-    border: 1px solid #94a3b8;    /* 🔑 borda garante visibilidade */
+    background: #cbd5e1;
+    border: 1px solid #94a3b8;
 
     cursor: pointer;
-    transition: all 0.25s ease;
+
+    /* 🔑 animação refinada */
+    transition:
+        transform 0.35s ease,
+        background-color 0.35s ease,
+        border-color 0.35s ease,
+        width 0.35s ease;
 }
 
 /* dot ativo */
 .carousel-dots .dot.active {
     background: #2563eb;
     border-color: #2563eb;
-    transform: scale(1.15);
+
+    transform: scale(1.2);
+
+    /* leve sensação de progresso */
+    width: 18px;
+    border-radius: 999px;
 }
-
-
 /* ================= RESPONSIVO ================= */
 
 @media (max-width: 900px) {
@@ -652,24 +671,25 @@ body {
 /* ================= IMAGENS DOS SLIDES ================= */
 
 .carousel-slide:nth-child(1) .slide-media {
-    background-image: url("../images/slide-chatbot-ia.jpeg");
+    background-image: url("../images/home/slide-chatbot-ia.jpeg");
 }
 
 .carousel-slide:nth-child(2) .slide-media {
-    background-image: url("../images/slide-bi-executivo.jpeg");
+    background-image: url("../images/home/slide-bi-executivo.jpeg");
 }
 
 .carousel-slide:nth-child(3) .slide-media {
-    background-image: url("../images/slide-python-automacao.jpeg");
+    background-image: url("../images/home/slide-python-automacao.jpeg");
 }
 
 .carousel-slide:nth-child(4) .slide-media {
-    background-image: url("../images/slide-excel-operacao.jpeg");
+    background-image: url("../images/home/slide-excel-operacao.jpeg");
 }
 
 .carousel-slide:nth-child(5) .slide-media {
-    background-image: url("../images/slide-arquitetura-dados.jpeg");
+    background-image: url("../images/home/slide-arquitetura-dados.jpeg");
 }
+
 
 /* ================= FOOTER ================= */
 
@@ -677,14 +697,11 @@ body {
     background-color: #020617;
     color: #cbd5e1;
     padding: 32px 24px;
-
-    /* ISOLAMENTO TOTAL */
     position: relative;
     z-index: 10;
-    overflow: hidden;
-    transform: none !important;
 }
 
+/* CONTAINER */
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -731,25 +748,16 @@ body {
     gap: 6px;
 }
 
-/* garante que nada externo afete os ícones */
+/* SOCIAL */
 .footer-social {
     display: flex;
     gap: 12px;
     align-items: center;
     justify-content: flex-end;
-
-    transform: none !important;
 }
 
-/* ÍCONES — TRAVADOS */
-.footer-icon {
-    display: block;
-    width: 28px;
-    height: 28px;
-    flex: 0 0 28px;
-}
-
-.footer-icon img {
+/* 🔒 TRAVA ABSOLUTA DOS ÍCONES */
+.footer-social img {
     width: 28px !important;
     height: 28px !important;
     max-width: 28px !important;
@@ -762,4 +770,176 @@ body {
 .footer-phone {
     font-size: 14px;
     opacity: 0.85;
+}
+
+
+
+/* ================= PYTHON PAGE ================= */
+/* CSS ISOLADO — NÃO AFETA HOME */
+
+/* ---------- HERO PYTHON ---------- */
+
+.hero-python {
+    background: linear-gradient(
+        180deg,
+        #f7fbff 0%,
+        #ffffff 100%
+    );
+    padding: 120px 20px 100px;
+}
+
+.hero-python .hero-content {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-python .hero-title {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0f172a;
+    margin-bottom: 20px;
+}
+
+.hero-python .hero-subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #475569;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+
+/* ---------- SOLUÇÕES PYTHON ---------- */
+
+.python-solutions .solutions-grid {
+    padding: 48px 56px 56px;
+}
+
+.python-solutions .solution-card {
+    padding: 28px 28px 32px;
+}
+
+.python-solutions .solution-card h3 {
+    font-size: 17px;
+}
+
+.python-solutions .solution-card p {
+    font-size: 14px;
+}
+
+
+/* ================= CASOS DE USO PYTHON ================= */
+
+.python-use-cases {
+    padding: 80px 0 140px; /* 🔑 FECHAMENTO CORRETO DA SEÇÃO */
+    background: #ffffff;
+}
+
+.python-use-cases .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.python-use-cases h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.python-use-cases p {
+    color: #6b7280;
+}
+
+
+/* ================= PLATE DE PROJETOS ================= */
+
+.python-projects-plate {
+    margin: 64px auto 0;
+    padding: 56px 56px;
+
+    max-width: calc(1280px - 48px);
+    width: 100%;
+
+    background: linear-gradient(
+        180deg,
+        #f7fbff 0%,
+        #ffffff 100%
+    );
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 60px rgba(15, 23, 42, 0.06),
+        0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+
+/* ---------- LINHAS DE PROJETO ---------- */
+
+.use-case-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.python-projects-plate .use-case-row:last-child {
+    margin-bottom: 0;
+}
+
+.use-case-row.reverse {
+    direction: rtl;
+}
+
+.use-case-row.reverse > * {
+    direction: ltr;
+}
+
+.use-case-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+}
+
+.use-case-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+}
+
+.use-case-content p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.use-case-content ul {
+    padding-left: 18px;
+}
+
+.use-case-content li {
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 900px) {
+
+    .use-case-row {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .use-case-row.reverse {
+        direction: ltr;
+    }
+
+    .python-projects-plate {
+        max-width: calc(100% - 48px);
+        padding: 40px 24px;
+    }
+
 }

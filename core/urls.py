@@ -3,14 +3,16 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from django.contrib import admin
-from django.urls import path, include
-
 urlpatterns = [
+    # ADMIN
     path("admin/", admin.site.urls),
-    path("", include(("servicesbi.urls", "servicesbi"), namespace="servicesbi")),
+
+    # SITE PRINCIPAL (ServicesBI)
+    # Todas as rotas do site estão em servicesbi/urls.py
+    path("", include("servicesbi.urls")),
 ]
 
+# MEDIA FILES (apenas em desenvolvimento)
 if settings.DEBUG:
     urlpatterns += static(
         settings.MEDIA_URL,

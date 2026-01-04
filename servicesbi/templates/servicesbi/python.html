@@ -1,4 +1,188 @@
 {% extends "servicesbi/base.html" %}
+{% load static %}
+
+{% block title %}Python | ServicesBI{% endblock %}
+
 {% block content %}
-<h1>Página Python</h1>
+
+<!-- ================= HERO PYTHON ================= -->
+<section class="hero hero-python">
+    <div class="hero-content">
+        <h1 class="hero-title">
+            Python aplicado à automação, dados e integração de sistemas
+        </h1>
+
+        <p class="hero-subtitle">
+            Soluções robustas em Python para automatizar processos,
+            integrar sistemas e transformar dados em eficiência operacional.
+        </p>
+    </div>
+</section>
+
+
+<!-- ================= O QUE RESOLVEMOS COM PYTHON ================= -->
+<section class="solutions python-solutions">
+    <div class="solutions-inner">
+
+        <div class="solutions-header">
+            <h2 class="solutions-title">
+                O que resolvemos com Python
+            </h2>
+        </div>
+
+        <div class="solutions-grid">
+
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/python.png' %}" alt="Automação de Processos">
+                </div>
+                <h3>Automação de Processos</h3>
+                <p>
+                    Elimine tarefas manuais e repetitivas com rotinas
+                    automatizadas e confiáveis.
+                </p>
+            </article>
+
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/api.png' %}" alt="Integração com APIs">
+                </div>
+                <h3>Integração com APIs</h3>
+                <p>
+                    Conectamos sistemas que não se conversam,
+                    integrando dados de forma segura.
+                </p>
+            </article>
+
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/data.png' %}" alt="Tratamento de Dados">
+                </div>
+                <h3>Tratamento de Dados</h3>
+                <p>
+                    Limpeza, transformação e padronização de dados
+                    para uso analítico e operacional.
+                </p>
+            </article>
+
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/backoffice.png' %}" alt="Backoffice">
+                </div>
+                <h3>Rotinas Corporativas</h3>
+                <p>
+                    Scripts e soluções para backoffice, relatórios,
+                    controles e operações internas.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= PROJETOS EM OPERAÇÃO ================= -->
+<section class="python-use-cases">
+    <div class="container">
+
+        <header class="section-header">
+            <h2>Projetos em operação com Python</h2>
+            <p>Soluções reais desenvolvidas e em funcionamento.</p>
+        </header>
+
+        <div class="python-projects-plate">
+
+            <!-- Projeto 1 -->
+            <div class="use-case-row">
+                <div class="use-case-image">
+                    <img 
+                        src="{% static 'servicesbi/images/python/sistema-gestao-estoque.jpg' %}" 
+                        alt="Sistema de Gestão de Estoque desenvolvido em Python e Django">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Sistema de Gestão de Estoque</h3>
+                    <p>
+                        Sistema desenvolvido em Python e Django para controle de produtos,
+                        fornecedores, entradas e saídas de estoque, com indicadores de custo,
+                        valor total e organização operacional.
+                    </p>
+
+                    <ul>
+                        <li>Cadastro e controle de produtos</li>
+                        <li>Gestão de entradas e saídas</li>
+                        <li>Indicadores de valor e lucro do estoque</li>
+                        <li>Dashboard administrativo</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Python · Django · SQLite · Dashboard · CRUD
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver demo</a>
+                </div>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div class="use-case-row reverse">
+                <div class="use-case-image">
+                    <img 
+                        src="{% static 'servicesbi/images/python/sistema-gestao-estoque.jpg' %}" 
+                        alt="Automação de Processos Corporativos em Python">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Automação de Processos Corporativos</h3>
+                    <p>
+                        Soluções em Python para automatização de rotinas operacionais,
+                        integração de sistemas e redução de trabalho manual.
+                    </p>
+
+                    <ul>
+                        <li>Automação de tarefas repetitivas</li>
+                        <li>Processamento de arquivos e dados</li>
+                        <li>Integração entre sistemas</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Python · Automação · APIs · Processos
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver demo</a>
+                </div>
+            </div>
+
+            <!-- Projeto 3 -->
+            <div class="use-case-row">
+                <div class="use-case-image">
+                    <img 
+                        src="{% static 'servicesbi/images/python/sistema-gestao-estoque.jpg' %}" 
+                        alt="Tratamento e Padronização de Dados com Python">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Tratamento e Padronização de Dados</h3>
+                    <p>
+                        Pipelines em Python para limpeza, transformação e preparação
+                        de dados para BI, relatórios e análises estratégicas.
+                    </p>
+
+                    <ul>
+                        <li>Normalização de bases</li>
+                        <li>Validação de regras de negócio</li>
+                        <li>Preparação para BI e Excel</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Python · Pandas · Dados · BI
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver demo</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 {% endblock %}
