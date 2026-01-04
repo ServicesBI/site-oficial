@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}ServicesBI{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS GLOBAL -->
+    <link rel="stylesheet" href="{% static 'servicesbi/css/sandbox.css' %}">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="top-header">
+    <div class="header-inner">
+
+        <!-- LOGO -->
+        <div class="logo">
+            Services<span>BI</span>
+        </div>
+
+        <!-- MENU -->
+        <nav class="main-nav">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'page' 'python' %}">Python</a>
+            <a href="{% url 'page' 'powerbi' %}">Power BI</a>
+            <a href="{% url 'page' 'automacoes' %}">Automações</a>
+            <a href="{% url 'page' 'excel' %}">Excel</a>
+            <a href="{% url 'page' 'curriculo' %}">Currículo</a>
+            <a href="{% url 'page' 'contato' %}">Contato</a>
+        </nav>
+
+        <!-- CTA -->
+        <div class="header-cta">
+            <button class="btn-outline">Falar com especialista</button>
+            <button class="btn-primary">Avaliação gratuita</button>
+        </div>
+
+    </div>
+</header>
+
+<!-- ================= CONTEÚDO ================= -->
+<main>
+{% block content %}
+{% endblock %}
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+    <div class="footer-container">
+
+        <!-- CENTRO -->
+        <div class="footer-center">
+            <div class="footer-nav">
+                <a href="{% url 'home' %}">Home</a><span>|</span>
+                <a href="{% url 'page' 'python' %}">Python</a><span>|</span>
+                <a href="{% url 'page' 'powerbi' %}">Power BI</a><span>|</span>
+                <a href="{% url 'page' 'automacoes' %}">Automações IA</a><span>|</span>
+                <a href="{% url 'page' 'excel' %}">Excel</a><span>|</span>
+                <a href="{% url 'page' 'curriculo' %}">Currículo</a><span>|</span>
+                <a href="{% url 'page' 'contato' %}">Contato</a>
+            </div>
+
+            <p class="footer-copy">
+                © 2026 ServicesBI. Todos os direitos reservados.
+            </p>
+        </div>
+
+        <!-- DIREITA -->
+        <div class="footer-right">
+            <div class="footer-social">
+                <img src="{% static 'servicesbi/icons/footer/github.png' %}" alt="GitHub">
+                <img src="{% static 'servicesbi/icons/footer/linkedin.png' %}" alt="LinkedIn">
+                <img src="{% static 'servicesbi/icons/footer/whatsapp.png' %}" alt="WhatsApp">
+            </div>
+
+            <div class="footer-phone">
+                +55 61 99302-9988
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+<!-- JS GLOBAL -->
+<script src="{% static 'servicesbi/js/carousel.js' %}"></script>
+
+</body>
+</html>

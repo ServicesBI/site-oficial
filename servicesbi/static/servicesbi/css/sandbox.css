@@ -673,25 +673,33 @@ body {
 
 /* ================= FOOTER ================= */
 
-
-
-/* CENTRO */
-
 .site-footer {
-    padding: 32px 24px;
     background-color: #020617;
     color: #cbd5e1;
-    position: relative; /* importante */
+    padding: 32px 24px;
+
+    /* ISOLAMENTO TOTAL */
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    transform: none !important;
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
-    position: relative; /* ancora os filhos */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
 }
+
+/* -------- CENTRO -------- */
 
 .footer-center {
     text-align: center;
+    flex: 1;
 }
 
 .footer-nav {
@@ -714,34 +722,44 @@ body {
     opacity: 0.7;
 }
 
-/* DIREITA */
+/* -------- DIREITA -------- */
+
 .footer-right {
-    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
 }
 
+/* garante que nada externo afete os ícones */
 .footer-social {
     display: flex;
     gap: 12px;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: flex-end;
+
+    transform: none !important;
 }
 
-/* 🔴 ISSO AQUI É O QUE FALTAVA */
-.footer-icon img {
+/* ÍCONES — TRAVADOS */
+.footer-icon {
+    display: block;
     width: 28px;
     height: 28px;
+    flex: 0 0 28px;
+}
+
+.footer-icon img {
+    width: 28px !important;
+    height: 28px !important;
+    max-width: 28px !important;
+    max-height: 28px !important;
     object-fit: contain;
-    opacity: 0.9;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    display: block;
 }
 
-.footer-icon img:hover {
-    opacity: 1;
-    transform: scale(1.05);
-}
-
+/* TELEFONE */
 .footer-phone {
-    margin-top: 6px;
     font-size: 14px;
     opacity: 0.85;
 }
