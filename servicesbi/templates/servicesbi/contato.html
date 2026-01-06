@@ -1,4 +1,119 @@
 {% extends "servicesbi/base.html" %}
+{% load static %}
+
+{% block title %}Contato | ServicesBI{% endblock %}
+
 {% block content %}
-<h1>Página Python</h1>
+
+<!-- ================= HERO ================= -->
+<section class="hero hero-contato">
+    <div class="hero-content">
+        <h1 class="hero-title">Contato</h1>
+        <p class="hero-subtitle">
+            Vamos conversar sobre dados, projetos e soluções
+        </p>
+    </div>
+</section>
+
+<!-- ================= CONTATO ================= -->
+<section class="contato-page">
+    <div class="contato-container">
+
+        <!-- INFO -->
+        <div class="contato-info">
+            <h2>Fale comigo</h2>
+            <p>
+                Se você tem interesse em projetos de <strong>Business Intelligence</strong>,
+                análise de dados, automação ou consultoria, fique à vontade para entrar em contato.
+            </p>
+
+            <p>
+                Estou aberto a oportunidades profissionais, projetos freelancers e parcerias.
+            </p>
+
+            <ul class="contato-links">
+                <li>📧 jrleles@servicesbi.com.br</li>
+                <li>📞 +55 61 99302-9988</li>
+                <li>
+                    <a href="https://www.linkedin.com/in/jrleles-analista-de-dados/" target="_blank">
+                        LinkedIn
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/ServicesBI" target="_blank">
+                        GitHub
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- FORM -->
+        <div class="contato-form-wrapper">
+
+            <form
+                id="contato-form"
+                action="https://formspree.io/f/xdaoldne"
+                method="POST"
+            >
+
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea name="mensagem" id="mensagem" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-project">
+                    Enviar mensagem
+                </button>
+
+            </form>
+
+            <!-- SUCESSO -->
+            <div id="contato-sucesso" style="display:none;">
+                <h3>Mensagem enviada com sucesso!</h3>
+                <p>Obrigado pelo contato. Em breve retorno.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= JS FORMSPREE ================= -->
+<script>
+const form = document.getElementById('contato-form');
+const sucesso = document.getElementById('contato-sucesso');
+
+form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    });
+
+    if (response.ok) {
+        form.reset();
+        form.style.display = 'none';
+        sucesso.style.display = 'block';
+    } else {
+        alert('Erro ao enviar a mensagem. Tente novamente.');
+    }
+});
+</script>
+
 {% endblock %}

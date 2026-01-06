@@ -1,4 +1,211 @@
 {% extends "servicesbi/base.html" %}
+{% load static %}
+
+{% block title %}Excel | ServicesBI{% endblock %}
+
 {% block content %}
-<h1>Página Python</h1>
+
+<!-- ================= HERO EXCEL ================= -->
+<section class="hero hero-excel">
+    <div class="hero-content">
+        <h1 class="hero-title">
+            Excel avançado aplicado à análise e automação
+        </h1>
+
+        <p class="hero-subtitle">
+            Soluções em Excel para análise de dados, automação de rotinas
+            e apoio direto à tomada de decisão.
+        </p>
+    </div>
+</section>
+
+
+<!-- ================= O QUE RESOLVEMOS COM EXCEL ================= -->
+<section class="solutions excel-solutions">
+    <div class="solutions-inner">
+
+        <div class="solutions-header">
+            <h2 class="solutions-title">
+                O que resolvemos com Excel
+            </h2>
+        </div>
+
+        <div class="solutions-grid">
+
+            <!-- CARD 01 -->
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/excel/card01.png' %}" alt="">
+                </div>
+                <h3>Análises e Relatórios</h3>
+                <p>
+                    Análises estruturadas e relatórios claros
+                    para acompanhamento de indicadores.
+                </p>
+            </article>
+
+            <!-- CARD 02 -->
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/excel/card02.png' %}" alt="">
+                </div>
+                <h3>Dashboards em Excel</h3>
+                <p>
+                    Dashboards interativos com gráficos, filtros
+                    e visão consolidada dos dados.
+                </p>
+            </article>
+
+            <!-- CARD 03 -->
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/excel/card03.png' %}" alt="">
+                </div>
+                <h3>Automação com VBA</h3>
+                <p>
+                    Automação de rotinas no Excel para eliminar
+                    tarefas repetitivas e reduzir erros.
+                </p>
+            </article>
+
+            <!-- CARD 04 -->
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/excel/card04.png' %}" alt="">
+                </div>
+                <h3>Tratamento de Dados</h3>
+                <p>
+                    Limpeza, padronização e preparação de dados
+                    para análise e relatórios.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= PROJETOS EM OPERAÇÃO ================= --> 
+<section class="excel-use-cases">
+    <div class="container">
+
+        <header class="section-header">
+            <h2>Projetos em operação com Excel</h2>
+            <p>Soluções reais em uso no dia a dia das empresas.</p>
+        </header>
+
+        <div class="excel-projects-plate">
+
+            <!-- Projeto 1 -->
+            <div class="use-case-row">
+                <div class="use-case-image">
+                    <img src="{% static 'servicesbi/images/excel/dashboard-vendas-excel.jpg' %}" alt="">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Dashboard de Vendas em Excel</h3>
+                    <p>
+                        Dashboard em Excel para acompanhamento de vendas,
+                        metas e performance comercial.
+                    </p>
+
+                    <ul>
+                        <li>Análise de vendas por período</li>
+                        <li>Comparativo de metas</li>
+                        <li>Indicadores de desempenho</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Excel · Dashboards · KPIs
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver projeto</a>
+                </div>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div class="use-case-row reverse">
+                <div class="use-case-image">
+                    <img src="{% static 'servicesbi/images/excel/relatorio-financeiro-excel.jpg' %}" alt="">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Relatório Financeiro Automatizado</h3>
+                    <p>
+                        Relatórios financeiros em Excel com automação
+                        de cálculos e consolidação de dados.
+                    </p>
+
+                    <ul>
+                        <li>Controle de receitas e despesas</li>
+                        <li>Automação de cálculos</li>
+                        <li>Padronização de relatórios</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Excel · Financeiro · Automação
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver projeto</a>
+                </div>
+            </div>
+
+            <!-- Projeto 3 -->
+            <div class="use-case-row">
+                <div class="use-case-image">
+                    <img src="{% static 'servicesbi/images/excel/automacao-vba.jpg' %}" alt="">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Automação de Processos com VBA</h3>
+                    <p>
+                        Automação de rotinas no Excel para reduzir
+                        trabalho manual e erros operacionais.
+                    </p>
+
+                    <ul>
+                        <li>Execução automática de tarefas</li>
+                        <li>Padronização de processos</li>
+                        <li>Redução de retrabalho</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Excel · VBA · Automação
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver projeto</a>
+                </div>
+            </div>
+
+            <!-- Projeto 4 -->
+            <div class="use-case-row reverse">
+                <div class="use-case-image">
+                    <img src="{% static 'servicesbi/images/excel/base-dados-excel.jpg' %}" alt="">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Tratamento e Consolidação de Dados</h3>
+                    <p>
+                        Consolidação, limpeza e padronização de bases
+                        de dados em Excel para análise e relatórios.
+                    </p>
+
+                    <ul>
+                        <li>Tratamento de dados</li>
+                        <li>Padronização de bases</li>
+                        <li>Preparação para BI</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Excel · Dados · Análise
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver projeto</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 {% endblock %}

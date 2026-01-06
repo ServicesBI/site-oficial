@@ -1,4 +1,211 @@
 {% extends "servicesbi/base.html" %}
+{% load static %}
+
+{% block title %}Automações | ServicesBI{% endblock %}
+
 {% block content %}
-<h1>Página Python</h1>
+
+<!-- ================= HERO AUTOMAÇÕES ================= -->
+<section class="hero hero-automacoes">
+    <div class="hero-content">
+        <h1 class="hero-title">
+            Automações inteligentes para eficiência operacional
+        </h1>
+
+        <p class="hero-subtitle">
+            Soluções de automação com IA para eliminar tarefas repetitivas,
+            integrar sistemas e apoiar decisões com inteligência.
+        </p>
+    </div>
+</section>
+
+
+<!-- ================= O QUE RESOLVEMOS COM AUTOMAÇÕES ================= -->
+<section class="solutions automacoes-solutions">
+    <div class="solutions-inner">
+
+        <div class="solutions-header">
+            <h2 class="solutions-title">
+                O que resolvemos com Automações _IA
+            </h2>
+        </div>
+
+        <div class="solutions-grid">
+
+            <!-- CARD 01 -->
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/automacoes/card01.png' %}" alt="">
+                </div>
+                <h3>Automação de Processos com IA</h3>
+                <p>
+                    Eliminação de tarefas manuais com automação inteligente
+                    orientada por regras e dados.
+                </p>
+            </article>
+
+            <!-- CARD 02 -->
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/automacoes/card02.png' %}" alt="">
+                </div>
+                <h3>Bots Inteligentes</h3>
+                <p>
+                    Bots com IA para atendimento, suporte interno
+                    e execução automática de tarefas.
+                </p>
+            </article>
+
+            <!-- CARD 03 -->
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/automacoes/card03.png' %}" alt="">
+                </div>
+                <h3>Integração Inteligente</h3>
+                <p>
+                    Integração entre sistemas e dados para automação
+                    de fluxos e processos.
+                </p>
+            </article>
+
+            <!-- CARD 04 -->
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/automacoes/card04.png' %}" alt="">
+                </div>
+                <h3>Análises e Alertas Inteligentes</h3>
+                <p>
+                    Monitoramento automatizado com alertas baseados
+                    em dados e regras de negócio.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= PROJETOS EM OPERAÇÃO ================= --> 
+<section class="automacoes-use-cases">
+    <div class="container">
+
+        <header class="section-header">
+            <h2>Projetos em operação com Automações</h2>
+            <p>Soluções inteligentes em uso real no dia a dia das operações.</p>
+        </header>
+
+        <div class="automacoes-projects-plate">
+
+            <!-- Projeto 1 -->
+            <div class="use-case-row">
+                <div class="use-case-image">
+                    <img src="{% static 'servicesbi/images/automacoes/automacao-processos.jpg' %}" alt="">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Automação de Processos com IA</h3>
+                    <p>
+                        Automação inteligente de processos operacionais
+                        para eliminar tarefas manuais e reduzir erros.
+                    </p>
+
+                    <ul>
+                        <li>Execução automática de rotinas</li>
+                        <li>Redução de retrabalho</li>
+                        <li>Padronização de processos</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Automação · IA · Processos
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver projeto</a>
+                </div>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div class="use-case-row reverse">
+                <div class="use-case-image">
+                    <img src="{% static 'servicesbi/images/automacoes/bots-inteligentes.jpg' %}" alt="">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Bots Inteligentes</h3>
+                    <p>
+                        Bots com IA para atendimento, suporte interno
+                        e execução de tarefas operacionais.
+                    </p>
+
+                    <ul>
+                        <li>Atendimento automatizado</li>
+                        <li>Suporte a operações internas</li>
+                        <li>Execução de tarefas repetitivas</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Bots · IA · Automação
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver projeto</a>
+                </div>
+            </div>
+
+            <!-- Projeto 3 -->
+            <div class="use-case-row">
+                <div class="use-case-image">
+                    <img src="{% static 'servicesbi/images/automacoes/integracao-inteligente.jpg' %}" alt="">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Integração Inteligente de Sistemas</h3>
+                    <p>
+                        Integração automatizada entre sistemas para garantir
+                        fluxo contínuo de dados e processos.
+                    </p>
+
+                    <ul>
+                        <li>Integração entre plataformas</li>
+                        <li>Automação de fluxos</li>
+                        <li>Sincronização de dados</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Integração · APIs · IA
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver projeto</a>
+                </div>
+            </div>
+
+            <!-- Projeto 4 -->
+            <div class="use-case-row reverse">
+                <div class="use-case-image">
+                    <img src="{% static 'servicesbi/images/automacoes/alertas-inteligentes.jpg' %}" alt="">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Análises e Alertas Inteligentes</h3>
+                    <p>
+                        Monitoramento automatizado com geração de alertas
+                        inteligentes baseados em dados.
+                    </p>
+
+                    <ul>
+                        <li>Alertas automáticos</li>
+                        <li>Análise contínua de dados</li>
+                        <li>Apoio à tomada de decisão</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Análises · Alertas · IA
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver projeto</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 {% endblock %}

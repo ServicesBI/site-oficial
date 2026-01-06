@@ -12,30 +12,36 @@ body {
 }
 
 /* ================= HEADER ================= */
+
 .top-header {
+    background: #ffffff;
     border-bottom: 1px solid #e5e7eb;
-    background: #fff;
 }
 
 .header-inner {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 16px 24px;
+    padding: 12px 24px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
+/* LOGO TEXTO */
 .logo {
     font-size: 22px;
     font-weight: 700;
+    white-space: nowrap;
 }
 
-.logo span { color: #2563eb; }
+.logo span {
+    color: #2563eb;
+}
 
+/* MENU CENTRAL */
 .main-nav {
     display: flex;
     gap: 24px;
+    margin: 0 auto;
 }
 
 .main-nav a {
@@ -45,28 +51,22 @@ body {
     font-weight: 500;
 }
 
-.main-nav a.active { color: #2563eb; }
-
-.header-cta {
-    display: flex;
-    gap: 12px;
-}
-
-.btn-outline {
-    padding: 8px 16px;
-    border-radius: 20px;
-    border: 1px solid #2563eb;
-    background: transparent;
+.main-nav a.active {
     color: #2563eb;
 }
 
-.btn-primary {
-    padding: 8px 16px;
-    border-radius: 20px;
-    background: #2563eb;
-    color: #fff;
-    border: none;
+/* LOGO IMAGEM DIREITA */
+.header-logo {
+    display: flex;
+    align-items: center;
 }
+
+.header-logo img {
+    max-height: 48px;   /* 🔒 trava o tamanho */
+    width: auto;
+    display: block;
+}
+
 
 /* ================= HERO — VIVO (SNOWFLAKE-STYLE) ================= */
 
@@ -942,4 +942,798 @@ body {
         padding: 40px 24px;
     }
 
+}
+
+/* ================= POWER BI PAGE ================= */
+/* CLONE ESTRUTURAL DA PÁGINA PYTHON */
+
+/* ---------- HERO POWER BI ---------- */
+
+.hero-powerbi {
+    background: linear-gradient(
+        180deg,
+        #f7fbff 0%,
+        #ffffff 100%
+    );
+    padding: 120px 20px 100px;
+}
+
+.hero-powerbi .hero-content {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-powerbi .hero-title {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0f172a;
+    margin-bottom: 20px;
+}
+
+.hero-powerbi .hero-subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #475569;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+
+/* ---------- SOLUÇÕES POWER BI ---------- */
+
+.powerbi-solutions .solutions-grid {
+    padding: 48px 56px 56px;
+}
+
+.powerbi-solutions .solution-card {
+    padding: 28px 28px 32px;
+}
+
+.powerbi-solutions .solution-card h3 {
+    font-size: 17px;
+}
+
+.powerbi-solutions .solution-card p {
+    font-size: 14px;
+}
+
+
+/* ================= CASOS DE USO POWER BI ================= */
+
+.powerbi-use-cases {
+    padding: 80px 0 140px;
+    background: #ffffff;
+}
+
+.powerbi-use-cases .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.powerbi-use-cases h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.powerbi-use-cases p {
+    color: #6b7280;
+}
+
+
+/* ================= PLATE DE PROJETOS ================= */
+
+.powerbi-projects-plate {
+    margin: 64px auto 0;
+    padding: 56px 56px;
+
+    max-width: calc(1280px - 48px);
+    width: 100%;
+
+    background: linear-gradient(
+        180deg,
+        #f7fbff 0%,
+        #ffffff 100%
+    );
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 60px rgba(15, 23, 42, 0.06),
+        0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+
+/* ---------- LINHAS DE PROJETO ---------- */
+
+.use-case-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.powerbi-projects-plate .u
+
+/* ================= AUTOMAÇÕES PAGE ================= */
+/* CLONE DA PÁGINA POWER BI */
+
+/* ---------- HERO AUTOMAÇÕES ---------- */
+
+.hero-automacoes {
+    background: linear-gradient(
+        180deg,
+        #f7fbff 0%,
+        #ffffff 100%
+    );
+    padding: 120px 20px 100px;
+}
+
+.hero-automacoes .hero-content {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-automacoes .hero-title {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0f172a;
+    margin-bottom: 20px;
+}
+
+.hero-automacoes .hero-subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #475569;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+
+/* ---------- SOLUÇÕES AUTOMAÇÕES ---------- */
+
+.automacoes-solutions .solutions-grid {
+    padding: 48px 56px 56px;
+}
+
+.automacoes-solutions .solution-card {
+    padding: 28px 28px 32px;
+}
+
+.automacoes-solutions .solution-card h3 {
+    font-size: 17px;
+}
+
+.automacoes-solutions .solution-card p {
+    font-size: 14px;
+}
+
+
+/* ================= CASOS DE USO AUTOMAÇÕES ================= */
+
+.automacoes-use-cases {
+    padding: 80px 0 140px;
+    background: #ffffff;
+}
+
+.automacoes-use-cases .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.automacoes-use-cases h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.automacoes-use-cases p {
+    color: #6b7280;
+}
+
+
+/* ================= PLATE DE PROJETOS ================= */
+
+.automacoes-projects-plate {
+    margin: 64px auto 0;
+    padding: 56px 56px;
+
+    max-width: calc(1280px - 48px);
+    width: 100%;
+
+    background: linear-gradient(
+        180deg,
+        #f7fbff 0%,
+        #ffffff 100%
+    );
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 60px rgba(15, 23, 42, 0.06),
+        0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+
+/* ---------- LINHAS DE PROJETO ---------- */
+
+.use-case-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.automacoes-projects-plate .use-case-row:last-child {
+    margin-bottom: 0;
+}
+
+.use-case-row.reverse {
+    direction: rtl;
+}
+
+.use-case-row.reverse > * {
+    direction: ltr;
+}
+
+.use-case-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+}
+
+.use-case-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+}
+
+.use-case-content p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.use-case-content ul {
+    padding-left: 18px;
+}
+
+.use-case-content li {
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 900px) {
+
+    .use-case-row {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .use-case-row.reverse {
+        direction: ltr;
+    }
+
+    .automacoes-projects-plate {
+        max-width: calc(100% - 48px);
+        padding: 40px 24px;
+    }
+
+}
+/* ================= EXCEL PAGE ================= */
+/* CSS ISOLADO — NÃO AFETA HOME */
+
+/* ---------- HERO EXCEL ---------- */
+
+.hero-excel {
+    background: linear-gradient(
+        180deg,
+        #f7fbff 0%,
+        #ffffff 100%
+    );
+    padding: 120px 20px 100px;
+}
+
+.hero-excel .hero-content {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-excel .hero-title {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0f172a;
+    margin-bottom: 20px;
+}
+
+.hero-excel .hero-subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #475569;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+
+/* ---------- SOLUÇÕES EXCEL ---------- */
+
+.excel-solutions .solutions-grid {
+    padding: 48px 56px 56px;
+}
+
+.excel-solutions .solution-card {
+    padding: 28px 28px 32px;
+}
+
+.excel-solutions .solution-card h3 {
+    font-size: 17px;
+}
+
+.excel-solutions .solution-card p {
+    font-size: 14px;
+}
+
+
+/* ================= CASOS DE USO EXCEL ================= */
+
+.excel-use-cases {
+    padding: 80px 0 140px;
+    background: #ffffff;
+}
+
+.excel-use-cases .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.excel-use-cases h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.excel-use-cases p {
+    color: #6b7280;
+}
+
+
+/* ================= PLATE DE PROJETOS ================= */
+
+.excel-projects-plate {
+    margin: 64px auto 0;
+    padding: 56px 56px;
+
+    max-width: calc(1280px - 48px);
+    width: 100%;
+
+    background: linear-gradient(
+        180deg,
+        #f7fbff 0%,
+        #ffffff 100%
+    );
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 60px rgba(15, 23, 42, 0.06),
+        0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+
+/* ---------- LINHAS DE PROJETO ---------- */
+
+.use-case-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.excel-projects-plate .use-case-row:last-child {
+    margin-bottom: 0;
+}
+
+.use-case-row.reverse {
+    direction: rtl;
+}
+
+.use-case-row.reverse > * {
+    direction: ltr;
+}
+
+.use-case-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+}
+
+.use-case-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+}
+
+.use-case-content p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.use-case-content ul {
+    padding-left: 18px;
+}
+
+.use-case-content li {
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 900px) {
+
+    .use-case-row {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .use-case-row.reverse {
+        direction: ltr;
+    }
+
+    .excel-projects-plate {
+        max-width: calc(100% - 48px);
+        padding: 40px 24px;
+    }
+
+}
+
+/* ================= CURRÍCULO ================= */
+/* BASEADO NO PADRÃO EXCEL */
+/* AJUSTE PONTUAL: IMPRESSÃO SOMENTE CONTEÚDO */
+
+/* ---------- HERO ---------- */
+
+.hero-curriculo {
+    background: none;
+    padding: 120px 20px 100px;
+}
+
+.hero-curriculo .hero-content {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-curriculo .hero-title {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.hero-curriculo .hero-subtitle {
+    font-size: 18px;
+}
+
+
+/* ---------- AÇÕES ---------- */
+
+.curriculo-actions {
+    background: #ffffff;
+    padding: 32px 20px;
+}
+
+.actions-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.action-btn.outline {
+    background: #ffffff;
+    color: #2563eb;
+    border: 1px solid #2563eb;
+}
+
+
+/* ---------- CURRÍCULO ---------- */
+
+.curriculo-section {
+    background: #f8fafc;
+    padding: 60px 20px 120px;
+}
+
+.curriculo-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.curriculo-sheet {
+    background: #ffffff;
+    padding: 48px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.curriculo-sheet h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.curriculo-sheet h2 {
+    font-size: 16px;
+    margin-top: 24px;
+}
+
+.curriculo-sheet h3 {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.curriculo-contact {
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+.periodo {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.curriculo-sheet ul {
+    padding-left: 18px;
+}
+
+.curriculo-sheet li {
+    margin-bottom: 8px;
+}
+
+
+/* ---------- RESPONSIVO ---------- */
+
+@media (max-width: 900px) {
+    .curriculo-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ---------- PRINT (AJUSTE FINAL) ---------- */
+
+@media print {
+
+    /* ESCONDE TUDO QUE NÃO É CURRÍCULO */
+    header,
+    footer,
+    .hero,
+    .hero-curriculo,
+    .curriculo-actions {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff;
+    }
+
+    .curriculo-section {
+        padding: 0;
+        background: #ffffff;
+    }
+
+    .curriculo-wrapper {
+        display: block;
+        max-width: 100%;
+        gap: 0;
+    }
+
+    .curriculo-sheet {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 24px;
+        page-break-after: always;
+    }
+
+    .curriculo-sheet:last-child {
+        page-break-after: auto;
+    }
+}
+/* ================= CONTATO ================= */
+/* PADRÃO GLOBAL DO PROJETO SERVICESBI */
+
+/* ---------- HERO CONTATO ---------- */
+/* Usa o .hero global, apenas ajusta espaçamento se necessário */
+
+.hero-contato {
+    /* herda background e estilo do hero padrão */
+}
+
+/* ---------- CONTAINER PRINCIPAL ---------- */
+
+.contato-page {
+    background: #ffffff;
+    padding: 80px 20px 140px;
+}
+
+.contato-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: flex-start;
+}
+
+/* ---------- BLOCO INFORMAÇÕES ---------- */
+
+.contato-info h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    color: #0f172a;
+}
+
+.contato-info p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #475569;
+    margin-bottom: 16px;
+}
+
+.contato-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 24px;
+}
+
+.contato-links li {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #0f172a;
+}
+
+.contato-links a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.contato-links a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- FORMULÁRIO ---------- */
+
+.contato-form-wrapper {
+    background: #f8fafc;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow:
+        0 20px 40px rgba(15, 23, 42, 0.06),
+        0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+.contato-form-wrapper form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* ---------- BOTÃO ---------- */
+
+.btn-project {
+    margin-top: 8px;
+    align-self: flex-start;
+    padding: 12px 28px;
+    border-radius: 10px;
+    background: #facc15;
+    color: #0f172a;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-project:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ---------- MENSAGEM DE SUCESSO ---------- */
+
+#contato-sucesso {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+#contato-sucesso h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #0f172a;
+}
+
+#contato-sucesso p {
+    font-size: 15px;
+    color: #475569;
+}
+
+/* ---------- RESPONSIVO ---------- */
+
+@media (max-width: 900px) {
+
+    .contato-container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .contato-form-wrapper {
+        padding: 32px 24px;
+    }
+
+}
+/* ================= CORREÇÃO HERO COM HEADER FIXO ================= */
+
+.hero-automacoes {
+    margin-top: 80px;
+}
+
+.hero-contato {
+    margin-top: 80px;
+}
+/* ================= AJUSTE FINO HERO AUTOMAÇÕES ================= */
+
+/* Igualar altura visual às páginas Python / PowerBI / Excel */
+.hero-automacoes {
+    margin-top: 96px; /* em vez de 80px */
+}
+.hero-automacoes .hero-title {
+    margin-top: 4px;
 }

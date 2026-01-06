@@ -1,4 +1,212 @@
 {% extends "servicesbi/base.html" %}
+{% load static %}
+
+{% block title %}Power BI | ServicesBI{% endblock %}
+
 {% block content %}
-<h1>Página Python</h1>
+
+<!-- ================= HERO POWER BI ================= -->
+<section class="hero hero-powerbi">
+    <div class="hero-content">
+        <h1 class="hero-title">
+            Power BI aplicado à análise, visualização e tomada de decisão
+        </h1>
+
+        <p class="hero-subtitle">
+            Dashboards interativos e modelos analíticos em Power BI
+            para transformar dados em decisões estratégicas.
+        </p>
+    </div>
+</section>
+
+
+<!-- ================= O QUE RESOLVEMOS COM POWER BI ================= -->
+<section class="solutions powerbi-solutions">
+    <div class="solutions-inner">
+
+        <div class="solutions-header">
+            <h2 class="solutions-title">
+                O que resolvemos com Power BI
+            </h2>
+        </div>
+
+        <div class="solutions-grid">
+
+            <!-- CARD 01 -->
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/powerbi/card01.png' %}" alt="Dashboards Interativos">
+                </div>
+                <h3>Dashboards Interativos</h3>
+                <p>
+                    Visualizações claras e objetivas para acompanhamento
+                    de indicadores e resultados do negócio.
+                </p>
+            </article>
+
+            <!-- CARD 02 -->
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/powerbi/card02.png' %}" alt="Modelagem de Dados">
+                </div>
+                <h3>Modelagem de Dados</h3>
+                <p>
+                    Estruturação de dados confiável para análises
+                    consistentes e escaláveis.
+                </p>
+            </article>
+
+            <!-- CARD 03 -->
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/powerbi/card03.png' %}" alt="Indicadores e KPIs">
+                </div>
+                <h3>Indicadores e KPIs</h3>
+                <p>
+                    Definição e acompanhamento de métricas
+                    alinhadas aos objetivos do negócio.
+                </p>
+            </article>
+
+            <!-- CARD 04 -->
+            <article class="solution-card">
+                <div class="solution-icon">
+                    <img src="{% static 'servicesbi/icons/powerbi/card04.png' %}" alt="Relatórios Executivos">
+                </div>
+                <h3>Relatórios Executivos</h3>
+                <p>
+                    Relatórios visuais para gestores,
+                    diretoria e tomada de decisão.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= PROJETOS EM OPERAÇÃO ================= --> 
+<section class="powerbi-use-cases">
+    <div class="container">
+
+        <header class="section-header">
+            <h2>Projetos em operação com Power BI</h2>
+            <p>Dashboards e soluções analíticas em uso real.</p>
+        </header>
+
+        <div class="powerbi-projects-plate">
+
+            <!-- Projeto 1 -->
+            <div class="use-case-row">
+                <div class="use-case-image">
+                    <img src="{% static 'servicesbi/images/powerbi/dashboard-vendas.jpg' %}" alt="Dashboard de Vendas em Power BI">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Dashboard de Vendas</h3>
+                    <p>
+                        Dashboard em Power BI para acompanhamento de vendas,
+                        metas, faturamento e desempenho comercial.
+                    </p>
+
+                    <ul>
+                        <li>Análise de faturamento e metas</li>
+                        <li>Comparativos por período</li>
+                        <li>Indicadores de performance</li>
+                        <li>Visão executiva</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Power BI · DAX · KPIs · Visual Analytics
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver dashboard</a>
+                </div>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div class="use-case-row reverse">
+                <div class="use-case-image">
+                    <img src="{% static 'servicesbi/images/powerbi/dashboard-financeiro.jpg' %}" alt="Dashboard Financeiro em Power BI">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Dashboard Financeiro</h3>
+                    <p>
+                        Painel financeiro para controle de receitas,
+                        despesas, margens e resultado operacional.
+                    </p>
+
+                    <ul>
+                        <li>Controle de custos e despesas</li>
+                        <li>Análise de margem</li>
+                        <li>Resultado financeiro</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Power BI · Financeiro · DAX · Indicadores
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver dashboard</a>
+                </div>
+            </div>
+
+            <!-- Projeto 3 -->
+            <div class="use-case-row">
+                <div class="use-case-image">
+                    <img src="{% static 'servicesbi/images/powerbi/dashboard-realizado-x-meta.jpg' %}" alt="Dashboard Realizado x Meta em Power BI">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Dashboard Realizado x Meta</h3>
+                    <p>
+                        Comparativo de metas planejadas versus resultados
+                        realizados, com foco em performance.
+                    </p>
+
+                    <ul>
+                        <li>Análise de metas</li>
+                        <li>Comparativo realizado x planejado</li>
+                        <li>Indicadores de desempenho</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Power BI · Metas · KPIs · BI
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver dashboard</a>
+                </div>
+            </div>
+
+            <!-- Projeto 4 -->
+            <div class="use-case-row reverse">
+                <div class="use-case-image">
+                    <img src="{% static 'servicesbi/images/powerbi/dashboard-comercial.jpg' %}" alt="Dashboard Comercial em Power BI">
+                </div>
+
+                <div class="use-case-content">
+                    <h3>Dashboard Comercial</h3>
+                    <p>
+                        Visão consolidada de indicadores comerciais
+                        para acompanhamento estratégico.
+                    </p>
+
+                    <ul>
+                        <li>KPIs comerciais</li>
+                        <li>Visão consolidada</li>
+                        <li>Análise de resultados</li>
+                    </ul>
+
+                    <p class="slide-stack">
+                        Power BI · Comercial · KPIs · BI
+                    </p>
+
+                    <a href="#" class="use-case-demo">Ver dashboard</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 {% endblock %}

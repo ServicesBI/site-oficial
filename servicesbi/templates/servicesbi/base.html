@@ -16,7 +16,7 @@
 <header class="top-header">
     <div class="header-inner">
 
-        <!-- LOGO -->
+        <!-- LOGO TEXTO (ESQUERDA) -->
         <div class="logo">
             Services<span>BI</span>
         </div>
@@ -32,10 +32,14 @@
             <a href="{% url 'servicesbi:contato' %}">Contato</a>
         </nav>
 
-        <!-- CTA -->
-        <div class="header-cta">
-            <button class="btn-outline">Falar com especialista</button>
-            <button class="btn-primary">Avaliação gratuita</button>
+        <!-- LOGO IMAGEM (DIREITA) -->
+        <div class="header-logo">
+            <a href="{% url 'servicesbi:home' %}">
+                <img 
+                    src="{% static 'servicesbi/icons/ui/logo-servicesbi.png' %}"
+                    alt="ServicesBI"
+                >
+            </a>
         </div>
 
     </div>

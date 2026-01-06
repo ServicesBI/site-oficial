@@ -21,10 +21,14 @@
             Soluções em dados para empresas
         </span>
 
+        <!-- 🔽 TÍTULO E SUBTÍTULO VINDO DO BANCO -->
         <h1 class="hero-title">
-            Transformamos dados em decisões estratégicas
-            <span>para o seu negócio.</span>
+            {{ page.banner_title }}
+            {% if page.banner_subtitle %}
+                <span>{{ page.banner_subtitle }}</span>
+            {% endif %}
         </h1>
+        <!-- 🔼 FIM -->
 
         <p class="hero-subtitle">
             Business Intelligence, automações e análise de dados
@@ -46,36 +50,40 @@
 
         <div class="solutions-grid">
 
+            <!-- CARD 01 -->
             <article class="solution-card">
                 <div class="solution-icon">
-                    <img src="{% static 'servicesbi/icons/python.png' %}" alt="Python">
+                    <img src="{% static 'servicesbi/icons/home/card01.png' %}" alt="Python & Automações">
                 </div>
                 <h3>Python & Automações</h3>
                 <p>Automação de processos, integrações e scripts corporativos.</p>
                 <a class="solution-link" href="{% url 'servicesbi:python' %}">Saiba mais →</a>
             </article>
 
+            <!-- CARD 02 -->
             <article class="solution-card">
                 <div class="solution-icon">
-                    <img src="{% static 'servicesbi/icons/powerbi.png' %}" alt="Power BI">
+                    <img src="{% static 'servicesbi/icons/home/card02.png' %}" alt="Power BI & Dashboards">
                 </div>
                 <h3>Power BI & Dashboards</h3>
                 <p>Dashboards estratégicos para tomada de decisão.</p>
                 <a class="solution-link" href="{% url 'servicesbi:powerbi' %}">Saiba mais →</a>
             </article>
 
+            <!-- CARD 03 -->
             <article class="solution-card">
                 <div class="solution-icon">
-                    <img src="{% static 'servicesbi/icons/automacoes.png' %}" alt="Automações">
+                    <img src="{% static 'servicesbi/icons/home/card03.png' %}" alt="Automações Inteligentes">
                 </div>
                 <h3>Automações Inteligentes</h3>
                 <p>Processos automatizados com foco em eficiência operacional.</p>
                 <a class="solution-link" href="{% url 'servicesbi:automacoes' %}">Saiba mais →</a>
             </article>
 
+            <!-- CARD 04 -->
             <article class="solution-card">
                 <div class="solution-icon">
-                    <img src="{% static 'servicesbi/icons/excel.png' %}" alt="Excel">
+                    <img src="{% static 'servicesbi/icons/home/card04.png' %}" alt="Excel Avançado">
                 </div>
                 <h3>Excel Avançado</h3>
                 <p>Soluções corporativas com Excel, VBA e Power Query.</p>
@@ -181,7 +189,5 @@
         </div>
     </div>
 </section>
-
-
 
 {% endblock %}
