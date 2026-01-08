@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-w(cg9qezixnu6*2*^*dkoywi6l2c(2$tpyop^o72a^pc6hzp#t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '168.75.87.24',
+    'localhost',
+    '127.0.0.1',
+]
+
 
 
 # Application definition
@@ -122,7 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = BASE_DIR/'staticfiles'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -198,3 +203,8 @@ CKEDITOR_CONFIGS = {
         "removePlugins": "font",
     }
 }
+# ===== SESSION FIX (PRODUCTION) =====
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SECURE = False
