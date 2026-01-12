@@ -21,14 +21,12 @@
             Soluções em dados para empresas
         </span>
 
-        <!-- 🔽 TÍTULO E SUBTÍTULO VINDO DO BANCO -->
         <h1 class="hero-title">
             {{ page.banner_title }}
             {% if page.banner_subtitle %}
                 <span>{{ page.banner_subtitle }}</span>
             {% endif %}
         </h1>
-        <!-- 🔼 FIM -->
 
         <p class="hero-subtitle">
             Business Intelligence, automações e análise de dados
@@ -50,7 +48,6 @@
 
         <div class="solutions-grid">
 
-            <!-- CARD 01 -->
             <article class="solution-card">
                 <div class="solution-icon">
                     <img src="{% static 'servicesbi/icons/home/card01.png' %}" alt="Python & Automações">
@@ -60,7 +57,6 @@
                 <a class="solution-link" href="{% url 'servicesbi:python' %}">Saiba mais →</a>
             </article>
 
-            <!-- CARD 02 -->
             <article class="solution-card">
                 <div class="solution-icon">
                     <img src="{% static 'servicesbi/icons/home/card02.png' %}" alt="Power BI & Dashboards">
@@ -70,7 +66,6 @@
                 <a class="solution-link" href="{% url 'servicesbi:powerbi' %}">Saiba mais →</a>
             </article>
 
-            <!-- CARD 03 -->
             <article class="solution-card">
                 <div class="solution-icon">
                     <img src="{% static 'servicesbi/icons/home/card03.png' %}" alt="Automações Inteligentes">
@@ -80,7 +75,6 @@
                 <a class="solution-link" href="{% url 'servicesbi:automacoes' %}">Saiba mais →</a>
             </article>
 
-            <!-- CARD 04 -->
             <article class="solution-card">
                 <div class="solution-icon">
                     <img src="{% static 'servicesbi/icons/home/card04.png' %}" alt="Excel Avançado">
@@ -96,7 +90,6 @@
 
 <!-- ================= DESTAQUES ESTRATÉGICOS ================= -->
 <section class="strategic-highlights">
-
     <div class="strategic-inner">
 
         <div class="strategic-header">
@@ -108,69 +101,73 @@
 
         <div class="strategic-carousel">
 
-            <div class="carousel-track">
+            <!-- 🔒 VIEWPORT (CORREÇÃO CRÍTICA) -->
+            <div class="carousel-viewport">
 
-                <article class="carousel-slide">
-                    <div class="slide-media"></div>
-                    <div class="slide-content">
-                        <span class="slide-tag">IA APLICADA</span>
-                        <h3 class="slide-title">Chatbot com IA</h3>
-                        <p class="slide-text">
-                            Automação inteligente e IA aplicada ao negócio para escalar atendimento
-                            e processos.
-                        </p>
-                        <p class="slide-stack">Python · IA · Automações</p>
-                    </div>
-                </article>
+                <div class="carousel-track">
 
-                <article class="carousel-slide">
-                    <div class="slide-media"></div>
-                    <div class="slide-content">
-                        <span class="slide-tag">GOVERNANÇA</span>
-                        <h3 class="slide-title">BI Executivo</h3>
-                        <p class="slide-text">
-                            Indicadores confiáveis para decisões estratégicas.
-                        </p>
-                        <p class="slide-stack">Power BI · Modelagem</p>
-                    </div>
-                </article>
+                    <article class="carousel-slide">
+                        <div class="slide-media"></div>
+                        <div class="slide-content">
+                            <span class="slide-tag">IA APLICADA</span>
+                            <h3 class="slide-title">Chatbot com IA</h3>
+                            <p class="slide-text">
+                                Automação inteligente e IA aplicada ao negócio para escalar atendimento
+                                e processos.
+                            </p>
+                            <p class="slide-stack">Python · IA · Automações</p>
+                        </div>
+                    </article>
 
-                <article class="carousel-slide">
-                    <div class="slide-media"></div>
-                    <div class="slide-content">
-                        <span class="slide-tag">AUTOMAÇÃO</span>
-                        <h3 class="slide-title">Automação com Python</h3>
-                        <p class="slide-text">
-                            Processos críticos automatizados com segurança.
-                        </p>
-                        <p class="slide-stack">Python · APIs · Excel</p>
-                    </div>
-                </article>
+                    <article class="carousel-slide">
+                        <div class="slide-media"></div>
+                        <div class="slide-content">
+                            <span class="slide-tag">GOVERNANÇA</span>
+                            <h3 class="slide-title">BI Executivo</h3>
+                            <p class="slide-text">
+                                Indicadores confiáveis para decisões estratégicas.
+                            </p>
+                            <p class="slide-stack">Power BI · Modelagem</p>
+                        </div>
+                    </article>
 
-                <article class="carousel-slide">
-                    <div class="slide-media"></div>
-                    <div class="slide-content">
-                        <span class="slide-tag">OPERAÇÃO</span>
-                        <h3 class="slide-title">Excel Inteligente</h3>
-                        <p class="slide-text">
-                            Excel integrado a dados e automações.
-                        </p>
-                        <p class="slide-stack">Excel · Power Query</p>
-                    </div>
-                </article>
+                    <article class="carousel-slide">
+                        <div class="slide-media"></div>
+                        <div class="slide-content">
+                            <span class="slide-tag">AUTOMAÇÃO</span>
+                            <h3 class="slide-title">Automação com Python</h3>
+                            <p class="slide-text">
+                                Processos críticos automatizados com segurança.
+                            </p>
+                            <p class="slide-stack">Python · APIs · Excel</p>
+                        </div>
+                    </article>
 
-                <article class="carousel-slide">
-                    <div class="slide-media"></div>
-                    <div class="slide-content">
-                        <span class="slide-tag">FUNDAÇÃO</span>
-                        <h3 class="slide-title">Arquitetura de Dados</h3>
-                        <p class="slide-text">
-                            Base sólida para BI, automações e IA.
-                        </p>
-                        <p class="slide-stack">Modelagem · BI · Python</p>
-                    </div>
-                </article>
+                    <article class="carousel-slide">
+                        <div class="slide-media"></div>
+                        <div class="slide-content">
+                            <span class="slide-tag">OPERAÇÃO</span>
+                            <h3 class="slide-title">Excel Inteligente</h3>
+                            <p class="slide-text">
+                                Excel integrado a dados e automações.
+                            </p>
+                            <p class="slide-stack">Excel · Power Query</p>
+                        </div>
+                    </article>
 
+                    <article class="carousel-slide">
+                        <div class="slide-media"></div>
+                        <div class="slide-content">
+                            <span class="slide-tag">FUNDAÇÃO</span>
+                            <h3 class="slide-title">Arquitetura de Dados</h3>
+                            <p class="slide-text">
+                                Base sólida para BI, automações e IA.
+                            </p>
+                            <p class="slide-stack">Modelagem · BI · Python</p>
+                        </div>
+                    </article>
+
+                </div>
             </div>
 
             <div class="carousel-controls">

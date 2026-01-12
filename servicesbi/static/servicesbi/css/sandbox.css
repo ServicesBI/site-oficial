@@ -508,6 +508,12 @@ body {
     overflow-x: hidden; /* 🔒 CORREÇÃO REAL — impede vazamento lateral */
 }
 
+/* 🔒 VIEWPORT — CONTENÇÃO REAL DO TRACK */
+.carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+}
+
 /* Track — CONTROLADO PELO JS */
 .carousel-track {
     display: flex;
