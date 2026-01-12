@@ -522,6 +522,7 @@ body {
 .carousel-viewport {
     width: 100%;
     overflow: hidden;
+    position: relative;
 }
 
 /* Track — CONTROLADO PELO JS */
