@@ -78,6 +78,10 @@ body {
     overflow: hidden;
     padding: 160px 20px 200px;
 
+    /* 🔧 CORREÇÃO ESTRUTURAL DEFINITIVA */
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+
     background: linear-gradient(
         120deg,
         #2563eb,
