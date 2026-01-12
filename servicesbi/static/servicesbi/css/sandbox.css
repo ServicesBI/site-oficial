@@ -84,7 +84,7 @@ body {
     padding: 160px 20px 200px;
 
     /* 🔧 CORREÇÃO ESTRUTURAL DEFINITIVA */
-    width: 100vw;
+    width: 100%;
     
 
     background: linear-gradient(
