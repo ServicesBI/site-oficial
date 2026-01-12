@@ -433,7 +433,7 @@ body {
     max-width: 960px;
 
     /* 🔧 AJUSTE 1 — mais respiro acima do título */
-    margin: 72px auto 64px;
+    margin: 56px auto 40px;
 
     text-align: center;
 }
@@ -456,7 +456,7 @@ body {
 /* ================= DESTAQUES ESTRATÉGICOS ================= */
 
 .strategic-highlights {
-    padding: 140px 20px;
+    padding: 80 px 20px 110px;
     background: #ffffff;
 }
 
