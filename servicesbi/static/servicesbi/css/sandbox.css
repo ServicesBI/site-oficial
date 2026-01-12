@@ -3545,3 +3545,35 @@ img, svg, video {
     height: auto;
     display: block;
 }
+/* ===== FIX DEFINITIVO SCROLL HORIZONTAL ===== */
+
+/* trava qualquer estouro de largura */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* força todas as seções principais a respeitar a viewport */
+body > header,
+body > main,
+body > footer,
+section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* proteção para layouts flex e grid */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* mídia nunca pode estourar */
+img, video, iframe, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
