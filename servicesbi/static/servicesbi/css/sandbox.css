@@ -3530,3 +3530,18 @@ body {
 .hero-automacoes .hero-title {
     margin-top: 4px;
 }
+/* === Correção definitiva de overflow horizontal === */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+/* Evita seções estourarem a largura da tela */
+section, main, header, footer {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+img, svg, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
