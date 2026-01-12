@@ -1,4 +1,6 @@
+/* PAGINA - HOME */
 /*  RESET  */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,9 +11,10 @@ body {
     font-family: "Segoe UI", "Segoe UI Variable", Arial, sans-serif;
     color: #0f172a;
     background: #ffffff;
+    overflow-x: hidden; /* 🔧 CORREÇÃO — trava vazamento horizontal */
 }
 
-/* HEADER  */
+/* ================= HEADER ================= */
 
 .top-header {
     background: #ffffff;
@@ -62,7 +65,7 @@ body {
 }
 
 .header-logo img {
-    max-height: 48px;   /* 🔒 trava o tamanho */
+    max-height: 48px;
     width: auto;
     display: block;
 }
@@ -489,25 +492,30 @@ body {
     color: #0f172a;
 }
 
-/* Carrossel */
+/* ================= CARROSSEL ================= */
+
 .strategic-carousel {
     position: relative;
     padding-bottom: 72px;
 
-    /* 🔧 PASSO 1 — alinhamento horizontal com o container */
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
+
     padding-left: 24px;
     padding-right: 24px;
+
+    overflow-x: hidden; /* 🔒 CORREÇÃO REAL — impede vazamento lateral */
 }
 
-
-/* Track */
 /* Track — CONTROLADO PELO JS */
 .carousel-track {
     display: flex;
     gap: 32px;
+
+    width: 100%;              /* 🔒 impede expansão invisível */
+    max-width: 100%;
+
     transition: transform 0.5s ease;
     will-change: transform;
 }
@@ -516,7 +524,7 @@ body {
 .carousel-slide {
     flex: 0 0 85%;
     max-width: 85%;
-    min-width: 85%; /* 🔒 trava largura */
+    min-width: 85%;
 
     display: grid;
     grid-template-columns: 520px 1fr;
@@ -530,13 +538,14 @@ body {
         0 0 0 1px rgba(15, 23, 42, 0.05);
 
     padding: 48px;
-    scroll-snap-align: center;
+
+    scroll-snap-align: start;
 }
 
-/* Media — DEFINIÇÃO ESTÁVEL (SEM BUG DE SCROLL) */
+/* Media */
 .slide-media {
     width: 100%;
-    height: 360px;              /* 🔒 ALTURA FIXA */
+    height: 360px;
     border-radius: 20px;
 
     background-size: cover;
@@ -546,7 +555,6 @@ body {
     overflow: hidden;
 }
 
-/* Overlay único */
 .slide-media::after {
     content: "";
     position: absolute;
@@ -565,7 +573,6 @@ body {
     justify-content: center;
 }
 
-/* Tag */
 .slide-tag {
     font-size: 12px;
     font-weight: 600;
@@ -575,7 +582,6 @@ body {
     margin-bottom: 16px;
 }
 
-/* Título */
 .slide-title {
     font-size: 32px;
     font-weight: 700;
@@ -584,7 +590,6 @@ body {
     margin-bottom: 16px;
 }
 
-/* Texto */
 .slide-text {
     font-size: 16px;
     line-height: 1.6;
@@ -592,14 +597,12 @@ body {
     margin-bottom: 24px;
 }
 
-/* Stack */
 .slide-stack {
     font-size: 13px;
     color: #64748b;
     margin-bottom: 32px;
 }
 
-/* CTA */
 .slide-cta {
     font-size: 15px;
     font-weight: 500;
@@ -615,7 +618,7 @@ body {
         0 0 0 1px rgba(37, 99, 235, 0.15);
 }
 
-/* ================= DOTS — VISIBILIDADE GARANTIDA ================= */
+/* ================= DOTS ================= */
 
 .strategic-carousel .carousel-dots {
     position: absolute;
@@ -630,18 +633,14 @@ body {
     z-index: 5;
 }
 
-/* dot base */
 .carousel-dots .dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-
     background: #cbd5e1;
     border: 1px solid #94a3b8;
-
     cursor: pointer;
 
-    /* 🔑 animação refinada */
     transition:
         transform 0.35s ease,
         background-color 0.35s ease,
@@ -649,17 +648,14 @@ body {
         width 0.35s ease;
 }
 
-/* dot ativo */
 .carousel-dots .dot.active {
     background: #2563eb;
     border-color: #2563eb;
-
     transform: scale(1.2);
-
-    /* leve sensação de progresso */
     width: 18px;
     border-radius: 999px;
 }
+
 /* ================= RESPONSIVO ================= */
 
 @media (max-width: 900px) {
@@ -667,14 +663,17 @@ body {
         grid-template-columns: 1fr;
         gap: 32px;
         padding: 32px;
+
         flex: 0 0 92%;
         max-width: 92%;
+        min-width: 92%;
     }
 
     .slide-title {
         font-size: 26px;
     }
 }
+
 
 /* ================= IMAGENS DOS SLIDES ================= */
 
