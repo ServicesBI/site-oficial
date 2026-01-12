@@ -40,10 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return slideRect.width + gap;
     }
 
-    function updateTrackPosition() {
-        const offset = getSlideOffset();
-        track.style.transform = `translateX(-${currentIndex * offset}px)`;
-    }
+   function updateTrackPosition() {
+    const slide = slides[0];
+    const gap = parseInt(getComputedStyle(track).gap) || 0;
+    const slideWidth = slide.getBoundingClientRect().width + gap;
+
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+}
 
     function updateDots() {
         dots.forEach((dot, index) => {
