@@ -99,11 +99,17 @@ body {
 }
 
 /*  GEOMETRIA  */
+.hero-geometry {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
 
 .hero-geometry .shape {
     position: absolute;
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
 
     background: linear-gradient(
         135deg,
