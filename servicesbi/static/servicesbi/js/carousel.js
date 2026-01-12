@@ -15,10 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ================= AUTO PLAY ================= */
     let autoPlayTimer = null;
-
-    const AUTO_PLAY_DELAY = 4500; 
-    // ▲ AJUSTE FINO: antes 3500ms (rápido demais)
-    // agora 4500ms = ritmo elegante Snowflake
+    const AUTO_PLAY_DELAY = 4500;
 
     function startAutoPlay() {
         stopAutoPlay();
@@ -33,9 +30,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     /* ================= FIM AUTO PLAY ================= */
 
+    function getSlideOffset() {
+        const slide = slides[0];
+        const slideRect = slide.getBoundingClientRect();
+
+        const trackStyle = window.getComputedStyle(track);
+        const gap = parseFloat(trackStyle.columnGap || trackStyle.gap || 0);
+
+        return slideRect.width + gap;
+    }
+
     function updateTrackPosition() {
-        const slideWidth = slides[0].offsetWidth;
-        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        const offset = getSlideOffset();
+        track.style.transform = `translateX(-${currentIndex * offset}px)`;
     }
 
     function updateDots() {
