@@ -523,13 +523,9 @@ body {
 /* Track — CONTROLADO PELO JS */
 .carousel-track {
     display: flex;
-    gap: 0px;
-
-    width: 100%;              /* 🔒 impede expansão invisível */
+    gap: 32px; /* o espaçamento fica aqui */
+    width: 100%;
     max-width: 100%;
-
-    transition: transform 0.5s ease;
-    will-change: transform;
 }
 
 /* Slide */
@@ -538,22 +534,17 @@ body {
     max-width: 100%;
     min-width: 100%;
 
-    margin-right: 32px; /* 🔒 ESPAÇAMENTO CONTROLADO */
-
     display: grid;
     grid-template-columns: 520px 1fr;
     gap: 48px;
 
     background: #ffffff;
     border-radius: 24px;
+    padding: 48px;
 
     box-shadow:
         0 24px 64px rgba(15, 23, 42, 0.08),
-        0 0 0 1px rgba(15, 23, 42, 0.05);
-
-    padding: 48px;
-
-    scroll-snap-align: start;
+        0 0 1px rgba(15, 23, 42, 0.05);
 }
 
 /* Media */
