@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-/* ================= RESET ================= */
+/*  RESET  */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +11,7 @@ body {
     background: #ffffff;
 }
 
-/* ================= HEADER ================= */
+/* HEADER  */
 
 .top-header {
     background: #ffffff;
@@ -69,7 +68,7 @@ body {
 }
 
 
-/* ================= HERO — VIVO (SNOWFLAKE-STYLE) ================= */
+/*  HERO — VIVO (SNOWFLAKE-STYLE) */
 
 .hero-live {
     position: relative;
@@ -96,7 +95,7 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* ================= GEOMETRIA ================= */
+/*  GEOMETRIA  */
 
 .hero-geometry .shape {
     position: absolute;
@@ -183,7 +182,7 @@ body {
     100% { transform: translate(0,0) rotate(12deg); }
 }
 
-/* ================= TEXTO ================= */
+/*TEXTO */
 
 .hero-content {
     position: relative;
@@ -1737,7 +1736,7 @@ body {
 }
 .hero-automacoes .hero-title {
     margin-top: 4px;
-=======
+
 /* ================= RESET ================= */
 * {
     margin: 0;
@@ -3474,5 +3473,4 @@ body {
 }
 .hero-automacoes .hero-title {
     margin-top: 4px;
->>>>>>> d5a38a0 (Ajuste estrutural do carrossel estratégico: alinhamento e correção de overflow horizontal)
 }
