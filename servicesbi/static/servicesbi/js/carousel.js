@@ -40,10 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return slideRect.width + gap;
     }
 
-   function updateTrackPosition() {
-    const slide = slides[0];
-    const gap = parseInt(getComputedStyle(track).gap) || 0;
-    const slideWidth = slide.getBoundingClientRect().width + gap;
+    function updateTrackPosition() {
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
 
     track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 }

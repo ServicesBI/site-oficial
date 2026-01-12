@@ -523,7 +523,7 @@ body {
 /* Track — CONTROLADO PELO JS */
 .carousel-track {
     display: flex;
-    gap: 32px;
+    gap: 0px;
 
     width: 100%;              /* 🔒 impede expansão invisível */
     max-width: 100%;
@@ -537,6 +537,8 @@ body {
     flex: 0 0 85%;
     max-width: 85%;
     min-width: 85%;
+
+    margin-right: 32px; /* 🔒 ESPAÇAMENTO CONTROLADO */
 
     display: grid;
     grid-template-columns: 520px 1fr;
